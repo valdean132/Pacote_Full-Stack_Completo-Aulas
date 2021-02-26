@@ -1,0 +1,12 @@
+Console Cloud - https://console.cloud.google.com/projectselector2/home/dashboard
+
+Google Maps Plataform - https://cloud.google.com/maps-platform/
+
+APY_KEY do Valdean - AIzaSyABGZHZhFFfYeUHzhzIOA8caUvHKGTQ0qM
+
+
+
+
+
+
+Para aprender a criar a chave da api do mpas do google = https://cursos.dankicode.com/tutoriais?id=5

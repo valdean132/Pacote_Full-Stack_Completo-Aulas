@@ -1,0 +1,64 @@
+/* Contato */
+
+section.contato{
+	padding: 80px 2% 0px;
+}
+
+section.contato form{
+	max-width: 600px;
+	margin: 20px auto 30px;
+}
+.input-wraper{
+	float: left;
+	padding: 10px;
+	margin-top: 7px;
+}
+.input-wraper input[type=text]{
+	width: 100%;
+	border: 1px solid #ccc;
+	height: 40px;
+	font-size: 16px;
+	line-height: 40px;
+	padding-left: 15px;
+	transition: .2s;
+}
+.input-wraper textarea{
+	width: 100%;
+	border: 1px solid #ccc;
+	height: 120px;
+	resize: none;
+	font-size: 16px;
+	padding: 8px;
+	transition: .2s;
+}
+
+section.contato form .input-wraper:nth-of-type(5){
+	text-align: center;
+}
+.input-wraper input[type=submit]{
+	width: 30%;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	display: inline-block;
+}
+.input-wraper input[type=text]:focus,
+.input-wraper textarea:focus,
+.input-wraper input[type=submit]:focus{
+	outline: none;
+	border: 1px solid #eb2d2d;
+	border-radius: 3px;
+}
+.input-wraper input[type=text]:valid,
+.input-wraper textarea:valid{
+	border: 1px solid rgb(2, 202, 69);
+	border-radius: 3px;
+}
+.w100{
+	width: 100%;
+}
+.w50{
+	width: 50%;
+}
+
+/* ** */

@@ -1,0 +1,38 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+html,body{
+	height: 100%;
+}
+.clear{
+	clear: both;
+}
+
+.container{
+	width: 100%;
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 30px 0;
+	border: 3px solid rgb(120, 120, 120);
+}
+.img-wraper{
+	width: 33.3%;
+	padding-top: calc( 33.3%/1.5);
+	float: left;
+	background-color: transparent;
+	position: relative;
+	border: 4px solid white;
+}
+.img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}

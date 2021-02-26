@@ -1,0 +1,122 @@
+/* Header */
+
+header{
+	padding: 20px 2% 35px;
+	height: 130px;
+}
+header div.logo{
+	float: left;
+}
+
+
+nav.menu-desktop{
+	float: right;
+	position: relative;
+	top: 35px;
+}
+
+nav.menu-desktop ul,
+nav.menu-mobile ul{
+	list-style-type: none;
+}
+
+nav.menu-desktop ul li{
+	float: left;
+	font-size: 23px;
+	padding: 0 30px;
+	font-style: italic;
+}
+
+nav.menu-desktop ul a{
+	color: black;
+	text-decoration: none;
+	transition: .2s;
+}
+nav.menu-desktop ul a.select{
+	color: #eb2d2d;
+	transition: .2s;
+}
+nav.menu-mobile{
+	margin-top: 40px;
+	display: none;
+	float: right;
+	width: 32px;
+	height: 32px;
+	background-size: 100% 100%;
+	cursor: pointer;
+	background-image: url('../imagens/icon_menu.png');
+}
+nav.menu-mobile ul{
+	width: 100%;
+	background-color: white;
+	position: absolute;
+	left: 0;
+	top: 110px;
+	padding: 0;
+	text-align: center;
+	z-index: 1000;
+
+	box-shadow: 0px 7px 16px -1px rgba(235,45,45,0.63);
+	-webkit-box-shadow: 0px 7px 16px -1px rgba(235,45,45,0.63);
+	-moz-box-shadow: 0px 7px 16px -1px rgba(235,45,45,0.63);
+}
+nav.menu-mobile ul li{
+	font-size: 23px;
+	padding: 5px 0;
+	font-style: italic;
+	transition: .2s;
+}
+nav.menu-mobile ul li.select{
+	background-color:  #eb2d2d;
+	transition: .2s;
+}
+nav.menu-mobile ul a{
+	color: black;
+	text-decoration: none;
+	transition: .2s;
+}
+nav.menu-mobile ul:hover li.select{
+	background-color:  white;
+}
+nav.menu-mobile ul li:hover,
+nav.menu-mobile ul li.select:hover {
+	background-color:  #eb2d2d;
+}
+
+nav.menu-desktop ul:hover a.select{
+	color: black;
+}
+nav.menu-desktop ul a:hover,
+nav.menu-desktop ul a.select:hover{
+	color: #eb2d2d;
+}
+/* ** */
+
+/* Footer */
+
+footer{
+	margin-top: 20px;
+	padding: 40px 2%;
+	background-color: #252525;
+}
+footer nav.menu-desktop{
+	float: left;
+	top: 0px;
+}
+footer nav.menu-desktop ul li a{
+	color: white;
+}
+footer nav.menu-desktop ul:hover a.select{
+	color: white;
+}
+footer nav.menu-desktop ul a.select:hover{
+	color: #eb2d2d;
+}
+footer p{
+	float: right;
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+}
+
+/* ** */

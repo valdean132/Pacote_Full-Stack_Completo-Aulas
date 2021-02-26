@@ -1,0 +1,22 @@
+*{
+	 margin:0;
+	 padding:0;
+	 /*box-sizing: border-box;*/
+}
+.table{
+	display: table;
+	width: 500px;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+.table-row{
+	display: table-row;
+}
+.table-cel{
+	padding: 10px;
+	height: 200px;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid black;
+	display: table-cell;
+}

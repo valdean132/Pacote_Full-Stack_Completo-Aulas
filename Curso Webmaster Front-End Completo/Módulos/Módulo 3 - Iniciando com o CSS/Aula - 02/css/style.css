@@ -1,0 +1,21 @@
+.div1 h1{
+	color: red;
+}
+
+.div2 h1{
+	color: orange;
+}
+
+/*
+
+Ou...
+
+*/
+
+#div1 h1{
+	color: red;
+}
+
+#div2 h1{
+	color: orange;
+}

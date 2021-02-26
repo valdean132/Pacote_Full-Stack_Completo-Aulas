@@ -1,0 +1,246 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+html,body{
+	height: 100%;
+}
+
+/* Divs gerais */
+.clear{
+	clear: both;
+}
+.container{
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+/******/
+
+header{
+	padding: 20px 2%;
+	background-color: rgb(180, 180, 180);
+}
+[class^='logo']{
+	float: left;
+	width: 160px;
+	height: 60px;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.logo-1{
+	float: left;
+	background-image: url('../imagens/logo1.png');
+	/* background-color: purple; */
+}
+.logo-2{
+	float: right;
+	background-image: url('../imagens/logo2.png');
+	/* background-color: green; */
+}
+
+section.cover-form{
+	width: 100%;
+	padding: 0;
+}
+.bg{
+	height: 560px;
+	background-position: center;
+	background-size: cover;
+	background-image: url('../imagens/bg-form.jpg');
+	background-attachment: fixed;
+	text-align: center;
+	position: relative;
+}
+.form-container{
+	display: inline-block;
+	margin: 0 auto;
+	/* float: right; */
+	text-align: left;
+	width: 400px;
+	height: 105%;
+	position: relative;
+	top: -2.5%;
+	/* margin-right: 40px; */
+	background-color: white;
+
+	box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.21);
+	-moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.21);
+}
+.form-container h2{
+	padding: 25px 15px;
+	color: black;
+	font-size: 18px;
+	font-weight: normal;
+	background-color: rgb(210, 210, 210);
+}
+.form-container form{
+	margin-top: 25px;
+	padding: 15px;
+}
+.form-container p{
+	font-size: 14px;
+	color: #525252;
+}
+.form-wraper:not(:first-child){
+	margin-top: 40px;
+}
+.form-wraper:last-child{
+	margin-top: 20px;
+}
+.form-container form input[type=text]{
+	width: 100%;
+	border: 1px solid #ccc;
+	height: 45px;
+	transition: .2s;
+	line-height: 45px;
+	padding-left: 10px;
+}
+.form-container form input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgb(9, 123, 230);
+}	
+.form-container form input[type=submit]{
+	background-color: #033c50;
+	text-transform: uppercase;
+	color: white;
+	width: 100%;
+	font-size: 25px;
+	height: 45px;
+	cursor: pointer;
+	border: none;
+	transition: .2s;
+}
+.form-container form input[type=submit]:focus,
+.form-container form input[type=submit]:hover{
+	outline: none;
+	background-color: #023142;
+}
+.icone-seta{
+	width: 65px;
+	height: 65px;
+	position: absolute;
+	background-image: url('../imagens/arrow.png');
+	background-size: cover;
+	background-position: center;
+	top: 106%;
+	left: 5%;
+	transform: translate(-5%, -106%);
+	cursor: pointer;
+}
+section.chamada{
+	width: 100%;
+	text-align: center;
+}
+section.chamada .container{
+	padding: 50px 0;
+	background-color: #076066;
+}
+section.chamada h2,
+section.chamada p{
+	width: 98%;
+	max-width: 700px;
+	display: inline-block;
+	color: white;
+	font-size: 40px;
+	font-weight: normal;
+}
+section.chamada p{
+	margin-top: 5px;
+	color: rgba(255, 255, 255, .5);
+	font-size: 23px;
+}
+.flex-mosaico{
+	display: flex;
+}
+.flex-mosaico:nth-of-type(2n+1){
+	flex-direction: row-reverse;
+}
+.flex-mosaico .item-1-mosaico{
+	background-position: center;
+	background-size: cover;
+	width: 60%;
+}
+.flex-mosaico .item-2-mosaico{
+	background-color: #1a2a2b;
+	width: 40%;
+	padding: 60px 40px;
+}
+.flex-mosaico .item-2-mosaico p{
+	color: white;
+}
+
+footer{
+	background-color: rgb(180, 180, 180);
+	text-align: center;
+	padding: 20px 0;
+}
+footer img{
+	width: 120px;
+}
+footer img, footer p{
+	margin-top: 8px;
+}
+footer p a{
+	text-transform: uppercase;
+	font-weight: bold;
+	color: rgb(11, 52, 80);
+	text-decoration: none;
+}
+footer p a:hover{
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 960px){
+	.bg{
+		height: auto;
+		padding: 40px 0 70px;
+	}
+	.form-container{
+		width: 96%;
+		max-width: 400px;
+		height: auto;
+		top: 0;
+	}
+	.form-container form{
+		margin: 10px 0;
+	}
+	.icone-seta{
+		top: 105%;
+		left: 50%;
+		transform: translate(-50%, -105%);
+	}
+	
+}
+
+@media screen and (max-width: 768px){
+	.flex-mosaico{
+		display: block;
+	}
+	.flex-mosaico .item-1-mosaico{
+		width: 100%;
+		padding-top: 60%;
+	}
+	.flex-mosaico .item-2-mosaico{
+		text-align: center;
+		width: 100%;
+	}
+}
+@media screen and (max-width: 510px){
+	header{
+		text-align: center;
+	}
+
+	[class^='logo']{
+		margin-top: 10px;
+		display: inline-block;
+		float: none;
+	}
+	.form-container{
+		text-align: center;
+	}
+}

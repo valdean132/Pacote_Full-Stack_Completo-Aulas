@@ -1,0 +1,35 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing: border-box;
+}
+
+div.box{
+	width: 300px;
+	height: 300px;
+	position: relative;
+	background-color: green;
+
+	animation-name: animacao_1;
+	animation-duration: 2s;
+	animation-delay: 3s top;
+	animation-iteration-count: infinite;
+}
+
+@keyframes animacao_1{
+	0%{
+		left: 0;
+		top: 0;
+		background-color: green;
+	}
+	50%{
+		left: 300px;
+		top: 100px;
+		background-color: blue;
+	}
+	100%{
+		left: 0;
+		top: 0;
+		background-color: green;
+	}
+}

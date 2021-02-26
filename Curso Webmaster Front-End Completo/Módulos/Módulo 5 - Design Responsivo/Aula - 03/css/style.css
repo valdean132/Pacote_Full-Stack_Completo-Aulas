@@ -1,0 +1,42 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html,body{
+	height: 100%;
+}
+/* 
+.sidebar{
+	width: 300px;
+	height: 100%;
+	background-color: black;
+	float: left;
+}
+.content{
+	float: left;
+	width: calc(100% - 300px);
+	height: 100%;
+	background-color: #ccc;
+} 
+*/
+/* 
+.box{
+	width: calc((100%/3) + 90px);
+	height: 90px;
+	background-color: red;
+} 
+*/
+
+/* vw = Viewport Width => Largura do Viewport - 0BS: Não leva em conta a ScrollBar */
+/* vh = Viewport Heigth => Altura do Viewport - 0BS: Não leva em conta a ScrollBar*/
+
+.box{
+	width: 100vw; 
+	height: 100vh; 
+	background-color: red;
+}
+.box2{
+	width: 200px;
+	height: 10px;
+}

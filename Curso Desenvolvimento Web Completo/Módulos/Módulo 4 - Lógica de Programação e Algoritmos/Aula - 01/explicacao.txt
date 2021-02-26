@@ -1,0 +1,17 @@
+Como pensar como um programador?
+
+- Pense em etapas.
+- Pense nas ações de cada etapa.
+
+----------------
+QUERO ATRAVESAR A RUA.
+
+1) Estar na faixa de pedestre.
+	{
+	Estou na faixa?
+		Os carros pararam?
+			AÇÃO FINAL: Posso atravesar!
+	}
+	NÃO ESTÁ NA FAIXA DE PEDESTRE
+		Temos que ir para a faixa de pedestre.
+		Enquanto não chegar na faixa, continue até chegar.

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<title>Projeto 05</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/veiculo-teste.css">
+    <link rel="stylesheet" href="./css/vitrine-carro.css">
+	<link rel="stylesheet" href="./css/contato.css">
+	<link rel="stylesheet" href="./css/mediaQuerie.css">
+</head>
+<body>
+	<header class="border-header">
+		<div class="container">
+			<div class="logo">
+				<img src="./imagens/logo.jpg" alt="Logo">
+			</div><!-- Logo -->
+			<nav class="menu-desktop">
+				<ul>
+					<li><a href="./index.html">Home</a></li>
+					<li><a class="select" href="./venda.html">Venda</a></li>
+					<li><a href="./sobre.html">Sobre</a></li>
+					<li><a href="">Contato</a></li>
+				</ul>
+			</nav><!-- Menu-Descktop -->
+			<nav class="menu-mobile">
+				<ul>
+					<li><a href="./index.html">Home</a></li>
+					<li class="select"><a href="./venda.html">Venda</a></li>
+					<li><a href="./sobre.html">Sobre</a></li>
+					<li><a href="">Contato</a></li>
+				</ul>
+			</nav><!-- Menu-Mobile-->
+			<div class="clear"></div><!-- Clear -->
+		</div><!-- Container -->
+	</header><!-- Header -->
+    
+    <section class="venda-single line-titulo">
+        <h2>Veiculos para vendas</h2>
+        <div class="container">
+            <div class="info-veiculo">
+                <div class="info-bread">
+                    <a href="./index.html">HOME</a><span>></span>
+                    <a href="./venda.html">VENDA</a><span>></span>
+                    <a href="./veiculo-teste.html">VEÍCULO TESTE</a>
+                </div><!-- Info-Bread -->
+                <div style="background-image: url('./imagens/carro1.jpg');" class="foto-destaque"></div><!-- Foto-destaque -->
+                <div class="nav-galeria-parent">
+                    <div class="arrow-left-nav"></div>
+                    <div class="arrow-right-nav"></div>
+                    <div class="nav-galeria">
+                        <div class="nav-galeria-wraper">
+                            <div class="mini-img-wraper" style="background-color: rgb(210, 210, 210);">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="mini-img-wraper">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="mini-img-wraper">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="mini-img-wraper">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="mini-img-wraper">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="mini-img-wraper">
+                                <div style="background-image: url('./imagens/carro1.jpg');" class="mini-img"></div>
+                            </div><!-- Mini-Img-Wraper -->
+                            <div class="clear"></div><!-- Clear -->
+                        </div><!-- Nav-Galeria-Wraper -->
+                    </div><!-- Nav-Galeria -->
+                </div><!-- Nav-Galeria-Parent -->
+            </div><!-- Info-Veículo -->
+
+            <div class="descricao-veiculo">
+                <h2>R$ 20.000,00</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non aperiam delectus corporis quas sequi maxime, fugit repellat praesentium minus adipisci </p>
+                <a href="#contato" class="btn1">Entre em Contato</a>
+            </div><!-- Descrição-Veículo -->
+        </div><!-- Container -->
+    </section><!-- Venda-Single -->
+
+	<section class="contato line-titulo" id="contato">
+		<h2>Contato</h2>
+		<form>
+			<div class="input-wraper w100">
+				<input type="text" placeholder="Nome: *" required>
+			</div><!-- Input-Wraper e W100 -->
+			<div class="input-wraper w50">
+				<input type="text" placeholder="Email: *" required>
+			</div><!-- Input-Wraper e W100 -->
+			<div class="input-wraper w50">
+				<input type="text" placeholder="Telefone: *" required>
+			</div><!-- Input-Wraper e W100 -->
+			<div class="input-wraper w100">
+				<textarea name="" placeholder="Menssagem: *" required></textarea>
+			</div><!-- Input-Wraper e W100 -->
+			<div class="input-wraper w100">
+				<input type="submit" class="btn1" value="Enviar">
+			</div><!-- Input-Wraper e W100 -->
+			<div class="clear"></div><!-- Clear -->
+		</form>
+    </section><!-- Contato -->
+    
+    <section class="veiculos-destaque line-titulo">
+		<h2>Veículos em destaques</h2>
+		<div class="container">
+			<div class="vitrine-destaque">
+				<div style="background-image: url('./imagens/carro1.jpg');" class="carro-img"></div><!-- Carro-Img -->
+				<div class="info-carro">
+					<h2>Volkswagen Karmann-ghia</h2>
+					<p>1.6v, Gasolina, 2P, Manual1969</p>
+					<a href="" class="btn1">Mais Detalhes</a>
+				</div><!-- Inf-Carro -->
+			</div><!-- Vitrine-Destaque -->
+
+			<div class="vitrine-destaque">
+				<div style="background-image: url('./imagens/carro1.jpg');" class="carro-img"></div><!-- Carro-Img -->
+				<div class="info-carro">
+					<h2>Volkswagen Karmann-ghia</h2>
+					<p>1.6v, Gasolina, 2P, Manual1969</p>
+					<a href="" class="btn1">Mais Detalhes</a>
+				</div><!-- Inf-Carro -->
+			</div><!-- Vitrine-Destaque -->
+
+			<div class="vitrine-destaque">
+				<div style="background-image: url('./imagens/carro1.jpg');" class="carro-img"></div><!-- Carro-Img -->
+				<div class="info-carro">
+					<h2>Volkswagen Karmann-ghia</h2>
+					<p>1.6v, Gasolina, 2P, Manual1969</p>
+					<a href="" class="btn1">Mais Detalhes</a>
+				</div><!-- Inf-Carro -->
+			</div><!-- Vitrine-Destaque -->
+			<div class="clear"></div><!-- Clear -->
+		</div><!-- Container -->
+	</section><!-- Section - Veículos Destaques -->
+
+	<footer>
+		<div class="container">
+			<nav class="menu-desktop">
+				<ul>
+					<li><a href="./index.html">Home</a></li>
+					<li><a class="select" href="./venda.html">Venda</a></li>
+					<li><a href="./sobre.html">Sobre</a></li>
+					<li><a href="">Contato</a></li>
+				</ul>
+			</nav><!-- Menu-Descktop -->
+			<p>Todos os direitos Reservados</p>
+			<div class="clear"></div><!-- Clear -->
+		</div><!-- Container -->
+	</footer><!-- Footer -->
+</body>
+</html>

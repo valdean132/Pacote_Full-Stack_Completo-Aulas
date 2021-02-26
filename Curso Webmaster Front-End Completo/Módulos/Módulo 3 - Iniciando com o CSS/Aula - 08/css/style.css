@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*
+*
+*
+Estilo para o conteúdo do nosso site
+*
+*
+*/
+
+html,body{
+	height: 100%; 
+}
+/* .header{
+	width: 100%;
+	min-width: 1280px;
+	height: 200px;
+	background-color: gray;
+} */
+.article{
+	margin: 0 auto;
+	width: 1280px;
+	height: 10%;
+	min-height: 50%;
+	background-color: red;
+}

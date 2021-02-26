@@ -1,0 +1,51 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+
+	height: 100%;
+}
+
+nav{
+	z-index: 1;
+	width: 100%;
+	position: fixed;
+	text-align: center;
+	padding:20px 0;
+	height: 60px;
+	background:rgb(210,210,210);
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+nav ul li{
+	display: inline-block;
+	margin:0 15px;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+nav a{
+	color: black;
+	text-decoration: none;
+}
+
+nav li:first-child a{
+	border-bottom:2px solid #333;
+}
+
+.container{
+	height: 100%;
+	position: relative;
+	top:60px;
+}
+
+.sessao{
+	min-height: 100%;
+	padding:30px 2%;
+}

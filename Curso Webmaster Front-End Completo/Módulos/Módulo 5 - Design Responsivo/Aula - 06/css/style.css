@@ -1,0 +1,48 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing: border-box;
+}
+
+html,body{
+	height: 100%;
+}
+
+.container{
+	padding: 30px 0;
+	background-color: grey;
+	text-align: center;
+}
+
+.box{
+	border:  1px solid black;
+	width: 33.3%;
+	max-width: 300px;
+	height: 300px;
+	background-color: red;
+	display: inline-block;
+	margin-right: -4px;
+	margin-bottom: -4px;
+}
+.box:last-child{
+	margin-right: 0;
+}
+@media screen and (max-width: 768px){
+	.container{
+		text-align: left;
+		padding: 2% 20px;
+	}
+	.box{
+		width: 50%;
+		max-width: none;
+	}
+	.box:nth-of-type(2){
+		margin-right: 0;
+	}
+}
+@media screen and (max-width: 580px){
+	.box{
+		width: 100%;
+		margin-right: 0;
+	}
+}

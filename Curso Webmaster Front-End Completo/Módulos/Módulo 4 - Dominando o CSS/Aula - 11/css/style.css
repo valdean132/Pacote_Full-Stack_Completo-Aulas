@@ -1,0 +1,30 @@
+/*
+Importando do própprio diretório.
+*/
+
+@font-face{
+	src:url('../fonts/Open_Sans/OpenSans-Light.ttf');
+	font-family: 'Open Sans';
+}
+*{
+ margin:0;
+ padding:0;
+}
+
+html,body{
+  height:100%;
+  font-family: 'Open Sans';
+}
+
+
+/*
+Quando utilizamos o !important o nível de especificação deixa de existir.
+Quando mais de 1 estão utilizando o !important então o nível de especificação volta a contar.
+
+.box p{
+	font-family: 'Open Sans';
+}
+.text{
+	font-family: tahoma !important;
+}
+*/

@@ -1,0 +1,40 @@
+﻿*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*
+*
+*
+Estilo para o conteúdo do nosso site
+*
+*
+*/
+html, body{
+	height: 100%;
+}
+
+.artigo{
+	width: 4%;
+	background-color: rgb(200, 200, 200);
+	text-align: center;
+}
+.artigo h1{
+	color: #096;
+	font-size: 40px;
+	font-style: oblique;
+	font-weight: normal;
+	/* font-variant: small-caps; */
+}
+
+.artigo p{
+	font-size: 17px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 17px;
+	text-align: left;
+	color: rgb(181, 0, 252);
+	margin-top: 12px;
+}

@@ -1,0 +1,86 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+}
+
+html, body{
+	height: 100%;
+}
+
+.clear{
+	clear: both;
+}
+
+.container{
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+
+/* Titulos */
+
+section.line-titulo > h2{
+	text-align: center;
+	font-size: 27px;
+	font-style: italic;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 100%;
+}	
+section.line-titulo > h2::after{
+	content: ' ';
+	display: inline-block;
+	width: 27%;
+	height: 2px;
+	position: relative;
+	top: -10px;
+	background-color: black;
+	margin-left: 2%;
+}
+section.line-titulo > h2::before{
+	content: ' ';
+	display: inline-block;
+	width: 27%;
+	height: 2px;
+	position: relative;
+	top: -10px;
+	background-color: black;
+	margin-right: 2%;
+}
+
+/* ** */
+
+/* Botões */
+
+.btn1{
+	background-color: #eb2d2d;
+	color: white;
+	font-style: italic;
+	font-size: 16px;
+	width: 120px;
+	height: 40px;
+	cursor: pointer;
+	text-decoration: none;
+	display: block;
+	line-height: 40px;
+	text-align: center;
+	border-bottom: 3px solid #b21e1e;
+	transition: .2s;
+
+}
+.btn1:hover{
+	background-color: #cc1919;
+}
+
+/* ** */
+
+/* Header */
+
+.border-header{
+	border-bottom: 3px solid #eb2d2d;
+}
+
+/* ** */

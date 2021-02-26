@@ -1,0 +1,22 @@
+*{
+	 margin:0;
+	 padding:0;
+	 box-sizing: border-box;
+}
+p{
+	width: 100px;
+	background-color: gray;
+	/*O white-space é como o navegador interpreta o espaço. Podemos utilizar como a tag pre ou nunca quebrar a linha.*/
+	white-space: pre;
+	word-wrap: break-word;
+	/*O word-wrap ele força a quebra mas procura sempre deixar o texto da maneira correta. Diferente
+	do word-break que vai quebrar no momento que chega no limite da box*/
+	/*word-break:break-all;*/
+}
+pre{
+	white-space: normal;
+	display: block;
+	background: green;
+	padding: 50px;
+	width: 100px;
+}

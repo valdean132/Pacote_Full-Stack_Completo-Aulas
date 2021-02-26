@@ -1,0 +1,131 @@
+/* Banner */
+
+section.banner{
+	width: 100%;
+	height: 650px;
+	background-color: black;
+	background-image: url('../imagens/bg.jpg');
+	background-size: contain;
+	background-position: right bottom;
+	background-repeat: no-repeat;
+}
+
+.text-banner{
+	padding: 100px;
+}
+.text-banner-single{
+	width: 314px;
+	height: 50px;
+	padding: 0 30px;
+	margin-top: 20px;
+	line-height: 50px;
+	text-transform: uppercase;
+	color: white;
+	font-size: 35px;
+	font-style: italic;
+	background-image: url('../imagens/box-text.png');
+	background-size: 100% 100%;
+}
+
+.text-banner-single:nth-of-type(2){
+	width: 250px;
+	position: relative;
+	left: -10px;
+}
+.text-banner-single:nth-of-type(3){
+	width: 170px;
+	position: relative;
+	left: -20px;
+}
+
+.text-banner-single:nth-of-type(4){
+	width: 400px;
+	height: 50px;
+	line-height: 50px;
+	background-image: url('../imagens/box-white-text.png');
+	color: black;
+	position: relative;
+	left: -30px;
+}
+
+
+/* ** */
+
+/* Serviços e Descrição */
+
+.servico-descricao{
+	display: flex;
+}
+
+.half1{
+	width: 50%;
+	padding: 90px 0;
+	background-color: #242424;
+	color: white;
+	text-align: right;
+}
+
+.half1-wraper{
+	display: inline-block;
+	text-align: left;
+	padding-right: 100px;
+}
+.half1-wraper h2{
+	font-weight: normal;
+	font-style: italic;
+	font-size: 32px;
+}
+.half1-wraper ul{
+	display: inline-block;
+	margin-top: 20px;
+}
+.half1-wraper ul li{
+	margin-left: 15px;
+}
+.half1-wraper a{
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: 40px;
+}
+
+
+.half2{
+	width: 50%;
+	padding: 90px 100px;
+	background-color: #eb2d2d;
+	color: white;
+}
+.half2 h2{
+	font-weight: normal;
+	font-style: italic;
+	font-size: 32px;
+}
+.half2 .depoimento-single{
+	margin-top: 19px;
+}
+
+.depoimento-single p{
+	font-size: 22px;
+}
+
+.navigation{
+	margin-top: 30px;
+	float: left;
+	width: 100%;
+	max-width: 700px;
+}
+.arrows{
+	float: left;
+}
+.navigation img{
+	margin: 0 20px;
+	cursor: pointer;
+}
+
+.nome-depoimento{
+	float: right;
+	color: #252525;
+	font-size: 23px;
+}
+
+/* ** */

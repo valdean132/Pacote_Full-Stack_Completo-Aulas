@@ -1,0 +1,77 @@
+*{
+ margin:0;
+ padding:0;
+}
+
+
+html,body{
+  height:100%;
+}
+
+ul{
+	list-style-position: inside;
+}
+
+
+
+.box{
+	width: 100%;
+}
+.box > div{
+	box-sizing: border-box;
+	float: left;
+	width: 33.3%;
+	height: 400px;
+	background-color: red;
+	border: 1px solid black;
+}
+.box div:last-of-type p{
+	color: rgba(255, 255, 255, 1);
+}
+p:empty{
+	width: 50px;
+	height: 50px;
+	background-color: orange;
+}
+
+/* 
+p.p::after{
+	content: ' Valdean';
+	background-color: red;
+}
+p.p::before{
+	content: 'Valdean ';
+}
+ */
+
+/* 
+Negação! Aplique o estilo para todas as classes menos a que está indicada, exemplo: a class .One, não vai ter o estilo aplicado.
+
+.box > div:not(.One){
+	background-color: gold;
+}
+ */
+
+/* 
+Pegamos o último elemento do mesmo tipo
+
+.box div:last-of-type, .box p:last-of-type{
+	background-color: yellowgreen;
+}
+*/
+
+/* 
+De acordo com o tipo do elemento:
+
+ul li:nth-of-type(2){
+	color: red;
+} 
+*/
+
+/* 
+De acordo com os tipos:
+
+ul span:nth-child(6){
+	color: red;
+}
+*/

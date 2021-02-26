@@ -1,0 +1,13 @@
+*{
+	 margin:0;
+	 padding:0;
+	 box-sizing: border-box;
+}
+
+.box{
+	width: 400px;
+	height: 400px;
+	margin: 100px auto;
+	border-radius: 50%;
+	background: radial-gradient(circle, green 10%, orange 50%, red 70%);
+}

@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	height: 100%;
+}
+
+/* a[href="https://www.google.com"]{
+	background-color: yellowgreen;
+}
+[href="https://www.dankicode.com"]{
+	background-color: red;
+} */
+
+/* a[attr~="Google"]{
+	background-color: blue;
+} */
+
+/* a[attr|="Google"]{
+	background-color: yellowgreen;
+}  */
+
+/* a[attr^="Google"]{
+	background-color: blue;
+}  */
+
+/* a[attr$="Google"]{
+	background-color: blue;
+}  */
+
+input.text[type="text"]{
+	background-color: green;
+}
+input[type="submit"]{
+	background-color: teal;
+}

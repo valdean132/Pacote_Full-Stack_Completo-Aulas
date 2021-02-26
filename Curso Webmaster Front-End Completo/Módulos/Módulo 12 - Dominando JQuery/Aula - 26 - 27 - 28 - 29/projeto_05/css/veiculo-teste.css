@@ -1,0 +1,117 @@
+section.venda-single{
+    padding: 40px 2% 0;
+}
+
+section.venda-single .container{
+    text-align: center;
+    padding: 40px 0 0;
+    max-width: 1000px;
+}
+
+.info-veiculo{
+    display: inline-block;
+    width: 55%;
+}
+
+.foto-destaque{
+    width: 100%;
+    padding-top: 70%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.descricao-veiculo{
+    display: inline-block;
+    width: auto;
+    padding: 55px 20px 20px;
+    vertical-align: top;
+    text-align: left;
+}
+.descricao-veiculo p{
+    max-width: 200px;
+    margin: 25px 0;
+    font-size: 17px;
+}
+.nav-galeria-parent{
+    width: 100%;
+    padding: 36px;
+    position: relative;
+}
+.arrow-left-nav{
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    background-image: url('../imagens/arrow-left.png');
+    background-size: 100% 100%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+.arrow-right-nav{
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    background-image: url('../imagens/arrow-right.png');
+    background-size: 100% 100%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.info-bread{
+    text-align: left;
+    padding: 20px 0;
+}
+.info-bread a{
+    text-decoration: none;
+    color: black;
+    transition: .2s;
+}
+
+.info-bread a:last-child{
+    color: red;
+}
+.info-bread:hover a:last-child{
+    color: black;
+}
+.info-bread a:hover,
+.info-bread a:last-child:hover{
+    color: red;
+}
+
+.info-bread span{
+    padding: 0 30px;
+}
+.nav-galeria{
+    width: 100%;
+    overflow: hidden;
+}
+.nav-galeria-wraper{
+    /* 
+        via JS!
+    */
+}
+
+.mini-img-wraper{
+    float: left;
+    /* 
+        Via JS!
+    */
+    padding: 9px;
+    transition: .5s;
+}
+
+.mini-img{
+    width: 100%;
+    padding-top: 70%;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+
