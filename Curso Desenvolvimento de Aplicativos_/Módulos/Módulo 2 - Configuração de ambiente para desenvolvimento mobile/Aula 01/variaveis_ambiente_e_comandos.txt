@@ -1,0 +1,21 @@
+JAVA_HOME: C:\Program Files\Java\jdk1.8.0_241
+
+ANDROID_HOME: C:\Users\Gui\AppData\Local\Android\Sdk
+
+
+Em path > editar:
+
+%ANDROID_HOME%\emulator
+
+%ANDROID_HOME%\tools\bin
+
+%ANDROID_HOME%\platform-tools
+
+%ANDROID_HOME%\tools
+
+
+adb --version
+
+emulator -list-avds
+
+emulator -no-snapshot -avd NOMEDISPOSITIVO
