@@ -7,7 +7,7 @@
 	<div class="center">
 		<form>
 			<h2>Qual o seu Melhor E-mail?</h2>
-			<input type="email" name="email" required>
+			<input type="email" name="email" required autocomplete="of">
 			<input type="submit" value="Cadastrar!" name="acao">
 		</form>	
 	</div><!-- Center -->
