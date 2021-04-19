@@ -11,8 +11,28 @@
 </head>
 <body>
     <div class="box-login">
+        <?php
+            if(isset($_POST['acao'])){
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE user = ? AND password = ?");
+                $sql->execute(array($user, $password));
+
+                if($sql->rowCount() == 1){
+                    // Logado com Sucesso!!!
+                    $_SESSION['login'] = true;
+                    $_SESSION['user'] = $user;
+                    $_SESSION['password'] = $password;
+                    header('Location: '.INCLUDE_PATH_PANEL);
+                    die();
+                }else{
+                    // Login e/ou senha incorretos
+                    echo '<div class="error-box">Usuário ou Senha Incorretos!</div>';
+                }
+            }
+        ?>
         <h2>Efetue o Login:</h2>
-        <form action="">
+        <form method="post">
             <input type="text" name="user" placeholder="Login..." required autocomplete="of">
             <input type="password" name="password" placeholder="Password..." required>
             <input type="submit" value="LogIn!" name="acao">

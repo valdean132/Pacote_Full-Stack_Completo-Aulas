@@ -16,4 +16,9 @@
 
     define('INCLUDE_PATH', 'http://localhost/Pacote_Full-Stack_Completo-Aulas/Curso%20Desenvolvimento%20Web%20Completo/Projetos/Projeto_01/');
     define('INCLUDE_PATH_PANEL', INCLUDE_PATH.'panel/');
+    // Conexão com o banco de dados
+    define('HOST', 'localhost');
+    define('USER', 'root');
+    define('PASSWORD','');
+    define('DATABASER', 'projeto_01');
 ?>
