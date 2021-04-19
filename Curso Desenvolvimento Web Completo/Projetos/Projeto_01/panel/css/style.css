@@ -9,6 +9,8 @@ html, body{
     height: 100%;
     background-color: rgb(225, 225, 225);
 }
+
+/* Página De Login */
 .box-login{
     box-shadow: 0px 0px 10px 1px rgb(100, 100, 100);
     max-width: 400px;
@@ -64,4 +66,41 @@ html, body{
     background-color: #f75353;
     color: white;
     font-size: 15px;
+}
+
+/* *** */
+
+/* Painel de Conrtrole */
+
+.clear{
+    clear: both;
+}
+.center{
+    padding: 0 2%;
+    margin: 0 auto;
+}
+.menu{
+    overflow-y: auto;
+    float: left;
+    width: 300px;
+    height: 100%;
+    background-color: #455a64;
+}
+header{
+    width: calc(100% - 300px);
+    padding: 10px 0;
+    background-color: #78909c;
+    float: left;
+}
+.loggout{
+    float: right;
+}
+.loggout a{
+    background-image: url('../../images/icons/log-out.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
 }
