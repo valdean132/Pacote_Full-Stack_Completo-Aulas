@@ -15,10 +15,29 @@
 </head>
 <body>
     <div class="menu">
+        <div class="box-usuario">
+            <?php if($_SESSION['img'] == ''){ ?>
 
+                <div class="avatar-usuario" title="Avatar"></div><!-- Avatar Usuário -->
+
+            <?php }else{  ?>
+
+                <div class="imagem-usuario">
+                    <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" title="<?php echo $_SESSION['nome']; ?>">
+                </div><!-- Avatar Usuário -->
+
+            <?php } ?>
+
+            <div class="nome-usuario">
+                <p><?php echo $_SESSION['nome']; ?></p>
+                <p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
+            </div><!-- Nome Usuário -->
+
+        </div><!-- Box Usuário -->
     </div><!-- Menu -->
     <header>
         <div class="center">
+            <div class="menu-btn menu-open"></div><!-- Menu-BTN -->
             <div class="loggout">
                 <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"></a>
             </div><!-- Loggout -->

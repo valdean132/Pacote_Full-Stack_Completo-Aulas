@@ -10,8 +10,6 @@
     };
 
     spl_autoload_register($autoload);
-    
-
 
 
     define('INCLUDE_PATH', 'http://localhost/Pacote_Full-Stack_Completo-Aulas/Curso%20Desenvolvimento%20Web%20Completo/Projetos/Projeto_01/');
@@ -21,4 +19,15 @@
     define('USER', 'root');
     define('PASSWORD','');
     define('DATABASER', 'projeto_01');
+
+    // Funcoões
+    function pegaCargo($cargo){
+        $arr = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'
+        ];
+
+        return $arr[$cargo];
+    }   
 ?>

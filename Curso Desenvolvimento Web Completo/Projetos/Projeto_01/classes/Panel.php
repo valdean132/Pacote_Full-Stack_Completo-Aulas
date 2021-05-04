@@ -6,7 +6,8 @@
 
         public static function loggout(){
             session_destroy();
-            header('Loacation: '.INCLUDE_PATH_PANEL);
+            // $_SESSION['login'] = false;
+            header('Location: '.INCLUDE_PATH_PANEL);
         }
     }
 ?>
