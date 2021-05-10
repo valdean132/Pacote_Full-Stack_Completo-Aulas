@@ -15,25 +15,26 @@
 </head>
 <body>
     <div class="menu">
-        <div class="box-usuario">
-            <?php if($_SESSION['img'] == ''){ ?>
+        <div class="menu-wraper">
+            <div class="box-usuario">
+                <?php if($_SESSION['img'] == ''){ ?>
 
-                <div class="avatar-usuario" title="Avatar"></div><!-- Avatar Usuário -->
+                    <div class="avatar-usuario" title="Avatar"></div><!-- Avatar Usuário -->
 
-            <?php }else{  ?>
+                <?php }else{  ?>
 
-                <div class="imagem-usuario">
-                    <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" title="<?php echo $_SESSION['nome']; ?>">
-                </div><!-- Avatar Usuário -->
+                    <div class="imagem-usuario">
+                        <img src="<?php echo INCLUDE_PATH_PANEL ?>uploads/<?php echo $_SESSION['img']; ?>" title="<?php echo $_SESSION['nome']; ?>">
+                    </div><!-- Avatar Usuário -->
 
-            <?php } ?>
+                <?php } ?>
 
-            <div class="nome-usuario">
-                <p><?php echo $_SESSION['nome']; ?></p>
-                <p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
-            </div><!-- Nome Usuário -->
-
-        </div><!-- Box Usuário -->
+                <div class="nome-usuario">
+                    <p><?php echo $_SESSION['nome']; ?></p>
+                    <p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
+                </div><!-- Nome Usuário -->
+            </div><!-- Box Usuário -->
+        </div><!-- Menu-Wraper -->
     </div><!-- Menu -->
     <header>
         <div class="center">
@@ -44,6 +45,28 @@
             <div class="clear"></div>
         </div><!-- Center -->
     </header><!-- Header -->
-    <div class="clear"></div>
+    <!-- <div class="clear"></div> -->
+    <div class="content">
+        <div class="box-content left w100">
+            
+        </div><!-- Box-Content -->
+        <!--
+        <div class="box-content left w100">
+
+        </div>
+
+        <div class="box-content left w50">
+
+        </div>
+
+        <div class="box-content right w50">
+
+        </div>
+        -->
+        <div class="clear"></div><!-- Clear -->
+    </div><!-- Content -->
+
+    <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/main.js"></script>
 </body>
 </html>

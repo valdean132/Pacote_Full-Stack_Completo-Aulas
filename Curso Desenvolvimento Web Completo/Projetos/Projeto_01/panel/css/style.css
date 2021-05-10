@@ -10,6 +10,10 @@ html, body{
     background-color: rgb(225, 225, 225);
 }
 
+body{
+    overflow-x: hidden;
+}
+
 /* Página De Login */
 .box-login{
     box-shadow: 0px 0px 10px 1px rgb(100, 100, 100);
@@ -81,10 +85,12 @@ html, body{
 }
 
 header{
+    position: relative;
+    left: 300px;
     width: calc(100% - 300px);
     padding: 10px 0;
     background-color: #78909c;
-    float: left;
+    /* float: left; */
 }
 .loggout{
     float: right;
@@ -117,6 +123,7 @@ header{
     opacity: 0;
     color: #38393a;
     pointer-events: none;
+    z-index: 101;
 }
 .loggout a::before{
     content: '';
@@ -131,6 +138,7 @@ header{
     transition: .5s opacity ease;
     opacity: 0;
     pointer-events: none;
+    z-index: 100;
 }
 .loggout a:hover::before,
 .loggout a:hover::after{
@@ -150,12 +158,19 @@ header{
 }
 
 .menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
     overflow-y: auto;
     padding: 10px;
     float: left;
     width: 300px;
     height: 100%;
     background-color: #455a64;
+}
+.menu-wraper{
+    width: 300px;
 }
 .box-usuario{
     text-align: center;
@@ -191,4 +206,63 @@ header{
     color: white;
     font-size: 16px;
     font-weight: normal;
+}
+
+/* ** */
+
+/* Conteúdo principal do PAINEL */
+
+.w100{
+    width: 100%;
+}
+.w50{
+    width: 49%;
+    
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.content{
+    width: calc(100% - 300px);
+    position: relative;
+    left: 300px;
+    padding: 10px;
+}
+
+.box-content{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .5);
+}
+
+/* ** */
+
+
+/* media query 768px */
+@media screen and (max-width: 768px){
+    .menu{
+        display: none;
+    }
+    .content{
+        width: 100%;
+        left: 0;
+    }
+    header{
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* ** */
+
+/* media query 400px */
+
+@media screen and (max-width: 400px){
+    .menu-wraper{
+        width: 200px;
+    }
 }
