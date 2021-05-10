@@ -34,6 +34,21 @@
                     <p><?php echo pegaCargo($_SESSION['cargo']); ?></p>
                 </div><!-- Nome Usuário -->
             </div><!-- Box Usuário -->
+            <div class="item-menu">
+                <h2>Cadastro</h2>
+                <a href="">Cadastrar Depoimento</a>
+                <a href="">Cadastrar Serviços</a>
+                <a href="">Cadastrar Slides</a>
+                <h2>Gestão</h2>
+                <a href="">Lista Depoimentos</a>
+                <a href="">Lista Serviço</a>
+                <a href="">Listar Slides</a>
+                <h2>Administração do Painel</h2>
+                <a href="">Editar Usuário</a>
+                <a href="">Adicionar Usuários</a>
+                <h2>Geral</h2>
+                <a href="">Editar</a>
+            </div><!-- Item Menu -->
         </div><!-- Menu-Wraper -->
     </div><!-- Menu -->
     <header>
@@ -48,7 +63,31 @@
     <!-- <div class="clear"></div> -->
     <div class="content">
         <div class="box-content left w100">
-            
+            <h2><i class="svg home"></i> Painel de Controle - <?php echo $nomeEmpresa = 'VSCoder';?></h2>
+
+            <div class="box-metrica">
+                <div class="box-metrica-single">
+                    <div class="box-metrica-wraper">
+                        <h2>Usuário Online</h2>
+                        <p>10</p>
+                    </div><!-- Box-metrica-Wraper -->
+                </div><!-- Box-Metrica-Single -->
+
+                <div class="box-metrica-single">
+                    <div class="box-metrica-wraper">
+                        <h2>Total de Visitas</h2>
+                        <p>100</p>
+                    </div><!-- Box-metrica-Wraper -->
+                </div><!-- Box-Metrica-Single -->
+
+                <div class="box-metrica-single">
+                    <div class="box-metrica-wraper">
+                        <h2>Visitas Hoje</h2>
+                        <p>3</p>
+                    </div><!-- Box-metrica-Wraper -->
+                </div><!-- Box-Metrica-Single -->
+            </div><!-- Box-Metrica -->
+
         </div><!-- Box-Content -->
         <!--
         <div class="box-content left w100">
