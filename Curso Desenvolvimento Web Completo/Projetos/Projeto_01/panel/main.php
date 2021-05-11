@@ -36,8 +36,8 @@
             </div><!-- Box Usuário -->
             <div class="item-menu">
                 <h2>Cadastro</h2>
-                <a href="">Cadastrar Depoimento</a>
-                <a href="">Cadastrar Serviços</a>
+                <a href="<?php echo INCLUDE_PATH_PANEL ?>cadastrar-depoimento">Cadastrar Depoimento</a>
+                <a href="<?php echo INCLUDE_PATH_PANEL ?>home">Cadastrar Serviços</a>
                 <a href="">Cadastrar Slides</a>
                 <h2>Gestão</h2>
                 <a href="">Lista Depoimentos</a>
@@ -53,8 +53,10 @@
     </div><!-- Menu -->
     <header>
         <div class="center">
-            <div class="menu-btn menu-open"></div><!-- Menu-BTN -->
+            <div class="menu-btn menu-close"></div><!-- Menu-BTN -->
+            
             <div class="loggout">
+                <a href="<?php echo INCLUDE_PATH_PANEL ?>" class="btn-home .home"></a><!-- Btn-Home -->
                 <a href="<?php echo INCLUDE_PATH_PANEL ?>?loggout"></a>
             </div><!-- Loggout -->
             <div class="clear"></div>
@@ -62,47 +64,7 @@
     </header><!-- Header -->
     <!-- <div class="clear"></div> -->
     <div class="content">
-        <div class="box-content left w100">
-            <h2><i class="svg home"></i> Painel de Controle - <?php echo $nomeEmpresa = 'VSCoder';?></h2>
-
-            <div class="box-metrica">
-                <div class="box-metrica-single">
-                    <div class="box-metrica-wraper">
-                        <h2>Usuário Online</h2>
-                        <p>10</p>
-                    </div><!-- Box-metrica-Wraper -->
-                </div><!-- Box-Metrica-Single -->
-
-                <div class="box-metrica-single">
-                    <div class="box-metrica-wraper">
-                        <h2>Total de Visitas</h2>
-                        <p>100</p>
-                    </div><!-- Box-metrica-Wraper -->
-                </div><!-- Box-Metrica-Single -->
-
-                <div class="box-metrica-single">
-                    <div class="box-metrica-wraper">
-                        <h2>Visitas Hoje</h2>
-                        <p>3</p>
-                    </div><!-- Box-metrica-Wraper -->
-                </div><!-- Box-Metrica-Single -->
-            </div><!-- Box-Metrica -->
-
-        </div><!-- Box-Content -->
-        <!--
-        <div class="box-content left w100">
-
-        </div>
-
-        <div class="box-content left w50">
-
-        </div>
-
-        <div class="box-content right w50">
-
-        </div>
-        -->
-        <div class="clear"></div><!-- Clear -->
+        <?php Panel::loadPage(); ?>
     </div><!-- Content -->
 
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>

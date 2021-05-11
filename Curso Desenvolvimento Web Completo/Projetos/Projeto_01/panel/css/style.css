@@ -14,12 +14,23 @@ body{
     overflow-x: hidden;
 }
 
+/* Icon's */
+
 .svg{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     display: inline-block;
 }
+
+.home{
+    background-image: url('../../images/icons/home.svg');
+}
+.browser{
+    background-image: url('../../images/icons/browser.svg');
+}
+
+/* ** */
 
 /* Página De Login */
 .box-login{
@@ -103,6 +114,17 @@ header{
 .loggout{
     float: right;
 }
+.loggout a.btn-home{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../../images/icons/home2.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right: 30px;
+    position: relative;
+}
 .loggout a{
     background-image: url('../../images/icons/log-out.svg');
     background-position: center;
@@ -115,13 +137,15 @@ header{
     /* transition: .5s; */
     position: relative;
 }
-.loggout a::after{
+
+.loggout a::after, .loggout a.btn-home::after{
     content: 'Sair';
     position: absolute;
     top: 40px;
-    left: -18px;
+    left: -10px;
     width: 50px;
-    height: 20px;
+    /* min-width: 50px; */
+    height: auto;
     background-color: #00bfa5;
     text-align: center;
     line-height: 20px;
@@ -133,14 +157,17 @@ header{
     pointer-events: none;
     z-index: 101;
 }
-.loggout a::before{
+.loggout a::after{
+    content: 'Sair';
+}
+.loggout a.btn-home::after{
+    content: 'Página Inicial';
+}
+.loggout a::before, .loggout a.btn-home::before{
     content: '';
-    /* width: 25px;
-    height: 25px; */
-    /* background-color: #00bfa5; */
     position: absolute;
     top: 33px;
-    left: -1px;
+    left: 6px;
     border: 8px solid #00bfa5;
     transform: rotate(45deg);
     transition: .5s opacity ease;
@@ -148,14 +175,13 @@ header{
     pointer-events: none;
     z-index: 100;
 }
-.loggout a:hover::before,
-.loggout a:hover::after{
+.loggout a:hover::before, .loggout a.btn-home:hover::before,
+.loggout a:hover::after, .loggout a.btn-home:hover::after{
     opacity: 1;
 }
 
 /* Menu */
-.menu-open{
-    background-image: url('../../images/icons/menuClose.svg');
+.menu-btn{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -163,6 +189,16 @@ header{
     height: 25px;
     display: inline-block;
     cursor: pointer;
+    opacity: 1;
+    transition: background-image 1s linear;
+}
+.menu-close{
+    background-image: url('../../images/icons/menuClose.svg');
+    /* transition:  opacity 1s; */
+}
+.menu-open{
+    background-image: url('../../images/icons/menuOpen.svg');
+    /* transition:  opacity 1s; */
 }
 
 .menu{
@@ -176,6 +212,7 @@ header{
     width: 300px;
     height: 100%;
     background-color: #455a64;
+    transition: left .4s ease-in-out;
 }
 .menu-wraper{
     width: 300px;
@@ -266,7 +303,7 @@ header{
 .box-content{
     background-color: white;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .5);
     border-radius: 8px;
 }
@@ -276,13 +313,17 @@ header{
     color: #777;
 }
 
-.box-content > h2 i.home{
+.box-content > h2 i{
     /* display: inline-block; */
     width: 20px;
     height: 20px;
-    background-image: url('../../images/icons/home.svg');
     margin-top: 5px;
 }
+
+/* ** */
+
+/* Paniel de Controle */
+
 .box-metrica{
     width: 98%;
     padding: 0px 2% 10px;
@@ -318,9 +359,39 @@ header{
     color: white;
     font-weight: 300;
     font-size: 16px;
-    margin: 10px 0 5px;
+    margin: 10px 0px 5px 0;
+    padding-left: 10px;
 }
 
+/* ** */
+
+/* Tabela Responciva */
+
+.table-responsive{
+    width: 98%;
+    padding: 0px 2% 10px;
+    margin: 10px 0;
+}
+.table-responsive .row:nth-child(1){
+    font-weight: bold;
+    border-bottom: 0;
+    background-color: #04a77e;
+    color: #ddd;
+}
+.table-responsive .row{
+    color: #777;
+    border-bottom: 1px solid #777;
+    padding: 8px 0;
+}
+.col{
+    float: left;
+    width: 50%;
+    /* text-align: center; */
+    padding-left: 30px;
+}
+.col:nth-child(1){
+    padding-left: 20px;
+}
 /* ** */
 
 

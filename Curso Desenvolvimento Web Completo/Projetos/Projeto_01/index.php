@@ -1,4 +1,5 @@
 <?php include('config.php'); ?>
+<?php Site::uptadeUserOnline(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -74,13 +75,6 @@
 					include('pages/404.php');
 				}else{
 					include('pages/home.php');
-		?>
-
-					<!-- <div class="home-seta">
-						<div class="seta"></div>
-					</div> -->
-
-		<?php
 				}
 			}
 			
