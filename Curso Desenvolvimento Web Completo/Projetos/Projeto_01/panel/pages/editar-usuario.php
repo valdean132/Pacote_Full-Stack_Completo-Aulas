@@ -17,6 +17,11 @@
         </div><!-- Form-Group -->
 
         <div class="form-group">
+            <label for="">Login:</label>
+            <input type="text" name="login" required value="<?php echo $_SESSION['login'];?>">
+        </div><!-- Form-Group -->
+
+        <div class="form-group">
             <label for="">Senha:</label>
             <input type="password" name="Senha" required value="<?php echo $_SESSION['password'];?>">
         </div><!-- Form-Group -->
