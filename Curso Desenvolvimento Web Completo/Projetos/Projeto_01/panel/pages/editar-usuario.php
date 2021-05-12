@@ -7,30 +7,65 @@
         <?php
             if(isset($_POST['acao'])){
                 // Enviei meu Formulário.
-                Panel::alert('sucesso', 'Atualização Realizada com Sucesso!');
+                $usuario = new Usuario();
+                $nome = $_POST['nome'];
+                $user = $_POST['user'];
+                $password = $_POST['password'];
+                $imagem = $_FILES['imagem'];
+                $imagem_atual = $_POST['imagem_atual'];
+                // print_r($imagem);
+
+                if($imagem['name'] != ''){
+                    // Existe a Imagem
+                    if(Panel::imgValid($imagem)){
+                        $imagem = Panel::uploadFile($imagem);
+                        Panel::deleteFile($imagem_atual);
+
+                        if($usuario->updateUser($nome, $user, $password, $imagem)){
+                            Panel::alert('sucesso', 'Atualização Realizada com Sucesso! <span>Atualize a Página</span>');
+
+                            $_SESSION['nome'] = $nome;
+                            $_SESSION['img'] = $imagem;
+                        }else{
+                            Panel::alert('erro', 'Formato de Imagem Invalido...');
+                        }
+                    }else{
+                        Panel::alert('erro', 'Formato de Imagem Invalido...');
+                    }
+                }else{
+                    $imagem = $imagem_atual;
+                    if($usuario->updateUser($nome, $user, $password, $imagem)){
+                        Panel::alert('sucesso', 'Atualização Realizada com Sucesso! <span>Atualize a Página</span>');
+
+                        $_SESSION['nome'] = $nome;
+                        $_SESSION['img'] = $imagem;
+                    }else{
+                        Panel::alert('erro', 'Ocorreu um erro ao atualizar...');
+                    }
+                }
             }
         ?>
 
         <div class="form-group">
             <label for="">Nome:</label>
             <input type="text" name="nome" required value="<?php echo $_SESSION['nome'];?>">
-        </div><!-- Form-Group -->
+        </div><!-- Form-Group-Nome -->
 
         <div class="form-group">
             <label for="">Login:</label>
-            <input type="text" name="login" required value="<?php echo $_SESSION['login'];?>">
-        </div><!-- Form-Group -->
+            <input type="text" name="user" required value="<?php echo $_SESSION['user'];?>">
+        </div><!-- Form-Group-User -->
 
         <div class="form-group">
             <label for="">Senha:</label>
-            <input type="password" name="Senha" required value="<?php echo $_SESSION['password'];?>">
-        </div><!-- Form-Group -->
+            <input type="password" name="password" required value="<?php echo $_SESSION['password'];?>">
+        </div><!-- Form-Group-Senha -->
 
         <div class="form-group">
             <label for="">Imagem:</label>
             <input type="file" name="imagem">
             <input type="hidden" name="imagem_atual" value="<?php echo $_SESSION['img'];?>">
-        </div><!-- Form-Group -->
+        </div><!-- Form-Group-Imagem -->
 
         <div class="form-group">
             <input type="submit" name="acao" value="Atualizar!">

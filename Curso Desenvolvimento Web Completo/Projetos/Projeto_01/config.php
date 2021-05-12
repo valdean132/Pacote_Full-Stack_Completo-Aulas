@@ -12,9 +12,10 @@
 
     spl_autoload_register($autoload);
 
-
+    // Definindo Diretorios 
     define('INCLUDE_PATH', 'http://localhost/Pacote_Full-Stack_Completo-Aulas/Curso%20Desenvolvimento%20Web%20Completo/Projetos/Projeto_01/');
     define('INCLUDE_PATH_PANEL', INCLUDE_PATH.'panel/');
+    define('BASE_DIR_PANEL', __DIR__.'/panel');
 
     // Conexão com o banco de dados
     define('HOST', 'localhost');

@@ -248,8 +248,8 @@ header{
     cursor: pointer;
 }
 .imagem-usuario img{
-    width: 50%;
-    height: 50%;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     border: 3px solid #2f3d42;
     cursor: pointer;
@@ -488,6 +488,12 @@ header{
 .sucesso{
     background-color: #41a044;
     color: white;
+}
+.sucesso span{
+    color: #ccc;
+    font-weight: 100;
+    font-size: 14px;
+    /* margin: 5px 0 10px; */
 }
 .erro{
     background-color: #f75353;
