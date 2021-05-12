@@ -44,7 +44,7 @@
                 <a href="">Lista Serviço</a>
                 <a href="">Listar Slides</a>
                 <h2>Administração do Painel</h2>
-                <a href="">Editar Usuário</a>
+                <a href="<?php echo INCLUDE_PATH_PANEL ?>editar-usuario">Editar Usuário</a>
                 <a href="">Adicionar Usuários</a>
                 <h2>Geral</h2>
                 <a href="">Editar</a>

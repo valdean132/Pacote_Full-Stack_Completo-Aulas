@@ -15,7 +15,12 @@ body{
 }
 
 /* Icon's */
-
+i{
+    /* display: inline-block; */
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
 .svg{
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +34,15 @@ body{
 .browser{
     background-image: url('../../images/icons/browser.svg');
 }
-
+.pencil{
+    background-image: url('../../images/icons/pencil.svg');
+}
+.check{
+    background-image: url('../../images/icons/checkmark.svg');
+}
+.error{
+    background-image: url('../../images/icons/error.svg');
+}
 /* ** */
 
 /* Página De Login */
@@ -313,13 +326,6 @@ header{
     color: #777;
 }
 
-.box-content > h2 i{
-    /* display: inline-block; */
-    width: 20px;
-    height: 20px;
-    margin-top: 5px;
-}
-
 /* ** */
 
 /* Paniel de Controle */
@@ -354,6 +360,12 @@ header{
     font-weight: 300;
     font-size: 18px;
     margin: 5px 0 10px;
+}
+.box-metrica-wraper h2 span{
+    color: #ccc;
+    font-weight: 100;
+    font-size: 14px;
+    /* margin: 5px 0 10px; */
 }
 .box-metrica-wraper p{
     color: white;
@@ -394,6 +406,93 @@ header{
 }
 /* ** */
 
+/* Formulário de Atualização */
+
+.box-content form{
+    width: 98%;
+    padding: 0px 2% 10px;
+    margin: 10px 0;
+}
+.box-content form .form-group{
+    margin: 15px 0;
+}
+.box-content form label{
+    font-size: 17px;
+    font-weight: 300;
+    color: black;
+    display: block;
+}
+.box-content form input[type=text],
+.box-content form input[type=password]{
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    width: 100%;
+    height: 40px;
+    padding-left: 8px;
+    transition: .5s linear;
+    border-radius: 8px;
+}
+.box-content form input[type=file]{
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    transition: .5s linear;
+    cursor: pointer;
+}
+.box-content form input[type=submit]{
+    margin-top: 8px;
+    outline: none;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #00bfa5;
+    color: white;
+    text-align: center;
+    transition: .5s background linear;
+    border-radius: 8px;
+    border: 0;
+    float: right;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .7);
+}
+.box-content form input:focus{
+    border-color: #1de;
+}
+.box-content form input[type=submit]:hover{
+    background-color: #009c87;
+}
+
+/* ** */
+
+.box-alert{
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    padding: 10px 2%;
+    border-radius: 8px;
+    /* text-align: center; */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .7);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box-alert i{
+    margin: 0 8px 0;
+}
+.sucesso{
+    background-color: #41a044;
+    color: white;
+}
+.erro{
+    background-color: #f75353;
+    color: white;
+}
 
 /* media query 768px */
 @media screen and (max-width: 768px){

@@ -21,7 +21,7 @@
 
         <div class="box-metrica-single">
             <div class="box-metrica-wraper">
-                <h2>Total de Visitas</h2>
+                <h2>Total de Visitas <span>(no mês)</span></h2>
                 <p><?php echo $contarVisitas;?></p>
             </div><!-- Box-metrica-Wraper -->
         </div><!-- Box-Metrica-Single -->
