@@ -2,6 +2,10 @@
 
     $userOnline = Panel::listerUserOnline();
 
+    $contarVisitas = Panel::contarVisitas();
+
+    $contarVisitasDia = Panel::contarVisitasDia();
+
 ?>
 
 <div class="box-content w100">
@@ -18,14 +22,14 @@
         <div class="box-metrica-single">
             <div class="box-metrica-wraper">
                 <h2>Total de Visitas</h2>
-                <p>100</p>
+                <p><?php echo $contarVisitas;?></p>
             </div><!-- Box-metrica-Wraper -->
         </div><!-- Box-Metrica-Single -->
 
         <div class="box-metrica-single">
             <div class="box-metrica-wraper">
                 <h2>Visitas Hoje</h2>
-                <p>3</p>
+                <p><?php echo $contarVisitasDia;?></p>
             </div><!-- Box-metrica-Wraper -->
         </div><!-- Box-Metrica-Single -->
     </div><!-- Box-Metrica -->
@@ -48,17 +52,16 @@
         </div><!-- Row -->
 
         <?php foreach($userOnline as $key => $value){?>
+            <div class="row">
+                <div class="col">
+                    <span><?php echo $value['ip']; ?></span>
+                </div><!-- Col -->
 
-        <div class="row">
-            <div class="col">
-                <span><?php echo $value['ip']; ?></span>
-            </div><!-- Col -->
-
-            <div class="col">
-                <span><?php echo date('d/m/Y H:i:s', strtotime($value['ultima_acao'])); ?></span>
-            </div><!-- Col -->
-            <div class="clear"></div><!-- Clear -->
-        </div><!-- Row -->
+                <div class="col">
+                    <span><?php echo date('d/m/Y H:i:s', strtotime($value['ultima_acao'])); ?></span>
+                </div><!-- Col -->
+                <div class="clear"></div><!-- Clear -->
+            </div><!-- Row -->
         <?php }?>
     </div><!-- Table-Responsive -->
 </div><!-- Box-Content -->

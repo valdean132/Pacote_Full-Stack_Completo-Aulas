@@ -383,14 +383,14 @@ header{
     border-bottom: 1px solid #777;
     padding: 8px 0;
 }
+.table-responsive .row:nth-child(1) .col{
+    padding-left: 20px;
+}
 .col{
     float: left;
     width: 50%;
     /* text-align: center; */
     padding-left: 30px;
-}
-.col:nth-child(1){
-    padding-left: 20px;
 }
 /* ** */
 

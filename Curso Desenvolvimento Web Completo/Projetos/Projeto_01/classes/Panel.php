@@ -36,5 +36,19 @@
             $date = date('Y-m-d H:i:s');
             $sql = MySql::conectar()->exec("DELETE FROM `tb_admin.online` WHERE `ultima_acao` < '$date' - INTERVAL 1 MINUTE");
         }
+
+        public static function contarVisitas(){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.visita`");
+            $sql->execute();
+        
+            return $sql->rowCount();
+        }
+
+        public static function contarVisitasDia(){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.visita` WHERE dia = ?");
+            $sql->execute((array(date('Y-m-d'))));
+        
+            return $sql->rowCount();
+        }
     }
 ?>
