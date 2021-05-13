@@ -42,11 +42,13 @@
                         } else{
                             Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
                         }
-                    }else if(Panel::userExists($user)){
-                        Panel::alert('erro', 'Login '.$user.' já existe no Bando de dados', 'Escolha outro nome de Login');
-                    } else{
+                    }else{
                         // Apenas cadastrar no banco de dados!
-                        Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                        if(Panel::userExists($user)){
+                            Panel::alert('erro', 'Login '.$user.' já existe no Bando de dados', 'Escolha outro nome de Login');
+                        }else{
+                            Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                        }
                     }
                 }
             }
