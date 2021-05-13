@@ -1,5 +1,9 @@
 <?php
 
+    /* 
+        TODO: Variavel Global com os cargos.
+    */
+
     session_start();
     date_default_timezone_set('America/Manaus');
     
@@ -28,15 +32,11 @@
 
 
     // Funcoões Do Painel
-    // Cargo do Usuário
-    function pegaCargo($cargo){
-        $arr = [
-            '0' => 'Normal',
-            '1' => 'Sub Administrador',
-            '2' => 'Administrador'
-        ];
 
-        return $arr[$cargo];
+    // Cargo do Usuário
+    function pegaCargo($indice){
+
+        return Panel::$cargos[$indice];
     }
 
     // Seleçaõ de Menu

@@ -97,5 +97,16 @@
         public static function deleteFile($file){
             @unlink(BASE_DIR_PANEL.'/uploads/'.$file);
         }
+
+        //Variaveis de Cargo 
+        public static $cargos = [
+            '0' => 'Normal',
+            '1' => 'Sub Administrador',
+            '2' => 'Administrador'
+        ];
+
+        public static function userExists($user){
+            
+        }
     }
 ?>

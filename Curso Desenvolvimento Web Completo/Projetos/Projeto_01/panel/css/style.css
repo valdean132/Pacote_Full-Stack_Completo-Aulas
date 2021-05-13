@@ -437,7 +437,8 @@ header{
     display: block;
 }
 .box-content form input[type=text],
-.box-content form input[type=password]{
+.box-content form input[type=password],
+.box-content form select{
     margin-top: 8px;
     border: 1px solid #ccc;
     font-size: 16px;

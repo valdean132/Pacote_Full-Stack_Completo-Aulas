@@ -27,10 +27,10 @@
                             $_SESSION['nome'] = $nome;
                             $_SESSION['img'] = $imagem;
                         }else{
-                            Panel::alert('erro', 'Formato de Imagem Invalido...','Apensa arquivos de imagens são aceitas');
+                            Panel::alert('erro', 'Ocorreu um erro ao atualizar...','');
                         }
                     }else{
-                        Panel::alert('erro', 'Formato de Imagem Invalido...','Apensa arquivos de imagens são aceitas');
+                        Panel::alert('erro', 'Formato de Imagem Invalido...','Selecione uma imagem JPG, JPEG ou PNG');
                     }
                 }else{
                     $imagem = $imagem_atual;
