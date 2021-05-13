@@ -36,18 +36,18 @@
             </div><!-- Box Usuário -->
             <div class="item-menu">
                 <h2>Cadastro</h2>
-                <a href="<?php echo INCLUDE_PATH_PANEL ?>cadastrar-depoimento">Cadastrar Depoimento</a>
-                <a href="<?php echo INCLUDE_PATH_PANEL ?>home">Cadastrar Serviços</a>
-                <a href="">Cadastrar Slides</a>
+                <a <?php selecionadoMenu('cadastrar-depoimento'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-depoimento">Cadastrar Depoimento</a>
+                <a <?php selecionadoMenu('cadastrar-servicos'); ?> href="">Cadastrar Serviços</a>
+                <a <?php selecionadoMenu('cadastrar-slider'); ?> href="">Cadastrar Slides</a>
                 <h2>Gestão</h2>
-                <a href="">Lista Depoimentos</a>
-                <a href="">Lista Serviço</a>
-                <a href="">Listar Slides</a>
+                <a <?php selecionadoMenu('lista-depoimentos'); ?> href="">Lista Depoimentos</a>
+                <a <?php selecionadoMenu('lista-servico'); ?> href="">Lista Serviço</a>
+                <a <?php selecionadoMenu('lista-slides'); ?> href="">Listar Slides</a>
                 <h2>Administração do Painel</h2>
-                <a href="<?php echo INCLUDE_PATH_PANEL ?>editar-usuario">Editar Usuário</a>
-                <a href="">Adicionar Usuários</a>
-                <h2>Geral</h2>
-                <a href="">Editar</a>
+                <a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario">Editar Usuário</a>
+                <a <?php selecionadoMenu('adcionar-usuario'); verificaPermicaoMenu(2); ?>  href="<?php echo INCLUDE_PATH_PANEL; ?>adcionar-usuario">Adicionar Usuários</a>
+                <h2 <?php verificaPermicaoMenu(2); ?>>Geral</h2>
+                <a <?php selecionadoMenu('editar-site'); verificaPermicaoMenu(2); ?> href="">Editar Site</a>
             </div><!-- Item Menu -->
         </div><!-- Menu-Wraper -->
     </div><!-- Menu -->

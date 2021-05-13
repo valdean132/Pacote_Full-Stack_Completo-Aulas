@@ -43,6 +43,9 @@ i{
 .error{
     background-image: url('../../images/icons/error.svg');
 }
+.right-chevron{
+    background-image: url('../../images/icons/right-chevron.svg');
+}
 /* ** */
 
 /* Página De Login */
@@ -287,6 +290,17 @@ header{
     color: white;
     border-bottom: 2px solid #2f3d42;
 }
+.item-menu a.menu-active{
+    background-color: #3a4b51;
+}
+.item-menu a.menu-active::before{
+    content: '>> ';
+}
+.item-menu a i{
+    width: 15px;
+    height: 15px;
+    margin-top: 0px;
+}
 
 /* ** */
 
@@ -472,15 +486,21 @@ header{
 .box-alert{
     width: 100%;
     height: auto;
-    font-size: 15px;
     padding: 10px 2%;
     border-radius: 8px;
-    /* text-align: center; */
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .7);
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.box-alert p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.box-alert span{
+    color: #ccc;
+    font-weight: 100;
+    font-size: 14px;
 }
 .box-alert i{
     margin: 0 8px 0;
@@ -488,12 +508,6 @@ header{
 .sucesso{
     background-color: #41a044;
     color: white;
-}
-.sucesso span{
-    color: #ccc;
-    font-weight: 100;
-    font-size: 14px;
-    /* margin: 5px 0 10px; */
 }
 .erro{
     background-color: #f75353;

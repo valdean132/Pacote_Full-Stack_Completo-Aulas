@@ -26,7 +26,9 @@
     // Constantes para o Painel de Controle
     define('NOME_EMPRESA', 'VSCoder');
 
-    // Funcoões
+
+    // Funcoões Do Painel
+    // Cargo do Usuário
     function pegaCargo($cargo){
         $arr = [
             '0' => 'Normal',
@@ -35,5 +37,33 @@
         ];
 
         return $arr[$cargo];
-    }   
+    }
+
+    // Seleçaõ de Menu
+    function selecionadoMenu($par){
+        // <i class="svg right-chevron"></i>
+        $url = explode('/',@$_GET['url'])[0];
+
+        if($url == $par){
+            echo 'class = "menu-active"';
+        }
+    }
+
+    // Permições de Usuário
+    function verificaPermicaoMenu($permissao){
+        if($_SESSION['cargo'] >= $permissao){
+            return;
+        }else{
+            echo 'style="display: none;"';
+        }
+    }
+
+    function verificaPermicaoPagina($permissao){
+        if($_SESSION['cargo'] >= $permissao){
+            return;
+        }else{
+            include('panel/pages/permicao_negada.php');
+            die();
+        }
+    }
 ?>

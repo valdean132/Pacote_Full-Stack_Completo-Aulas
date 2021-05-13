@@ -22,25 +22,25 @@
                         Panel::deleteFile($imagem_atual);
 
                         if($usuario->updateUser($nome, $user, $password, $imagem)){
-                            Panel::alert('sucesso', 'Atualização Realizada com Sucesso! <span>Atualize a Página</span>');
+                            Panel::alert('sucesso', 'Atualização Realizada com Sucesso!','Atualize a Página');
 
                             $_SESSION['nome'] = $nome;
                             $_SESSION['img'] = $imagem;
                         }else{
-                            Panel::alert('erro', 'Formato de Imagem Invalido...');
+                            Panel::alert('erro', 'Formato de Imagem Invalido...','Apensa arquivos de imagens são aceitas');
                         }
                     }else{
-                        Panel::alert('erro', 'Formato de Imagem Invalido...');
+                        Panel::alert('erro', 'Formato de Imagem Invalido...','Apensa arquivos de imagens são aceitas');
                     }
                 }else{
                     $imagem = $imagem_atual;
                     if($usuario->updateUser($nome, $user, $password, $imagem)){
-                        Panel::alert('sucesso', 'Atualização Realizada com Sucesso! <span>Atualize a Página</span>');
+                        Panel::alert('sucesso', 'Atualização Realizada com Sucesso!','Atualize a Página');
 
                         $_SESSION['nome'] = $nome;
                         $_SESSION['img'] = $imagem;
                     }else{
-                        Panel::alert('erro', 'Ocorreu um erro ao atualizar...');
+                        Panel::alert('erro', 'Ocorreu um erro ao atualizar...','');
                     }
                 }
             }

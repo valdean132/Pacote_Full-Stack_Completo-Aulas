@@ -1,6 +1,12 @@
-<?php include('config.php'); ?>
-<?php Site::uptadeUserOnline(); ?>
-<?php Site::contador(); ?>
+<?php 
+
+	include('config.php'); 
+
+	Site::uptadeUserOnline(); 
+
+	Site::contador(); 
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
