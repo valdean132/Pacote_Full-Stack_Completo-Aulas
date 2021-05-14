@@ -86,8 +86,10 @@
 
         // Salvando Documentos
         public static function uploadFile($file){
-            if(move_uploaded_file($file['tmp_name'], BASE_DIR_PANEL.'/uploads/'.$file['name'])){
-                return $file['name'];
+            $formatoArquivo = explode('.',$file['name']);
+            $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
+            if(move_uploaded_file($file['tmp_name'], BASE_DIR_PANEL.'/uploads/'.$imagemNome)){
+                return $imagemNome;
             }else{
                 return false;
             }
@@ -105,8 +107,12 @@
             '2' => 'Administrador'
         ];
 
-        public static function userExists($user){
-            
+        // Contador de usuários cadastrados
+        public static function usuariosCadastrados(){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.usuarios`");
+            $sql->execute();
+        
+            return $sql->fetchAll();
         }
     }
 ?>

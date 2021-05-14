@@ -134,14 +134,11 @@ header{
     display: inline-block;
     width: 25px;
     height: 25px;
-    background-image: url('../../images/icons/home2.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     margin-right: 30px;
+    fill: #fff;
     position: relative;
 }
-.loggout a{
+.loggout a.sair{
     background-image: url('../../images/icons/log-out.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -408,12 +405,14 @@ header{
     color: #777;
     border-bottom: 1px solid #777;
     padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
 }
 .table-responsive .row:nth-child(1) .col{
     padding-left: 20px;
 }
 .col{
-    float: left;
+    /* float: left; */
     width: 50%;
     /* text-align: center; */
     padding-left: 30px;

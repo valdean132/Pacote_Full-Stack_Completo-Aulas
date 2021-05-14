@@ -37,17 +37,29 @@
                     }else if($imagem['name'] != ''){
                         if(Panel::imgValid($imagem) == false){
                             Panel::alert('erro', 'Formato de imagem Inválida!','Selecione uma imagem JPG, JPEG ou PNG');
-                        }else if(Panel::userExists($user)){
-                            Panel::alert('erro', 'Login '.$user.' já existe no Bando de dados', 'Escolha outro nome de Login');
+                        }else if(Usuario::userExists($user)){
+                            Panel::alert('erro', 'Login "'.$user.'" já existe no Bando de dados!', 'Escolha outro nome para Login...');
                         } else{
-                            Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                            $imagem = Panel::uploadFile($imagem);
+                            if(Usuario::cadastrarUsuario($user, $password, $imagem, $nome, $cargo)){
+                                Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                            }
+                            else{
+                                Panel::alert('erro', 'Ocorreu um erro ao Cadastrar o Usuario "'.$nome.'"...','Por favor tente novamente.');
+                            }       
                         }
                     }else{
                         // Apenas cadastrar no banco de dados!
-                        if(Panel::userExists($user)){
-                            Panel::alert('erro', 'Login '.$user.' já existe no Bando de dados', 'Escolha outro nome de Login');
+                        if(Usuario::userExists($user)){
+                            Panel::alert('erro', 'Login "'.$user.'" já existe no Bando de dados!', 'Escolha outro nome para Login...');
                         }else{
-                            Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                            $imagem = '';
+                            if(Usuario::cadastrarUsuario($user, $password, $imagem, $nome, $cargo)){
+                                Panel::alert('sucesso', 'Usuário "'.$nome.'" foi cadastrado com SUCESSO!!!', '');
+                            }
+                            else{
+                                Panel::alert('erro', 'Ocorreu um erro ao Cadastrar o Usuario "'.$nome.'"...','Por favor tente novamente.');
+                            }
                         }
                     }
                 }

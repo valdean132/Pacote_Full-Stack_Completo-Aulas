@@ -19,9 +19,8 @@
                     // Existe a Imagem
                     if(Panel::imgValid($imagem)){
                         $imagem = Panel::uploadFile($imagem);
-                        Panel::deleteFile($imagem_atual);
-
                         if($usuario->updateUser($nome, $user, $password, $imagem)){
+                            Panel::deleteFile($imagem_atual);
                             Panel::alert('sucesso', 'Atualização Realizada com Sucesso!','Atualize a Página');
 
                             $_SESSION['nome'] = $nome;

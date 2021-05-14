@@ -6,6 +6,8 @@
 
     $contarVisitasDia = Panel::contarVisitasDia();
 
+    $userPanel = Panel::usuariosCadastrados();
+
 ?>
 
 <div class="box-content w100">
@@ -37,7 +39,7 @@
 </div><!-- Box-Content -->
 
 <div class="box-content w100">
-    <h2><i class="svg browser"></i> Usuários Online</h2>
+    <h2><i class="svg browser"></i> Visitantes Online</h2>
     
     <div class="table-responsive">
         <div class="row">
@@ -61,6 +63,52 @@
                     <span><?php echo date('d/m/Y H:i:s', strtotime($value['ultima_acao'])); ?></span>
                 </div><!-- Col -->
                 <div class="clear"></div><!-- Clear -->
+            </div><!-- Row -->
+        <?php }?>
+    </div><!-- Table-Responsive -->
+</div><!-- Box-Content -->
+
+<div <?php verificaPermicaoMenu(2); ?> class="box-content w100">
+    <h2><i class="svg browser"></i> Usuários do Painel</h2>
+    
+    <div class="table-responsive">
+        <div class="row">
+            <div class="col">
+                <span>Nome</span>
+            </div><!-- Col -->
+
+            <div class="col">
+                <span>Login</span>
+            </div><!-- Col -->
+
+            <div class="col">
+                <span>Senha</span>
+            </div><!-- Col -->
+
+            <div class="col">
+                <span>Cargo</span>
+            </div><!-- Col -->
+            <!-- <div class="clear"></div> -->
+        </div><!-- Row -->
+
+        <?php foreach($userPanel as $key => $value){?>
+            <div class="row">
+                <div class="col">
+                    <span><?php echo $value['nome']; ?></span>
+                </div><!-- Col -->
+
+                <div class="col">
+                    <span><?php echo $value['user']; ?></span>
+                </div><!-- Col -->
+
+                <div class="col">
+                    <span><?php echo $value['password']; ?></span>
+                </div><!-- Col -->
+
+                <div class="col">
+                    <span><?php echo pegaCargo($value['cargo']); ?></span>
+                </div><!-- Col -->
+                <!-- <div class="clear"></div> -->
             </div><!-- Row -->
         <?php }?>
     </div><!-- Table-Responsive -->

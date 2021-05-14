@@ -35,7 +35,6 @@
 
     // Cargo do Usuário
     function pegaCargo($indice){
-
         return Panel::$cargos[$indice];
     }
 
