@@ -8,6 +8,7 @@
 
         // Log Out
         public static function loggout(){
+            setcookie('lembrar', 'true', time()-1,'/');
             session_destroy();
             // $_SESSION['login'] = false;
             header('Location: '.INCLUDE_PATH_PANEL);

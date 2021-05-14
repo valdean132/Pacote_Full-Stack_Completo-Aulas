@@ -74,6 +74,10 @@
     <div class="table-responsive">
         <div class="row">
             <div class="col">
+                <span>Id</span>
+            </div><!-- Col -->
+
+            <div class="col">
                 <span>Nome</span>
             </div><!-- Col -->
 
@@ -93,6 +97,10 @@
 
         <?php foreach($userPanel as $key => $value){?>
             <div class="row">
+                <div class="col">
+                    <span><?php echo $key+1; ?></span>
+                </div><!-- Col -->
+
                 <div class="col">
                     <span><?php echo $value['nome']; ?></span>
                 </div><!-- Col -->

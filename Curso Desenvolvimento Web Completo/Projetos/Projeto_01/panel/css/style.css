@@ -79,6 +79,32 @@ i{
     border-radius: 8px;
     transition: .5s linear border;
 }
+.form-group-login{
+    /* margin-top: 8px; */
+    height: 30px;
+    line-height: 15px;
+}
+form .form-group-login:nth-of-type(2){
+    position: relative;
+    top: 10px;
+}
+.form-group-login label{
+    padding-right: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: -95px;
+    transform: translatey(-50%);
+}
+.form-group-login input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
 .box-login input[type=submit]{
     width: 100px;
     height: 30px;
@@ -92,6 +118,7 @@ i{
 .box-login input:focus{
     border-color: #1de;
 }
+
 .box-login input[type=submit]:hover{
     background-color: #009c87;
 }
@@ -416,6 +443,9 @@ header{
     width: 50%;
     /* text-align: center; */
     padding-left: 30px;
+}
+.col:nth-child(1){
+    width: auto;
 }
 /* ** */
 
