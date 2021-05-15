@@ -41,19 +41,23 @@
                 if($sql->rowCount() == 1){
                     $info = $sql->fetch();
                     // Logado com Sucesso!!!
-                    $_SESSION['login'] = true;
-                    $_SESSION['user'] = $user;
-                    $_SESSION['password'] = $password;
-                    $_SESSION['cargo'] = $info['cargo'];
-                    $_SESSION['nome'] = $info['nome'];
-                    $_SESSION['img'] = $info['img'];
-                    if(isset($_POST['lembrar'])){
-                        setcookie('lembrar', true, time()+(60*60*24), '/');
-                        setcookie('user',$user,time()+(60*60*24), '/');
-                        setcookie('password',$password,time()+(60*60*24), '/');
-                    }
-                    header('Location: '.INCLUDE_PATH_PANEL);
-                    die();
+                    if($password === $info['password']){
+                        $_SESSION['login'] = true;
+                        $_SESSION['user'] = $user;
+                        $_SESSION['password'] = $password;
+                        $_SESSION['cargo'] = $info['cargo'];
+                        $_SESSION['nome'] = $info['nome'];
+                        $_SESSION['img'] = $info['img'];
+                        if(isset($_POST['lembrar'])){
+                            setcookie('lembrar', true, time()+(60*60*24), '/');
+                            setcookie('user',$user,time()+(60*60*24), '/');
+                            setcookie('password',$password,time()+(60*60*24), '/');
+                        }
+                        header('Location: '.INCLUDE_PATH_PANEL);
+                        die();
+                    }else{
+                        echo '<div class="error-box">Usuário ou Senha Incorretos certo!</div>';
+                    }        
                 }else{
                     // Login e/ou senha incorretos
                     echo '<div class="error-box">Usuário ou Senha Incorretos!</div>';
