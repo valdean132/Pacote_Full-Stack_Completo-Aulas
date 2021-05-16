@@ -56,7 +56,7 @@
                         header('Location: '.INCLUDE_PATH_PANEL);
                         die();
                     }else{
-                        echo '<div class="error-box">Usuário ou Senha Incorretos certo!</div>';
+                        echo '<div class="error-box">Usuário ou Senha Incorretos!</div>';
                     }        
                 }else{
                     // Login e/ou senha incorretos
