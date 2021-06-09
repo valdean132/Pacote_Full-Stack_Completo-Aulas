@@ -46,6 +46,13 @@ i{
 .right-chevron{
     background-image: url('../../images/icons/right-chevron.svg');
 }
+.depoimento{
+    background-image: url('../../images/icons/depoimento.svg');
+}
+.delete{
+    background-image: url('../../images/icons/menuClose.svg');
+    /* transition:  opacity 1s; */
+}
 /* ** */
 
 /* Página De Login */
@@ -363,6 +370,45 @@ header{
     font-weight: normal;
     color: #777;
 }
+
+/* ** */
+
+/* Tabelas */
+
+table{
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+table tr:nth-of-type(1){
+    background-color: #0091ea;
+    color: white;
+    text-align: left;
+}
+table tr{
+    color: #555;
+    border-bottom: 1px solid #ccc;
+}
+table th{
+    padding: 8px;
+}
+table td{
+    padding: 10px 15px;
+}
+
+table a.btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 4px 6px;
+    font-weight: 400;
+    color: white;
+    font-size: 13px;
+}
+a.btn.edit{background-color: #f4b03e;}
+
+a.btn.delete{background-color: #e05c4e;}
+
 
 /* ** */
 

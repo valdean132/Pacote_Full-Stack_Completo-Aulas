@@ -116,6 +116,7 @@
             return $sql->fetchAll();
         }
 
+        // Inserindo depoimento no banco de dados
         public static function insert($arr){
             $certo = true;
             $nome_tabela = $arr['nome_tabela'];
@@ -145,6 +146,14 @@
 
 
             return $certo;
+        }
+
+        // Puxndo do banco de dados
+        public static function selectAll($tabela){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela`");
+            $sql->execute();
+
+            return $sql->fetchAll();
         }
     }
 ?>

@@ -74,4 +74,6 @@ $(function(){
         $('.atualização').val(Atual);
     }, 1000);
 
+   $('[formato="data"]').mask('99/99/9999');
+
 });

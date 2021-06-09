@@ -40,7 +40,7 @@
                 <a <?php selecionadoMenu('cadastrar-servicos'); ?> href="">Cadastrar Serviços</a>
                 <a <?php selecionadoMenu('cadastrar-slider'); ?> href="">Cadastrar Slides</a>
                 <h2>Gestão</h2>
-                <a <?php selecionadoMenu('lista-depoimentos'); ?> href="">Lista Depoimentos</a>
+                <a <?php selecionadoMenu('lista-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>lista-depoimentos">Lista Depoimentos</a>
                 <a <?php selecionadoMenu('lista-servico'); ?> href="">Lista Serviço</a>
                 <a <?php selecionadoMenu('lista-slides'); ?> href="">Listar Slides</a>
                 <h2>Administração do Painel</h2>
@@ -76,6 +76,7 @@
     </div><!-- Content -->
 
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/jquery.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH_PANEL; ?>js/main.js"></script>
 </body>
 </html>

@@ -27,6 +27,10 @@
             <textarea name="depoimento"></textarea>
         </div><!-- Form-Group-Nome -->
 
+        <div class="form-group">
+            <label for="">Data:</label>
+            <input formato="data" type="text" name="data" autocomplete="off">
+        </div><!-- Form-Group-Nome -->
 
         <div class="form-group">
             <input type="hidden" name="nome_tabela" value="tb_site.depoimentos">
