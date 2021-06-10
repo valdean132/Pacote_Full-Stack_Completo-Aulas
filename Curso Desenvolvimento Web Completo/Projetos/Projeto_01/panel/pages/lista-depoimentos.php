@@ -1,5 +1,11 @@
 <?php
 
+    if(isset($_GET['excluir'])){
+        $idExcluir = (int)$_GET['excluir'];
+        Panel::deletar('tb_site.depoimentos', $idExcluir);
+        Panel::redirect(INCLUDE_PATH_PANEL.'lista-depoimentos');
+    }
+
     $paginaAtual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
     $porPagina = 5;
 
@@ -23,7 +29,7 @@
                     <td><?php echo $value['nome'] ?></td>
                     <td><?php echo $value['data'] ?></td>
                     <td><a class="btn edit" href="">Editar</a></td>
-                    <td><a class="btn delete" href="">Deletar</a></td>
+                    <td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH_PANEL; ?>lista-depoimentos?excluir=<?php echo $value['id']?>">Deletar</a></td>
                 </tr>
             <?php }?>
 
