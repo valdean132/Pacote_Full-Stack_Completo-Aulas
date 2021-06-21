@@ -28,7 +28,7 @@
                 <tr>
                     <td><?php echo $value['nome'] ?></td>
                     <td><?php echo $value['data'] ?></td>
-                    <td><a class="btn edit" href="">Editar</a></td>
+                    <td><a class="btn edit" href="<?php echo INCLUDE_PATH_PANEL?>editar-depoimento?id=<?php echo $value['id']; ?>">Editar</a></td>
                     <td><a actionBtn="delete" class="btn delete" href="<?php echo INCLUDE_PATH_PANEL; ?>lista-depoimentos?excluir=<?php echo $value['id']?>">Deletar</a></td>
                 </tr>
             <?php }?>

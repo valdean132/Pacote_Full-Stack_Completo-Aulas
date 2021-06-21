@@ -175,5 +175,52 @@
             echo '<script>location.href="'.$url.'"</script>';
             die();
         }
+
+        // Metodo especifico para selecionar apenas um registro
+        public static function select($table, $query, $arr){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$table` WHERE $query");
+
+            $sql->execute($arr);
+            return $sql->fetch();
+        }
+
+        // Inserindo depoimento no banco de dados
+        public static function update($arr){
+            $certo = true;
+            $first = false;
+            $nome_tabela = $arr['nome_tabela'];
+            $query = "UPDATE `$nome_tabela` SET ";
+
+            foreach($arr as $key => $value){
+                $nome = $key;
+                $valor = $value;
+
+                if($nome == 'acao' || $nome == 'nome_tabela' || $nome == 'id')
+                    continue;
+
+                    // echo $value;
+                if($value == ''){
+                    // $certo = false;
+                    break;
+                }
+                if($first == false){
+                    $first = true;
+                    $query.="$nome=?";
+
+                }else{
+                    $query.=",$nome=?";
+                }
+                $parametros[] = $value;
+                
+            }
+
+            if($certo == true){
+                $parametros[] = $arr['id'];
+                // echo $arr['id'];
+                $sql = MySql::conectar()->prepare($query.' WHERE id=?');
+                $sql->execute($parametros);
+            }
+        }
+
     }
 ?>
