@@ -1,0 +1,27 @@
+// Calculo de Idade
+
+Iniciar Algoritimo
+
+	DECLARAR VARIÁVEIS ano_nascemento - 2000, ano_atual - pegar ano,  idade_atual = ANO_ATUAL - ANO_NASCIMENTO
+	
+	
+	MOSTRAR NA TELA: Minha idade é: (idade_atual)
+
+Finalizar Algoritimo
+
+------------------------------------------------------------------------
+
+// Calculo de Idade
+
+Iniciar Algoritimo
+
+	DECLARAR VARIÁVEIS  ano_nascemento, ano_atual - pegarAno
+	
+	
+	RECEBER VARIÁVEL ano_nascimento	
+	
+	DECLARAR VARIÁVEL idade_atual = (ano_atual - ano_nascimento)	
+
+	MOSTRAR NA TELA: Minha idade é: (idade_atual)
+
+Finalizar Algoritimo
