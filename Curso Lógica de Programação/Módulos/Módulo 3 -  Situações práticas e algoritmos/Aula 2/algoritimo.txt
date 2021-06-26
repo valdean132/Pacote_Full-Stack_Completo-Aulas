@@ -1,0 +1,11 @@
+Iniciar Algoritimo
+
+	declarar variaveis = horario_filme, horario_atual
+
+	SE horario_atuali >= filme
+		-- Podemos Entrar
+	FIM SE
+	CASO CONTRARIO
+		-- Vamos Esperar
+
+Finalizar Algoritimo
