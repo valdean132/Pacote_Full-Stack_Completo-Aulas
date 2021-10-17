@@ -1,27 +1,25 @@
 package projeto.pkg02.main;
 
-import projeto.pkg02.utilidades.Utils;
 
-
-public class Main extends Utils{
+public class Main implements Testes{
     
-    public Main(double peso, String nome){
-        super(peso, nome);
-        new Teste();
+    public static void main(String args[]){
+        
     }
-    
-    
-    public static void main(String[] args){
-//        Utils main = new Main(60.0, "Valdean");;;
-//        main.printHelloWord();
-//        System.out.println("Nome introduzido no Protected: " + main.nome2);
 
-        new Mian2();
+    @Override
+    public void metodo() {
+        
     }
-    
-}
-class Teste{
-    public void print(){
-        System.out.println("Ok!");
+
+    @Override
+    public void metodo2() {
+        
+    }
+
+    @Override
+    public int metodo3() {
+        return 0;
+        
     }
 }
