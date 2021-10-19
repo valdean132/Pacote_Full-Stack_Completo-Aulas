@@ -30,11 +30,12 @@ public class Main {
                 System.out.println("Agora sim!");
             }else{
                 System.out.println("Ops!!! Você falhou duas vezes");
-                System.out.println("O proigrama está sendo encerrado...");
+                System.out.println("O programa está sendo encerrado...");
             }
         }
     }
     
+    // Conversor de tempo;
     public static double convertTime(double tempo){
         return tempo/1000;
     }
