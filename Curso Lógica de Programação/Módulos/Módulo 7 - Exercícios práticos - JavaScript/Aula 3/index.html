@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filho {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        .filho-do-filho{
+            width: 0;
+            background: purple;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pai">
+        <div class="filho">
+            <div class="filho-do-filho animar"></div>
+        </div>
+        <div class="filho">
+
+        </div>
+        <div class="filho">
+            <div class="filho-do-filho"></div>
+        </div>
+        <div class="filho">
+            <div class="filho-do-filho animar"></div>
+        </div>
+        <div class="filho">
+
+        </div>
+        <div class="filho">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // 1° Verificar se existe elemento Filho
+        // 2° Existe a classe x no elemento filho
+        // 3° Se sim, aplicar largura animada no elemento
+        $(function () {
+            $('.pai .filho').each(function(){
+                var obj = $(this).find('.filho-do-filho');
+                if(obj.length > 0){
+                    if(obj.hasClass('animar')){
+                        // Chegamos no final da logica
+                        obj.animate(
+                            {width: '100px'},
+                            3000,
+                            function(){
+                                console.log('Terminamos nossa Lógica :)');
+                            }
+                        );
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
