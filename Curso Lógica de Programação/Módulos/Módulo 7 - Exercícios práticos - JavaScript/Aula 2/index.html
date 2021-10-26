@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filho{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pai">
+        <div class="filho"></div>
+        <div class="filho"></div>
+        <div class="filho"></div>
+        <div class="filho"></div>
+        <div class="filho"></div>
+        <div class="filho"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Aplicar cor vermelha apenas nos elementos que possui número impar!
+        $(function(){
+            let index = 0;
+            $('.pai .filho').each(function(){
+                if(index%2 == 1){
+                    $(this).css("background", "red");
+                }
+                index++;
+            });
+        });
+    </script>
+</body>
+</html>
