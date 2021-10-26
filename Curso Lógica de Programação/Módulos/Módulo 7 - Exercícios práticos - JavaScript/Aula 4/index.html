@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            width: 100%;
+            height: 50px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+
+            verificaTamanhoEAplicaCor();
+        
+            function verificaTamanhoEAplicaCor(){
+                var tamanhoTela = $(window).width();
+                console.log(tamanhoTela);
+                
+                if(tamanhoTela < 580){
+                    $('.header').css('background', 'blue');
+                }else if(tamanhoTela < 768){
+                    $('.header').css('background', 'red');
+                }else if(tamanhoTela < 1024){
+                    $('.header').css('background', 'green');
+                }else{
+                    $('.header').css('background', 'white');
+                }
+            }
+
+            /*setInterval(()=>{
+                verificaTamanhoEAplicaCor();
+            }, 1000);
+            */
+            $(window).resize(()=>{
+                verificaTamanhoEAplicaCor();
+                
+            })
+        });
+    </script>
+</body>
+
+</html>
