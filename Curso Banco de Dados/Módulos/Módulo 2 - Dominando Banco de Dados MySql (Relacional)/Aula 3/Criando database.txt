@@ -1,0 +1,19 @@
+/* Crie sua primeira database através da linha de comando */
+
+//
+
+Para criar um banco de dados atravgez de linha de comando é só utilizar o comando:
+	-> CREATE DATABASE nome_do_banco_de_dados;
+/* Preceba que eu digitei maiúsculo o comando, pois isso não importa, pode ser maiúsculo ou minusculo.
+/* Em relação ao nome, não pode haver espaços entre eles, por isso utilizei '_' para fazer referencia ao espaço;
+
+//
+
+//
+
+Para selecionar a database especifica para poder trabalhamos com ele é só usar o comando:
+	-> USE nome_do_banco_de_dados
+/* Lembre-se de colocar sempre o ';', nesse caso não é necessários, mas para evitar erros, sempre coloque-o.
+/* Quando você ver "MariaDB[nome_do_banco_de_dados]>" siguinifica que a seleção foi efetuada com sucesso e você já pode criar tabelas e fazer o que precisa... em outras palavras, você já pode trabalhar no banco de dados selecionado.
+
+//
