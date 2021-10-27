@@ -1,0 +1,18 @@
+/* Primairas linhas de comando */
+
+// 
+
+Entrando no banco de dados pelo cmd
+/* Navegar até a pasta Xampp/mysql/bin
+/* Entrando no banco de dados com login pelo seguinte comando -> * mysql -u root *
+/* Se ouver senha digite o comando -> * mysql -u root -p *, após isso digite a senha...
+/* Vale lembrar que o 'root' é o nome do usuário padrão, se foi alterado então precisa colocar o que foi colocado quando foi alterado.
+
+//
+
+//
+
+Visualizando as tabelas existentes
+
+/* Para visualizar as tabelas existentes basta digitar os seguintes comandos -> * show databases; *
+/* Vale lembrar de não esquecer o ';', caso contrario o comando não funciona.
