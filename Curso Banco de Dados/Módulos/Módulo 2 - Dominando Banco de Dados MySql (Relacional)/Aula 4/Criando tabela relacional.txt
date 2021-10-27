@@ -1,0 +1,95 @@
+/* Selecionando database e criando tabelas relacionais */
+
+//
+
+Criando Tabelas...
+/* Para crias a tabela é só execultar o seguinte comando:
+	-> CREATE TABLE `nome_da_tabela`;
+/* Vale lembrar que temos que usar as aspas viradas pro lado (``) para que não haja conflito de nome.
+/* Com isso criamos a tabela, mas existe uma forma parecida para criar uma tabela que no caso é uma tabela RELACIONAL.
+/* Para criar uma tabela relacional precisamos também escrever o que terá na tabela... O comando pode ser interpretado assim:
+	-> CREATE TABLE `nome_da_tabela` ( `id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(255) NOT NULL , `conteudo` TEXT NOT NULL , `data` DATE NOT NULL , PRIMARY KEY (`id`) ENGINE = InnoDB;
+/* Explicando:
+	- INT -> Váriavel para números inteiros;
+	- NOT NULL -> Expessifica que o campo não pode ser vazio, o NULL diz que pode ser vazio;
+	- AUTO_INCREMENT -> Diz que o campo será incrementado altomaticamente conforme for inserido, muito utilizado no ID que é o primeiro campo;
+	- VARCHAR -> Serve para caracteres como NOME, pode colocar nele no máximo 255 caracteres;
+	- TEXT -> É uma váriavel utilizado para inseriri textos grantes, diferente do VARCHAR ele não leva um limite a não ser que o desemvolvedor queira;
+	- DATE -> Utilizado para datas ele é especifico para isso;
+	- PRIMARY KEY -> Esse comando é bastante utilizado no ID e serve com chave primaria, ou seja, uma chave unica que vai em cada campo criado e é a primira a ser gerada, geralmente eu a chamo assim 'PRIMARY KEY (`id`)' ou após eu informar o campo `id`, assim: -> `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY.
+	- ENGINE = InnoDB -> É apenas uma conversão, no melhor dos caso use.
+
+/* Vale lembrar que existe mais comandos e pode ser adcionados quantos campos precisar é só seguir a lógica do segundo CREATE TABLE mostrado aqui.
+
+//
+
+//
+
+Visualizando tabelas...
+/* Depois de criada as tabelas é só executar o comando:
+	-> SHOW TABLES;
+/* Com Isso ele irá mostrar todas as tabelas existentes no bando de dados.
+
+Exemplo:
+	MariaDB [curso_banco_de_dados]> SHOW TABLES;
+	+--------------------------------+
+	| Tables_in_curso_banco_de_dados |
+	+--------------------------------+
+	| posts                          |
+	+--------------------------------+
+
+//
+
+//
+
+Para exercicíos criei uma outra tabela e agora a visualização ficou assim:
+	MariaDB [curso_banco_de_dados]> SHOW TABLES;
+	+--------------------------------+
+	| Tables_in_curso_banco_de_dados |
+	+--------------------------------+
+	| autores                        |
+	| posts                          |
+	+--------------------------------+
+	2 rows in set (0.001 sec)
+
+//
+
+//
+
+Mostrando o que tem na tabela...
+
+/* Para visualizar os campos da tabela é só usar o comando:
+	-> SELECT * FROM `nome_da_tabela`;
+/* o '*' quer dizer que vai selecionar todos campos da tabela e mostra para gente.
+/* Caso eu queira ver um campo especifico é só usar o mesmo comando e no lugar do '*' colocamos o nome do campo, exemplo
+	-> SELECT `nome` FROM `nome_da_tabela`;
+/* Para visualizar mais de dois campos é só fazer a mesma coisa só que colocando uma virgula, ficando assim:
+	-> SELECT `id`, `nome` FROM `nome_da_tabela`;
+
+/* Se a tabela estiver vazia ele mostra isso:
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `autores`;
+	Empty set (0.514 sec)
+//
+
+//
+
+Visualizando estrutura da Tabela...
+/* Para visualizar a estrutura da Tabela, basta usar o comando:
+	-> SHOW COLUMNS FROM `nome_da_tabela`;
+/* Com esse comando visualizamos a estrutura da tabela criada.
+/* Exemplo:
+	MariaDB [curso_banco_de_dados]> SHOW COLUMNS FROM `posts`;
+	+----------+--------------+------+-----+---------+----------------+
+	| Field    | Type         | Null | Key | Default | Extra          |
+	+----------+--------------+------+-----+---------+----------------+
+	| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+	| nome     | varchar(255) | NO   |     | NULL    |                |
+	| conteudo | text         | NO   |     | NULL    |                |
+	| data     | date         | NO   |     | NULL    |                |
+	| autor_id | int(11)      | NO   |     | NULL    |                |
+	+----------+--------------+------+-----+---------+----------------+
+	5 rows in set (0.190 sec)
+
+/* Como vemos essa é a estrutura da tabela que criamos...
+
+//
