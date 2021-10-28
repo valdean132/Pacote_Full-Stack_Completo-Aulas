@@ -1,0 +1,86 @@
+/* Querys básicas #1 */
+
+//
+
+Inserindo dados nas tabelas
+
+/* Para inseriri dados na tabela, basta verificar os campos que ela possui para ver que tipo de dados irá inserir. Feito isso, utilizamos o comando:
+	-> INSERT INTO `nome_da_tabela`;
+/* Depois de digitado isso o comando acima eu tenho duas opções para prosseguir:
+	Op1: Colocar os 'VALUES' (valores) direto
+		-> INSERT INTO `nome_da_tabela` VALUES ('VALOR DO CAMPO 1', 'ASSIM POR DIANTE');
+	Vale Lembrar que se eu fizer isso, eu tenho que inserir valores para todo o campo, ou seja, se a tabela tiver 10 campos, eu devo inserir valores para todos eles. Um outra observação é que o primeiro campo, tendo como nome 'id', eu posso colocar 'NULL' já que ele se auto incrementa...
+	Exemplo:
+	MariaDB [curso_banco_de_dados]> INSERT INTO `posts` VALUES (NULL, 'Meu primeiro Poste', 'Conteúdo do primeiro poste', '2021-10-28', 0);
+	Query OK, 1 row affected, 1 warning (0.392 sec)
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+--------------------+----------------------------+------------+----------+
+	| id | nome               | conteudo                   | data       | autor_id |
+	+----+--------------------+----------------------------+------------+----------+
+	|  1 | Meu primeiro Poste | Conteúdo do primeiro poste | 2021-10-28 |        0 |
+	+----+--------------------+----------------------------+------------+----------+
+	1 row in set (0.019 sec)
+	
+	Como Vemos foi concluido com sucesso...
+	Vale lembrar que o formato para datas é o seguinte 'YYYY-MM-DD'.	
+
+	Op2: Chamar os campos especificos na qual eu quero inserir os valores, será feito dessa forma:
+	-> INSERT INTO `nome_da_tabela` (`campo_1`, `campo_2`) VALUES ('VALOR DO CAMPO 1', 'ASSIM POR DIANTE');
+	Depois disso é só seguir os os outros exemplos, mas lá vai mais 2 exemplos.
+	Exemplo 1:
+	
+	MariaDB [curso_banco_de_dados]> INSERT INTO `autores` (`nome`) VALUES ('Lucas Silva');
+	Query OK, 1 row affected (0.173 sec)
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `autores`;
+	+----+---------------+
+	| id | nome          |
+	+----+---------------+
+	|  1 | Valdean Souza |
+	|  2 | Lucas Silva   |
+	+----+---------------+
+	2 rows in set (0.000 sec)
+	
+	Exemplo 2:
+	
+	MariaDB [curso_banco_de_dados]> INSERT INTO `posts` (`nome`, `data`, `conteudo`, `autor_id`) VALUES ('Meu terceito Post', '2021-10-28', 'Meu terceiro conteúdo', 1);
+	Query OK, 1 row affected (0.097 sec)
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+--------------------+----------------------------+------------+----------+
+	| id | nome               | conteudo                   | data       | autor_id |
+	+----+--------------------+----------------------------+------------+----------+
+	|  1 | Meu primeiro Poste | Conteúdo do primeiro poste | 0000-00-00 |        0 |
+	|  2 | Meu segundo Poste  | Conteúdo do segundo poste  | 2021-10-28 |        0 |
+	|  3 | Meu terceito Post  | Meu terceiro conteúdo      | 2021-10-28 |        1 |
+	+----+--------------------+----------------------------+------------+----------+
+	3 rows in set (0.001 sec)
+	
+	Perceba aqui no segundo exemplo que a ordem que eu chamo os campos não importa, mas a ordem que eu atribuo os valores importam, pois eles devem ser na mesma ordem que os campos são chamdos, caso os campos não sejam chamados então os valores atribuidos devem ser na mesma ordem em que se encontram na tabela... Preste pastante atenção para isso... Para não confudir muito, chame os campos conforme a ordem nas tabelas...
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
