@@ -1,0 +1,108 @@
+/* Querys básicas #2 */
+
+//
+
+Comando UPTADE...
+
+/* Agora vamos ver como altera, muda ou atualiza uma dado da tabela...
+/* Para fazermos isso utilizamos o comando UPDATE, dessa forma:
+	-> UPDATE `nome_da_tabela` SET `nome` = 'Novo valor do campo' WHERE `id` = 'valor do id que eu quero alterar'
+/* Explicação:
+	UPDATE: Esse é o comando que diz que a tabela vai ser atuzalizada;
+	SET: Aqui eu seto o nome do campo e logo após igualó ao novo valor que eu desejo alterar, como mostra no exemplo acima;
+	WHERE: Esse comando é muito importante, pois ele diz qual campo eu quero alterar, se ele não for chamado então dota tabela é alterada, para utilizar ele, como mostra acima, eu o chamo e digo um campo especifico que o indentifica como o ID e dou o valor do ID. Por exemplo, se eu quero atuzalizar o ID 1 então eu coloco assim: "WHERE `id` = 1".
+	Exemplo:
+	
+	MariaDB [curso_banco_de_dados]> UPDATE `autores` SET `nome` = 'Carlos Carvalho' WHERE `id` = 2;
+	Query OK, 1 row affected (0.377 sec)
+	Rows matched: 1  Changed: 1  Warnings: 0
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `autores`;
+	+----+-----------------+
+	| id | nome            |
+	+----+-----------------+
+	|  1 | Valdean Souza   |
+	|  2 | Carlos Carvalho |
+	+----+-----------------+
+	2 rows in set (0.000 sec)
+
+/* Como vimos no exemplo, só o campo com ID no valor 2 foi alterado.
+
+/* Vale lembrar que Caso eu queira atualizar mais de um campo eu chamo o chamo separados por virgulas, assim:
+	-> UPDATE `nome_da_tabela` SET `nome` = 'Novo valor do campo', `outro_campo` = 'Outro valor auterado' WHERE `id` = 'valor do id que eu quero alterar';
+
+/* Exemplos:
+	MariaDB [curso_banco_de_dados]> UPDATE `posts` SET `nome` = 'Primeiro conteudo', `data` = '2021-10-28' WHERE `id` = 1;
+	Query OK, 1 row affected (0.192 sec)
+	Rows matched: 1  Changed: 1  Warnings: 0
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+-------------------+----------------------------+------------+----------+
+	| id | nome              | conteudo                   | data       | autor_id |
+	+----+-------------------+----------------------------+------------+----------+
+	|  1 | Primeiro conteudo | Conteúdo do primeiro poste | 2021-10-28 |        0 |
+	|  2 | Meu segundo Poste | Conteúdo do segundo poste  | 2021-10-28 |        0 |
+	|  3 | Meu terceito Post | Meu terceiro conteúdo      | 2021-10-28 |        1 |
+	+----+-------------------+----------------------------+------------+----------+
+	3 rows in set (0.000 sec)
+
+/* Caso eu queira deixar um campo mais especifico eu também posso utilizar o AND (um e outro, tem que bater as duas condições) ou OR (um ou outro, tem que bater pelo menos uma das condições).
+
+/* Exmplo com o AND:
+	MariaDB [curso_banco_de_dados]> UPDATE `posts` SET `nome` = 'Primeiro conteudo', `autor_id` = 1 WHERE `id` = 1 AND `data` = '2021-10-28';
+	Query OK, 1 row affected (0.124 sec)
+	Rows matched: 1  Changed: 1  Warnings: 0
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+-------------------+----------------------------+------------+----------+
+	| id | nome              | conteudo                   | data       | autor_id |
+	+----+-------------------+----------------------------+------------+----------+
+	|  1 | Primeiro conteudo | Conteúdo do primeiro poste | 2021-10-28 |        1 |
+	|  2 | Meu segundo Poste | Conteúdo do segundo poste  | 2021-10-28 |        0 |
+	|  3 | Meu terceito Post | Meu terceiro conteúdo      | 2021-10-28 |        1 |
+	+----+-------------------+----------------------------+------------+----------+
+	3 rows in set (0.000 sec)
+Como as duas condições bateram então ele atuzalizou, como vimos no exemplo acima.
+
+/* Exemplos com o OR:
+	MariaDB [curso_banco_de_dados]> UPDATE `posts` SET `nome` = 'Segundo conteudo', `autor_id` = 2 WHERE `id` = 2 OR `data` = '2021-10-28';
+	Query OK, 3 rows affected (0.102 sec)
+	Rows matched: 3  Changed: 3  Warnings: 0
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+------------------+----------------------------+------------+----------+
+	| id | nome             | conteudo                   | data       | autor_id |
+	+----+------------------+----------------------------+------------+----------+
+	|  1 | Segundo conteudo | Conteúdo do primeiro poste | 2021-10-28 |        2 |
+	|  2 | Segundo conteudo | Conteúdo do segundo poste  | 2021-10-28 |        2 |
+	|  3 | Segundo conteudo | Meu terceiro conteúdo      | 2021-10-28 |        2 |
+	+----+------------------+----------------------------+------------+----------+
+	3 rows in set (0.000 sec)
+Como podemos ver toda a tabela foi afetada, pois o elemento OR ele foi primeiro no campo data e viu que todos são iguais e que a condição bateu, então ele aterou toda a tabela, nesses casos tem que tomar cuidado para que não haja um erro com banco de dados maiores. Na dúvida não o use, use apenas se for extremamente necessário.
+	
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
