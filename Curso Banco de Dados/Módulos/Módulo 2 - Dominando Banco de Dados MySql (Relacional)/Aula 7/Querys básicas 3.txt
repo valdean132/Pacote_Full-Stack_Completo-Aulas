@@ -1,0 +1,127 @@
+/* Querys básicas #3 */
+
+//
+
+Comando DELETE...
+
+/* Para deletar basta usar o comando:
+	-> DELETE FROM `nome_da_tabela`;
+/* Uma observação, quando eu dou esse comando, assim como no UPDATE, se eu não especificar o campo então toda a tabela é esvaziada, para isso não ocorrer basta usar o WHERE novamente aqui, ficando assim:
+	-> DELETE FROM `nome_da_tabela` WHERE `campo_especifico` = 'Valor do campo';
+/* Essa é a forma correta de usar o DELETE, a não ser que queira deletar realmente tudo.
+/* Um Exemplo:
+	Tabela antes de deletar o campo:
+	
+	MariaDB [curso_banco_de_dados]> select * from `autores`;
+	+----+-----------------+
+	| id | nome            |
+	+----+-----------------+
+	|  1 | Valdean Souza   |
+	|  2 | Carlos Carvalho |
+	+----+-----------------+
+	2 rows in set (0.001 sec)
+	
+	Tabela após o campo ser deletado:
+	
+	MariaDB [curso_banco_de_dados]> DELETE FROM `autores` WHERE `id` = 2;
+	Query OK, 1 row affected (0.164 sec)
+
+	MariaDB [curso_banco_de_dados]> select * from `autores`;
+	+----+---------------+
+	| id | nome          |
+	+----+---------------+
+	|  1 | Valdean Souza |
+	+----+---------------+
+	1 row in set (0.000 sec)
+
+/* No exemplo assima podemos perceber que apenas o campo da tabela com o ID = 2 foi deletada
+
+/* Vamos ver um exemplo de quando não usamos o 'WHERE':
+	
+	Tabela antes de execultar o comando:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+------------------+----------------------------+------------+----------+
+	| id | nome             | conteudo                   | data       | autor_id |
+	+----+------------------+----------------------------+------------+----------+
+	|  1 | Segundo conteudo | Conteúdo do primeiro poste | 2021-10-28 |        2 |
+	|  2 | Segundo conteudo | Conteúdo do segundo poste  | 2021-10-28 |        2 |
+	|  3 | Segundo conteudo | Meu terceiro conteúdo      | 2021-10-28 |        2 |
+	+----+------------------+----------------------------+------------+----------+
+	3 rows in set (0.001 sec)
+
+	Tabela após execultar o comando:
+	
+	MariaDB [curso_banco_de_dados]> DELETE FROM `posts`;
+	Query OK, 3 rows affected (0.061 sec)
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	Empty set (0.000 sec)
+/* Como vemos toda a tebela foi apagada pois ele retornou o valor "Empty set (0.000 sec)", isso significa que não tem nada dentro dela.
+
+/* Vale lembrar que as chaves primarias, no caso os "ID's", eles não resetam, ou seja, parte do ponto de onte pararam a incrementação.
+	Exemplo:
+	
+	MariaDB [curso_banco_de_dados]> INSERT INTO `posts` VALUES (NULL, 'Nome do primeiro conteúdo', 'Primeiro conteúdo após o DELETE', '2021-10-28', 1);
+	Query OK, 1 row affected (0.131 sec)
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	1 row in set (0.000 sec)
+
+/* Como podemos ver no exemplo acima, a chave primaria (ID) começou de onde parou, pulando assim para o próximo número, no caso, 4 e irá seguir assim por diante.
+
+//
+
+//
+
+Mostrando apenas os campos especificos do banco de dados...
+
+/* Para selecionar um campo especifico no banco de dados, basta eu especificar o nome dele, fazendo assim:
+	-> SELECT `nome_do_campo` FROM `nome_da_tabela`;
+/* Como vemos assim eu mostro apenas o campo especifico, caso eu queir amais de um campo, é só usar a virgula pra separar, assim:	
+	-> SELECT `nome_do_campo`, `outro_campo` FROM `nome_da_tabela`;
+/* E caso queira selecionar tudo é só utilizar o '*', assim como já foi mostrado:
+	-> SELECT * FROM `nome_da_tabela`;
+
+/* Vamos ao Exemplo:
+	Exp 1:
+	
+	MariaDB [curso_banco_de_dados]> SELECT `nome` FROM `posts`;
+	+---------------------------+
+	| nome                      |
+	+---------------------------+
+	| Nome do primeiro conteúdo |
+	+---------------------------+
+	1 row in set (0.001 sec)
+	
+	Como vimos selecionou apenas o campo de qu especifiquei;
+	
+	Exp 2:
+	
+	MariaDB [curso_banco_de_dados]> SELECT `nome`, `data` FROM `posts`;
+	+---------------------------+------------+
+	| nome                      | data       |
+	+---------------------------+------------+
+	| Nome do primeiro conteúdo | 2021-10-28 |
+	+---------------------------+------------+
+	1 row in set (0.000 sec)
+
+	Agora mostrou os dois campos que eu mostrei, caso queira mais campos é só chamar outro campo separado por virgula;
+	
+	Exp 3:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM `posts`;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	1 row in set (0.000 sec)
+
+	Nesse caso mostra tudo como já vimos antes.
+//
