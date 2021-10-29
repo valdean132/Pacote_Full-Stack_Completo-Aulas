@@ -1,0 +1,66 @@
+/* Comandos extras group by */
+
+//
+
+Vendo sobre LIMIT's no banco de dados...
+
+/* Ainda spbre seleção, muitas das vezes eu quero limitar o que vem do banco de dados, para isso eu utilizo o comando LIMIT...
+/* Ele é bastante utilizando, por exemplo, quando eu tenho um sistema de paginação e para não pegar tudo eu limito o que vem do banco de dados.
+/* Ele é executado da seguinte forma:
+	-> SELECT * FROM `nomde_da_tabela` LIMIT 5;
+/* Como no exemplo acima vemos que é bem fácil de se utilizar, vale lembrar que o '5' mostrado como exemplo é o limite de 5 registros, ou seja, ele só vai me retornar 5 registros da tabela.
+/* Eu posso utilizar ele também com outras querys.
+	Exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts ORDER BY data LIMIT 5;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	5 rows in set (0.000 sec)
+/* Vale lembrar que se for usar com outras querys, o LIMIT vem sempre por último.
+
+/* Mas não paramos por ai porque alem de podermos limitar, podemos dizer apartir da onde eu quero limitar, isso é muito utilizado em paginações onde temos varias páginas...
+/* Vamos mostrar a tebela de exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        2 |
+	| 10 | Nome do setimo poste      | Setimo conteúdo                 | 2021-10-29 |        2 |
+	| 11 | Nome do oitavo poste      | Oitavo conteúdo                 | 2021-10-29 |        2 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	8 rows in set (0.012 sec)
+
+/* Na tabela mostrado acima eu tenho 8 geristros, mas digamos que eu quero mostrar tudo, mas apartir do terceiro geristro, pra isso fazemos assim:
+	-> SELECT * FROM `nome_da_tabela` LIMIT 2, 3;
+/* Explicação: Como vemos, após o LIMIT, o primeiro parametro é apartir de que linha, vale lembrar que essa contagem é feita aprtir do 0, ou seja, digamos que eu coloque o para começar aprtir da linha 3, então eu tenho que colocar 3 - 1, no caso 2, pois sua contagem começa apartir do 0. O segundo parametro é o número de linhas que ele vai retornar, por exemplo, se eu coloco 5 então ele retorna 5 linhas.
+/* Vale lembrar que se eu colocar só apenas um parametro como no primeiro exemplo mostrado, então ele irá retornar apenas a quantidade de linhas digitadas no parametro, podemos ver isso no primeiro exemplo.
+/* Exemplo dos dois parametros:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts ORDER BY data LIMIT 2, 3;
+	+----+------------------------+-------------------+------------+----------+
+	| id | nome                   | conteudo          | data       | autor_id |
+	+----+------------------------+-------------------+------------+----------+
+	|  6 | Nome do terceiro poste | Terceiro conteúdo | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste   | Quarto conteúdo   | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste   | Quintp conteúdo   | 2021-10-29 |        1 |
+	+----+------------------------+-------------------+------------+----------+
+	3 rows in set (0.027 sec)
+	
+/* Então o LIMIT é básicamente isso, muito usado em paginação ou quando queremos ter um controle maior do que é chamado.
+
+// 
+
+
