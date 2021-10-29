@@ -1,0 +1,67 @@
+/* Comandos extras: order */
+
+//
+
+Ordenando informações na hora de puxar do banco de dados...
+
+/* Como já sabemos, para selecinar os elementos do banco de dados eu posso selecionar tudo usando o '*' ou eu posso especificar os campos na qual eu quero chamar, isso é bem util na aplicação, pois assim eu não chamo a tabela toda, mas sim um campo ou campos especificos.
+/* Eu posso usar também na hora de selecionar o comando WHERE, assim eu chamo um campo especifico ou que atenda a aquela condição. Por exemplo:
+	Selecionando toda tabela sem o WHERE:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	
+	Selecionando com o WHERE:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE data = '2021-10-29';
+	+----+-----------------------+------------------+------------+----------+
+	| id | nome                  | conteudo         | data       | autor_id |
+	+----+-----------------------+------------------+------------+----------+
+	|  5 | Nome do Segundo Poste | Segundo conteúdo | 2021-10-29 |        0 |
+	+----+-----------------------+------------------+------------+----------+
+	1 row in set (0.093 sec)
+
+/* Como podemos ver no exemplo acima, eu peguei apenas os dados na tabela que tenha a tal data e ele me retorna apenas as linhas que tem essa data.
+
+/* Mas além do WHERE o bancop de dados pode me dá uam ordem, ou seja eu posso ordenar a tabela, isso é muito útel na hora de deixar os nomes, por exemplo, em ordem alfabetica e virse versa.
+/* Por padrão a tebala vem de forma crescente conforme a chave primaria ou conforme a ordem na qual forem inseridas na tabela...
+/* Para fazer isso usamos o comando ORDER BY, ficando assim:
+	-> SELECT * FROM `nome_da_tabela` ORDER BY `nome_da_coluna_a_se_basear`;
+/* Por padrão, como já falei, o padrão e crescente na qual seu comando é 'ASC', para utilizar o decrescente é só usar no final o comando 'DESC', dessa forma:
+	-> SELECT * FROM `nome_da_tabela` ORDER BY `nome_da_coluna_a_se_basear` DESC;
+
+/* Exemplo de ambos:
+	Utilizando ASC:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts ORDER BY `id` ASC;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	2 rows in set (0.078 sec)
+	
+	Como podemos ver ele me retornou na ordem normal que sempre retorna, nesse caso eu nem preciso usar o comando ASC;
+	
+	Utilizando DESC;
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts ORDER BY `id` DESC;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	2 rows in set (0.001 sec)
+
+	Agora sim vemos que ele retornou de forma decrescente.
+
+/* Vale lembrar que pra ordernar eu posso utilizar como referencia qualquer nome da tabela, por exemplo, pra ordenar por ordem alfabetica eu utilizo a o campo onde está guardado os nomes, para ordenar por data eu utilizo o campo onde estão as datas e assim por diante.
+
+//
