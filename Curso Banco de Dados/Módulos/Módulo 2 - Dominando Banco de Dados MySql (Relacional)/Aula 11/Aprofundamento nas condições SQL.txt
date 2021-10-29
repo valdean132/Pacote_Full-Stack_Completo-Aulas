@@ -71,7 +71,7 @@ Depois é só execultar...
 	7 rows in set (0.010 sec)
 
 /* Ai vemos que ele retornou todos os campos cuja coluna `nome` tem a palavra "poste"... E é assim que fazemos pesquisas no banco de dados.
-/* a porcentagem que colocamos ('%poste%'), é tudo que pode vim antes e ou depois da condição entre elas
+/* a porcentagem que colocamos ('%poste%'), é tudo que pode vim antes e ou depois da condição entre elas.
 	
 // 
 
