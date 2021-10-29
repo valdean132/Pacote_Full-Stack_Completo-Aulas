@@ -4,6 +4,74 @@
 
 Agrupando com base em uma coluna...
 
+/* Um exemplo bem classico para demostrar é, quando eu tenho varios postes na qual o autor_id é 0, mas digamos que eu quero agrupar meus postes e não ficar puxando tudo que tem no autor_id 0, mas eu quero puxar apenas um, para ilustrar melhor...
+/* Imagine um sistema de mensagens onde pegamos apenas a última mensagem que foi enviada para o usuário, para isso utilizamos o comando GROUP BY...
+/* Para demostrar melhor temos essa tabela:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        2 |
+	| 10 | Nome do setimo poste      | Setimo conteúdo                 | 2021-10-29 |        2 |
+	| 11 | Nome do oitavo poste      | Oitavo conteúdo                 | 2021-10-29 |        2 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	8 rows in set (0.000 sec)
+
+/* Vemos a tabela selecionada agora, mas digamos que eu quero agora agrupar, para fazer isso usamos esse comando:	
+	-> SELECT * FROM `posts` GROUP BY `nome_da_coluna_de_referencia`;
+/* Um exemplo prático:
+
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts GROUP BY `autor_id`;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        2 |
+	+----+---------------------------+---------------------------------+------------+----------+
+
+/* Agora nesse caso, vimos que ele retornou apenas um de cada autor_id, isso porque ele tira tudo que temd e repetido de autor e retorna um unico apenas de cada, ou seja, estamos agrupando.
+
+/* Sendo assim, esse comando é bastante útel quando queremos pegar a primeira notícia apenas do primeiro autor sem precisar selecionar o resto, ou no caso as primeiras notícias de diversos altores, como mostra no exemplo assim, mas as outras notícias não quero que pegue, pra esse caso o group by serve para isso e para varias outras ocasiões.
+
+/* Em um sistema de troca de mensagem funciona muito bem também.
+/* Eu posso unir o GROUP BY com outras querys caso eu queira, por exemplo:
+	Com o ORDER BY:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts GROUP BY `autor_id` ORDER BY id desc;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        2 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	3 rows in set (0.081 sec)
+
+	Vale lembrar que o ORDER BY vem sempre por último;
+
+	Com o WHERE:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE data = '2021-10-29' GROUP BY `autor_id`;
+	+----+------------------------+-------------------+------------+----------+
+	| id | nome                   | conteudo          | data       | autor_id |
+	+----+------------------------+-------------------+------------+----------+
+	|  5 | Nome do Segundo Poste  | Segundo conteúdo  | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste | Terceiro conteúdo | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste    | Sexto conteúdo    | 2021-10-29 |        2 |
+	+----+------------------------+-------------------+------------+----------+
+	3 rows in set (0.070 sec)	
+
+/* Eu posso juntar com quantos quiser, conforme a necessidade.
+
+/* Então o GRPUP BY é útil quando queremos agrupar um conjunbto de informações que estamos puxando do banco de dados.
+
+// 
 
 
-//
