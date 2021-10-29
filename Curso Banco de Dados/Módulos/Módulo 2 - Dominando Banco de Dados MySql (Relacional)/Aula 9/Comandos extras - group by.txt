@@ -1,0 +1,9 @@
+/* Comandos extras group by */
+
+//
+
+Agrupando com base em uma coluna...
+
+
+
+//
