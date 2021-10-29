@@ -1,0 +1,78 @@
+/* [EXTRA] Aprofundamento nas condições SQL */
+
+//
+
+Agora vamos ver um pouco nas condições...
+
+/* Na hora de selecionar com uma condição, eu posso utilizar o AND para deixar a condição mais especifica assim como já foi mostrado, veremos nesse exemplo agora:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE autor_id = 2 AND id > 6;
+	+----+----------------------+-----------------+------------+----------+
+	| id | nome                 | conteudo        | data       | autor_id |
+	+----+----------------------+-----------------+------------+----------+
+	|  9 | Nome do sexto poste  | Sexto conteúdo  | 2021-10-29 |        2 |
+	| 10 | Nome do setimo poste | Setimo conteúdo | 2021-10-29 |        2 |
+	| 11 | Nome do oitavo poste | Oitavo conteúdo | 2021-10-29 |        2 |
+	+----+----------------------+-----------------+------------+----------+
+	3 rows in set (0.272 sec)
+	
+/* Nesse exemplo assim, ele me retornou apenas os que tem autor_id = 2 e também os id's maiores de 6...
+/* Mas não existe apenas o AND, existem tabém outras que vamos ver agora...
+
+/* Assim como na programação, nós também podemos utilizar o 'OR' (ou), ele muita das vezes nas linguagens é representado dessa forma -> '||', mas no caso do MySql utilizamos a forma escrita dele (OR). Ele serve para, caso a primeira condição não bata, então tente a segunda, ao contradio do 'AND' que ambas as condições tem que ser satisfeita, nessa condição, pelo menos uma tem que ser satisfeita.
+	Exemplo do seu uso:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE autor_id = 2 or id >= 1;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        2 |
+	| 10 | Nome do setimo poste      | Setimo conteúdo                 | 2021-10-29 |        2 |
+	| 11 | Nome do oitavo poste      | Oitavo conteúdo                 | 2021-10-29 |        2 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	8 rows in set (0.096 sec)
+
+/* Como vemos, ele retornou tudo, pois a condição bateu para as duas...
+
+/* Para ficar mais complexo eu posso juntar as duas, veremos no exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE (autor_id = 2 OR autor_id = 0) AND (nome = 'Nome do sexto poste');
+	+----+---------------------+----------------+------------+----------+
+	| id | nome                | conteudo       | data       | autor_id |
+	+----+---------------------+----------------+------------+----------+
+	|  9 | Nome do sexto poste | Sexto conteúdo | 2021-10-29 |        2 |
+	+----+---------------------+----------------+------------+----------+
+	1 row in set (0.055 sec)
+
+/* Como vemos, nesse exemplo usamos parenteses para separar, e pelo visto ele retornou o que eu pedi seguindo a lógica. Na primeira condição eu pedi que se uma das contições fosse valida então ele me joga, mas a segunda condição tem que ser valida, ou seja, caso a segunda condição não fosse valida então não retornaria nada.
+
+/* Agora digamos que queriramos fazer uma pesquisa, parar isso usamos o 'LIKE', ou seja, seja parecido, depois usamos o '%%' e entre as porcentagens eu coloco a condição, ficando assim:
+	-> SELECT * FROM `nome_da_tabela` WHERE `nome_da_coluna_a_ser_comparado` LIKE '%condição%';
+Depois é só execultar...
+/* Vamos ver um exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts WHERE `nome` LIKE '%poste%';
+	+----+------------------------+-------------------+------------+----------+
+	| id | nome                   | conteudo          | data       | autor_id |
+	+----+------------------------+-------------------+------------+----------+
+	|  5 | Nome do Segundo Poste  | Segundo conteúdo  | 2021-10-29 |        0 |
+	|  6 | Nome do terceiro poste | Terceiro conteúdo | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste   | Quarto conteúdo   | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste   | Quintp conteúdo   | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste    | Sexto conteúdo    | 2021-10-29 |        2 |
+	| 10 | Nome do setimo poste   | Setimo conteúdo   | 2021-10-29 |        2 |
+	| 11 | Nome do oitavo poste   | Oitavo conteúdo   | 2021-10-29 |        2 |
+	+----+------------------------+-------------------+------------+----------+
+	7 rows in set (0.010 sec)
+
+/* Ai vemos que ele retornou todos os campos cuja coluna `nome` tem a palavra "poste"... E é assim que fazemos pesquisas no banco de dados.
+/* a porcentagem que colocamos ('%poste%'), é tudo que pode vim antes e ou depois da condição entre elas
+	
+// 
+
+
