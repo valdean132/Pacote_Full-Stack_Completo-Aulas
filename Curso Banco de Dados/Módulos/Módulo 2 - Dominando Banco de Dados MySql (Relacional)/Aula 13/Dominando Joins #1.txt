@@ -1,0 +1,104 @@
+/* Dominando Joins #1 */
+
+//
+
+Selecionando Tabelas e relacionando
+
+/* Para Relacionar duas tabelas usamos o INNER JOIN, isso faz um relacionamento das tabelas conforme as condições.
+/* Essa pratica é muito usada em Banco de dados relacionais, ou seja, em eutras palavras vamos relacionar uma tabela com a outra.
+/* Para fazer isso usamos o seguinte comando:
+	-> SELECT * FROM `nome_da_primeira_tabela_a_relacionar` INNER JOIN `nome_da_segunda_tabela_a_relacionar` ON `nome_da_primeira_tabela_a_relacionar`.`nome_do_campo_a_relacionar` = `nome_da_segunda_tabela_a_relacionar`.`nome_do_campo_a_relacionar`;
+
+/* Nesse caso o 'ON' ai seguinifica quando, ou seja, ele só vai retornar se o campo de uma tabela for igual a outra, vamos ver um exemplo prático:
+
+/* Selecinando as duas tabelas:
+	Tabela posts:
+	
+	MariaDB [curso_banco_de_dados]> select * from posts;
+	+----+---------------------------+---------------------------------+------------+----------+
+	| id | nome                      | conteudo                        | data       | autor_id |
+	+----+---------------------------+---------------------------------+------------+----------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        1 |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        3 |
+	| 10 | Nome do setimo poste      | Setimo conteúdo                 | 2021-10-29 |        3 |
+	| 11 | Nome do oitavo poste      | Oitavo conteúdo                 | 2021-10-29 |        3 |
+	| 12 | Outro nome                | Mais um                         | 2021-10-30 |        0 |
+	+----+---------------------------+---------------------------------+------------+----------+
+	9 rows in set (0.015 sec)
+
+	Tabela Autores:
+	
+	MariaDB [curso_banco_de_dados]> select * from autores;
+	+----+---------------+
+	| id | nome          |
+	+----+---------------+
+	|  1 | Valdean Souza |
+	|  3 | Felipe Sena   |
+	+----+---------------+
+	2 rows in set (0.001 sec)
+
+/* Agora preste atenção nos campos 'autor_id' da tabela posts e campo id da tabela autores...
+
+/* Agora vamos mostrar o exemplo do INNER JOIN:
+	
+	MariaDB [curso_banco_de_dados]> select * from posts INNER JOIN autores ON posts.autor_id = autores.id;
+	+----+---------------------------+---------------------------------+------------+----------+----+---------------+
+	| id | nome                      | conteudo                        | data       | autor_id | id | nome          |
+	+----+---------------------------+---------------------------------+------------+----------+----+---------------+
+	|  4 | Nome do primeiro conteúdo | Primeiro conteúdo após o DELETE | 2021-10-28 |        1 |  1 | Valdean Souza |
+	|  5 | Nome do Segundo Poste     | Segundo conteúdo                | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  6 | Nome do terceiro poste    | Terceiro conteúdo               | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  7 | Nome do quarto poste      | Quarto conteúdo                 | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  8 | Nome do quinto poste      | Quintp conteúdo                 | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  9 | Nome do sexto poste       | Sexto conteúdo                  | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	| 10 | Nome do setimo poste      | Setimo conteúdo                 | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	| 11 | Nome do oitavo poste      | Oitavo conteúdo                 | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	+----+---------------------------+---------------------------------+------------+----------+----+---------------+
+	8 rows in set (0.091 sec)
+
+/* Agora vemos que outro juntou as duas tabelas, mas trouxe apenas os na qual o autor_id e o id da tabela autores sejam iguais...
+/* E é assim que ele funciona.
+/* Eu posso usar outras querys também como o WHERE por exempo, mas isso é após os comandos do INNR JOIN.
+/* Antes de mostrar o exemplo, vale lembrar que para se referenciar a um campo de uma tabela e outro é dessa forma "`nome_da_tabela`.`nome_do_campo`", assim eu posso me ver de qual tabela eu estou pegando o campo, vamos fazer um exemplo agora:
+	
+	MariaDB [curso_banco_de_dados]> select * from posts INNER JOIN autores ON posts.autor_id = autores.id WHERE posts.data = '2021-10-29';
+	+----+------------------------+-------------------+------------+----------+----+---------------+
+	| id | nome                   | conteudo          | data       | autor_id | id | nome          |
+	+----+------------------------+-------------------+------------+----------+----+---------------+
+	|  5 | Nome do Segundo Poste  | Segundo conteúdo  | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  6 | Nome do terceiro poste | Terceiro conteúdo | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  7 | Nome do quarto poste   | Quarto conteúdo   | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  8 | Nome do quinto poste   | Quintp conteúdo   | 2021-10-29 |        1 |  1 | Valdean Souza |
+	|  9 | Nome do sexto poste    | Sexto conteúdo    | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	| 10 | Nome do setimo poste   | Setimo conteúdo   | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	| 11 | Nome do oitavo poste   | Oitavo conteúdo   | 2021-10-29 |        3 |  3 | Felipe Sena   |
+	+----+------------------------+-------------------+------------+----------+----+---------------+
+	7 rows in set (0.083 sec)
+
+/* Viu como é simples, e sem muita complicação...
+
+/* Para pegar campos expecificos fazemos da mesma forma na hora de chamar os campos, exemplo:
+
+	MariaDB [curso_banco_de_dados]> select posts.*, autores.nome from posts INNER JOIN autores ON posts.autor_id = autores.id WHERE posts.data = '2021-10-29';
+	+----+------------------------+-------------------+------------+----------+---------------+
+	| id | nome                   | conteudo          | data       | autor_id | nome          |
+	+----+------------------------+-------------------+------------+----------+---------------+
+	|  5 | Nome do Segundo Poste  | Segundo conteúdo  | 2021-10-29 |        1 | Valdean Souza |
+	|  6 | Nome do terceiro poste | Terceiro conteúdo | 2021-10-29 |        1 | Valdean Souza |
+	|  7 | Nome do quarto poste   | Quarto conteúdo   | 2021-10-29 |        1 | Valdean Souza |
+	|  8 | Nome do quinto poste   | Quintp conteúdo   | 2021-10-29 |        1 | Valdean Souza |
+	|  9 | Nome do sexto poste    | Sexto conteúdo    | 2021-10-29 |        3 | Felipe Sena   |
+	| 10 | Nome do setimo poste   | Setimo conteúdo   | 2021-10-29 |        3 | Felipe Sena   |
+	| 11 | Nome do oitavo poste   | Oitavo conteúdo   | 2021-10-29 |        3 | Felipe Sena   |
+	+----+------------------------+-------------------+------------+----------+---------------+
+	7 rows in set (0.052 sec)
+
+/* Como vemos eu peguei tudo de uma tabela (posts.*) e apenas o nome de outra (autores.nome), mas ele só retornou os que o autor_id seja igual ao id de autores e quando a data de posts é igual a '2021-10-29'.
+
+// 
+
+
