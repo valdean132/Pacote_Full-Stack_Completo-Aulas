@@ -1,0 +1,49 @@
+/* Dominando Joins #2 */
+
+//
+
+Vendo como funciona o LEFT JOIN
+
+/* O LEFT JOIN funciona da mesma forma que o INNER JOIN e com a mesma sintaxe, sendo que o que muda é o INNER para LEFT, ficando dessa forma:
+	-> SELECT * FROM `nome_da_primeira_tabela_a_relacionar` INNER JOIN `nome_da_segunda_tabela_a_relacionar` ON `nome_da_primeira_tabela_a_relacionar`.`nome_do_campo_a_relacionar` = `nome_da_segunda_tabela_a_relacionar`.`nome_do_campo_a_relacionar`;
+
+/* A diferença entre é que, no INNER JOIN ele retorna apenas se acondição bater, já no LEFT JOIN ele retorna tudo, mas se não bater a condição ele coloca como nulo a tabela que foi relacionada, vamos ver na prática um exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts LEFT JOIN autores ON posts.autor_id = autores.id;
+	+----+------------------------+-------------------+----------+------+---------------+
+	| id | titulo                 | conteudo          | autor_id | id   | nome_autor    |
+	+----+------------------------+-------------------+----------+------+---------------+
+	|  5 | Nome do Segundo Poste  | Segundo conteúdo  |        1 |    1 | Valdean Souza |
+	|  6 | Nome do terceiro poste | Terceiro conteúdo |        1 |    1 | Valdean Souza |
+	|  7 | Nome do quarto poste   | Quarto conteúdo   |        1 |    1 | Valdean Souza |
+	|  8 | Nome do quinto poste   | Quintp conteúdo   |        1 |    1 | Valdean Souza |
+	|  9 | Nome do sexto poste    | Sexto conteúdo    |        3 |    3 | Felipe Sena   |
+	| 10 | Nome do setimo poste   | Setimo conteúdo   |        3 |    3 | Felipe Sena   |
+	| 11 | Nome do oitavo poste   | Oitavo conteúdo   |        3 |    3 | Felipe Sena   |
+	| 12 | Outro nome             | Mais um           |        0 | NULL | NULL          |
+	+----+------------------------+-------------------+----------+------+---------------+
+	8 rows in set (0.176 sec)
+
+/* Como vemos no exemplo, o último campo da tabela autores estão nulos, pois como já falei, não existe um id de autores que seja igual ao autor_id de posts, então ele me retorna o que tem em posts e como não tem nada para relacionar as tabelas no autores então ele coloca como nulo.
+
+/* Uma obserjação é quei se eu trocar as ordens, ou em outras palavras, se eu pegar a tabela altores e relacionar com posts então o LEFT JOIN funcionará da mesma forma que o INNER JOIN sem nenhuma diferença, vamos ver um exemplo:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM autores LEFT JOIN posts ON autores.id = posts.autor_id;
+	+----+---------------+------+------------------------+-------------------+----------+
+	| id | nome_autor    | id   | titulo                 | conteudo          | autor_id |
+	+----+---------------+------+------------------------+-------------------+----------+
+	|  1 | Valdean Souza |    5 | Nome do Segundo Poste  | Segundo conteúdo  |        1 |
+	|  1 | Valdean Souza |    6 | Nome do terceiro poste | Terceiro conteúdo |        1 |
+	|  1 | Valdean Souza |    7 | Nome do quarto poste   | Quarto conteúdo   |        1 |
+	|  1 | Valdean Souza |    8 | Nome do quinto poste   | Quintp conteúdo   |        1 |
+	|  3 | Felipe Sena   |    9 | Nome do sexto poste    | Sexto conteúdo    |        3 |
+	|  3 | Felipe Sena   |   10 | Nome do setimo poste   | Setimo conteúdo   |        3 |
+	|  3 | Felipe Sena   |   11 | Nome do oitavo poste   | Oitavo conteúdo   |        3 |
+	+----+---------------+------+------------------------+-------------------+----------+
+	7 rows in set (0.047 sec)
+
+/* Viu que ele só retornou os que são iguais...
+	
+// 
+
+
