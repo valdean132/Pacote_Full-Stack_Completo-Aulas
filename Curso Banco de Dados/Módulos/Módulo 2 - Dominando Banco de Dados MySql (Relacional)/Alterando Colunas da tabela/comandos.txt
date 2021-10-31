@@ -1,5 +1,6 @@
-//
+/* ALTER e DROP TABLE – Alterar e Excluir Tabelas e Colunas */
 
+//
 
 Alterar e Excluir Tabelas e Colunas no SQL Server
 /* Vamos aprender agora a alterar e excluir tabelas e colunas com SQL no Microsoft SQL Server.
