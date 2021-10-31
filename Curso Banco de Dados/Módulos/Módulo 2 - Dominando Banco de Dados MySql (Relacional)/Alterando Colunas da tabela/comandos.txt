@@ -39,6 +39,10 @@ Alterar e Excluir Tabelas e Colunas no SQL Server
 		ALTER TABLE nome_tabela 
 		DROP CONSTRAINT nome_constraint;
 
+	-> Renomear nome da coluna;
+		ALTER TABLE nome_da_tabela
+		CHANGE nome_atual novo_nome [Tipo de Dados];
+
 /* Exemplos
 	1 – Excluir a coluna ID_Autor da tabela tbl_livros:
 		ALTER TABLE tbl_livros 
@@ -62,7 +66,12 @@ Alterar e Excluir Tabelas e Colunas no SQL Server
 
 	5 – Adicionando a constraint PRIMARY KEY á coluna ID_Cliente (já existente) da tabela Clientes:
 		ALTER TABLE Clientes
-	ADD CONSTRAINT pk_id_cliente PRIMARY KEY (ID_Cliente);
+		ADD CONSTRAINT pk_id_cliente 
+		PRIMARY KEY (ID_Cliente);
+	
+	6 - Alterar nome da coluna Tipo_Prod;
+		ALTER TABLE tbl_livros
+		CHANGE Tipo_Prod Categ_Prod VARCHAR(30);
 
 /* Comando DROP TABLE
 /* Usamos o comando DROP TABLE para excluir uma tabela do banco de dados, incluindo todos os seus dados.
@@ -72,8 +81,5 @@ Alterar e Excluir Tabelas e Colunas no SQL Server
 
 	-> Exemplo:
 		DROP TABLE Clientes;
-
-Exercício para Fixação
-Tente fazer o seguinte exercício sozinho. A resolução sugerida está na sequência:
 
 //
