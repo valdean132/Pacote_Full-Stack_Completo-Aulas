@@ -1,0 +1,78 @@
+//
+
+
+Alterar e Excluir Tabelas e Colunas no SQL Server
+/* Vamos aprender agora a alterar e excluir tabelas e colunas com SQL no Microsoft SQL Server.
+/* Para isso usaremos dois comandos: ALTER TABLE e DROP TABLE.
+
+  -> Comando ALTER TABLE
+/* É possível alterar a estrutura de uma tabela após ter sido criada, acrescentando ou excluindo atributos (campos). A sintaxe básica para essa operação é como segue:
+
+	ALTER TABLE tabela
+ 	ação coluna;
+
+/* Vejamos a sintaxe básica para cada ação com ALTER TABLE:
+
+	-> Adicionar uma coluna à tabela:
+		ALTER TABLE nome_tabela 
+		ADD nome_coluna tipo_dados;
+
+	-> Excluir uma coluna de uma tabela:
+		ALTER TABLE nome_tabela 
+		DROP COLUMN nome_coluna;
+
+	-> Alterar o tipo de dados de uma coluna:
+		ALTER TABLE nome_tabela 
+		MODIFY COLUMN nome_coluna tipo_dados;
+
+	-> Adicionar uma constraint do tipo NOT NULL a uma coluna:
+		ALTER TABLE nome_tabela 
+		MODIFY nome_coluna tipo_dados NOT NULL;
+
+	-> Alterar uma tabela para adicionar uma constraint de chave primária a uma coluna:
+		ALTER TABLE nome_tabela 
+		ADD CONSTRAINT nome_constraint 
+		PRIMARY KEY (coluna1, coluna2, ...); 
+	
+	-> Excluir uma constraint de uma tabela:
+		ALTER TABLE nome_tabela 
+		DROP CONSTRAINT nome_constraint;
+
+/* Exemplos
+	1 – Excluir a coluna ID_Autor da tabela tbl_livros:
+		ALTER TABLE tbl_livros 
+		DROP COLUMN ID_Autor;
+
+	2 – Adicionar a coluna ID_Autor à tabela tbl_livros e configurá-la como chave estrangeira da coluna ID_Autor da tabela tbl_autores:
+		ALTER TABLE tbl_livros 
+		ADD ID_Autor SMALLINT NOT NULL 
+		CONSTRAINT fk_ID_Autor FOREIGN KEY (ID_Autor) 
+		REFERENCES tbl_autores (ID_autor);
+	
+	3 – Adicionar a coluna ID_editora à tabela tbl_livros e configurá-la como chave estrangeira da coluna ID_editora da tabela tbl_editoras:
+		ALTER TABLE tbl_livros 
+		ADD ID_editora SMALLINT NOT NULL 
+		CONSTRAINT fk_id_editora FOREIGN KEY (ID_editora) 
+		REFERENCES tbl_editoras (ID_editora) ON DELETE CASCADE;
+
+	4 – Alterando o tipo de dados da coluna ID_Autor para SMALLINT:
+		ALTER TABLE tbl_livros
+		ALTER COLUMN ID_Autor SMALLINT;
+
+	5 – Adicionando a constraint PRIMARY KEY á coluna ID_Cliente (já existente) da tabela Clientes:
+		ALTER TABLE Clientes
+	ADD CONSTRAINT pk_id_cliente PRIMARY KEY (ID_Cliente);
+
+/* Comando DROP TABLE
+/* Usamos o comando DROP TABLE para excluir uma tabela do banco de dados, incluindo todos os seus dados.
+
+	-> Sintaxe:
+		DROP TABLE nome_tabela;
+
+	-> Exemplo:
+		DROP TABLE Clientes;
+
+Exercício para Fixação
+Tente fazer o seguinte exercício sozinho. A resolução sugerida está na sequência:
+
+//
