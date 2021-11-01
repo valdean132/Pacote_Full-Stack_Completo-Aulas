@@ -1,0 +1,28 @@
+/* Dominando Joins #3 */
+
+//
+
+Vendo como funciona o RIGHT JOIN
+
+/* Não tenho muito o que falar aqui, mas o RIGHT JOIN funciona da mesma forma que o LEFT JOIN, com a diferença que ele retorna toda tabela que está sendo relacionada e se não tiver na tabela de relação ele retorna nulo, vamos ver um exemplo prático:
+	
+	MariaDB [curso_banco_de_dados]> SELECT * FROM posts RIGHT JOIN autores  ON posts.autor_id = autores.id;
+	+------+------------------------+-------------------+----------+----+---------------+
+	| id   | titulo                 | conteudo          | autor_id | id | nome_autor    |
+	+------+------------------------+-------------------+----------+----+---------------+
+	|    5 | Nome do Segundo Poste  | Segundo conteúdo  |        1 |  1 | Valdean Souza |
+	|    6 | Nome do terceiro poste | Terceiro conteúdo |        1 |  1 | Valdean Souza |
+	|    7 | Nome do quarto poste   | Quarto conteúdo   |        1 |  1 | Valdean Souza |
+	|    8 | Nome do quinto poste   | Quintp contseúdo   |        1 |  1 | Valdean Souza |
+	|    9 | Nome do sexto poste    | Sexto conteúdo    |        3 |  3 | Felipe Sena   |
+	|   10 | Nome do setimo poste   | Setimo conteúdo   |        3 |  3 | Felipe Sena   |
+	|   11 | Nome do oitavo poste   | Oitavo conteúdo   |        3 |  3 | Felipe Sena   |
+	| NULL | NULL                   | NULL              |     NULL |  4 | outro autor   |
+	+------+------------------------+-------------------+----------+----+---------------+
+	8 rows in set (0.156 sec)
+
+/* Como no exemplo mostrado acima ele faz isso, em outras palavras, no LEFT se não tiver a a direita ele retorna nulo e no RIGHT se não tiver a esquerda ele retorna nulo.
+	
+// 
+
+
