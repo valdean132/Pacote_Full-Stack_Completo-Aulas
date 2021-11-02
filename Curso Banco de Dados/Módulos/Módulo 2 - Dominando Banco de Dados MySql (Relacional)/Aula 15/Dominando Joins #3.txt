@@ -13,7 +13,7 @@ Vendo como funciona o RIGHT JOIN
 	|    5 | Nome do Segundo Poste  | Segundo conteúdo  |        1 |  1 | Valdean Souza |
 	|    6 | Nome do terceiro poste | Terceiro conteúdo |        1 |  1 | Valdean Souza |
 	|    7 | Nome do quarto poste   | Quarto conteúdo   |        1 |  1 | Valdean Souza |
-	|    8 | Nome do quinto poste   | Quintp contseúdo   |        1 |  1 | Valdean Souza |
+	|    8 | Nome do quinto poste   | Quintp contseúdo  |        1 |  1 | Valdean Souza |
 	|    9 | Nome do sexto poste    | Sexto conteúdo    |        3 |  3 | Felipe Sena   |
 	|   10 | Nome do setimo poste   | Setimo conteúdo   |        3 |  3 | Felipe Sena   |
 	|   11 | Nome do oitavo poste   | Oitavo conteúdo   |        3 |  3 | Felipe Sena   |
