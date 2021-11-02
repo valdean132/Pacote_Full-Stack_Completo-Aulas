@@ -1,0 +1,45 @@
+/* Atualizando documentos e aprendendo mais sobre buscas - MongoDB */ 
+
+//
+	
+Atualizando documentos...
+
+/* Agora vamos supor que eu queira atualizar um campo, mas antes vamos mostrar o que temos na nossa tabela de exemplos:
+	
+	> db.Posts.find();
+		{ "_id" : ObjectId("618152ab670b0bd2d33f9155"), "nome" : "Valdean", "conteudo" : "Minha noticia de exemplo" }
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+
+/* Como podemos ver temos isso  que foi mostrado no exemplo. 
+/* Agora digamos que eu queira atualizar o primeiro campo, pra isso eu rodo o segui9nte comando:
+	-> db.nome_da_tabela.updateOne({campo: 'valor do campo'}, {$set: {nome: 'novo valor'}});
+/* Perceba que aqui temos dois parametros, o primeiro é chamar o que vai ser alterado e o segundo e é o novo valor. Vamos ver em umexemplo prático.
+	
+	> db.Posts.updateOne({nome: 'Valdean'}, {$set: {nome: 'Valdean Souza'}});
+		{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+	> db.Posts.find();
+		{ "_id" : ObjectId("618152ab670b0bd2d33f9155"), "nome" : "Valdean Souza", "conteudo" : "Minha noticia de exemplo" }
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+
+/* Como podemos ver o nome foi alterado com sucesso.
+
+//
+
+//
+
+Aprendendo mais sobre buscas...
+
+/* Como já sabemos, podemos criar varios documentos que não tem nada haver um com o outro, mas caso eu queira retornar tudo eu apenas uso o "find()" dessa forma mesmo, mas digamos que eu queira por exemplo, retornar o documento que tenha um compo comentario, nesse caso eu faço assim:
+	
+	> db.Posts.find({"comentarios": {$ne:null}});
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+	
+/* Como vemos no exemplo dentro das chaves, como segundo parametro é passado outra chave e nela vai o seguinte comando "$ne:null", ou seja, ele vai retornar todos os documentos que tenham um campo "comentarios", por exemplo.
+/* Para ser mais especifico veremos um outro exemplo:
+	
+	> db.Posts.find({"comentarios": [2, 3, 4, 6]});
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+
+/* Agora como podemos ver eu coloquei o valor do campo "comentarios", ou seja, ele vai retornar todo documento que tenha um campo comentario e com o mesmo valor especifico que eu coloquei. Isso serve também para outras coisas.
+
+//
