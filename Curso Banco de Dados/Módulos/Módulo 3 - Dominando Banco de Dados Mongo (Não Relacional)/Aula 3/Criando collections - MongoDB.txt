@@ -1,0 +1,24 @@
+/* Criando collections - MongoDB */ 
+
+//
+	
+Criando collections (tabelas)...
+
+/* Para criar uma tabela no banco dedados não relacional basta usar o comando:
+	-> db.createCollection('nome_da_tabela');
+/* Depois disso é só apertar Enter e a tabela será criada.
+/* Vale lembrar que podemos usar espaços e caracteres especiais.
+/* Um exemplo prático:
+	> db.createCollection('Minha primeira colação');
+		{ "ok" : 1 }
+	> show collections;
+		Colecao2
+		Minha primeira colação
+	> db.createCollection('Posts');
+		{ "ok" : 1 }
+	> show collections;
+		Colecao2
+		Minha primeira colação
+		Posts
+	
+//
