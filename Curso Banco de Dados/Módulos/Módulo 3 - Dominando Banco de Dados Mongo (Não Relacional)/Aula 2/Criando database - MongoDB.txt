@@ -1,0 +1,17 @@
+/* Criando database - MongoDB */ 
+
+//
+	
+Criando databases...
+
+/* Para criar um banco de dados basta usar o seguinte comando:
+	-> use nome_do_db;
+/* Caso o banco de dados com o nome inserido existe então ele entra nele com o mesmo comando, se não existir então ele cria e entra direto.
+/* Para verificar as tabelas existentes basta usar o seguinte comando:
+	-> show collections;
+/* com isso ele mostra todas as tabelas do banco de dados, se não tiver nenhum então ele não retorna nada.
+/* Para verificar todos os bancos de dados basta usar o comando:
+	-> show databases; 
+	
+	
+//
