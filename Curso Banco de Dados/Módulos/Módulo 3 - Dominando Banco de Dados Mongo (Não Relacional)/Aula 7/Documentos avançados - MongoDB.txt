@@ -1,0 +1,33 @@
+/* Documentos avançados - MongoDB */ 
+
+//
+
+Inserindo varios dados ao mesmo tempo...
+
+/* Com já vimos, os documentos podem ser adcionados sem seguir uma ordem para os campos, ou eu posso colcar uma quantidade de campos em um e outra quantidade em outros, posso até mesmo colocar com os nomes dos  campos diferente. Em outras palavras, não existe uma ordem como no banco de dados relacional.
+
+/* Eu posso inserir varios documentos de uma vez só, para isso eu utilizo o comando insertMany(), e dentro dele eu defino como um array, ficando assim:
+	-> db.nome_da_tabela.insertMany([{campo1: 'Valor', campo2: 'valor'}, {campo1: 'valor', campo2: 'valor'}, {outroCampo: 'Valor'}]);
+
+/* E assim vou seguindo, como vimos no último objeto eu fiz de forma diferente par5a inlustrar que eu posso colocar sim de forma diferente ou eu posso seguir o padrão que eu estou criando. 
+/* Vale lembrar que eu posso usar esse mesmo comando para inserir apenas um documento, mas não0 faz muito sentido usalo para inserir um documento sendo que já tenho o comando "insertOne()".
+/* Vamos ver um exemplo do "insertMany()":
+	
+	> db.Posts.insertMany([{noticia: 'Minha noticia', autores: ['Valdean', 'Lucas'], comentarios: [{nome: 'Felipe', comentario: 'Meu comentario de exemplo'}, {nome: 'João', comentario: 'Comentario do João'}]}, {nome_Autor: 'Valdean'}]);
+	{
+        	"acknowledged" : true,
+        	"insertedIds" : [
+        	        ObjectId("6181a34a670b0bd2d33f9159"),
+        	        ObjectId("6181a34a670b0bd2d33f915a")
+        	]
+	}
+	> db.Posts.find();
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+		{ "_id" : ObjectId("6181a1db670b0bd2d33f9158"), "nome" : "Valdean Souza" }
+		{ "_id" : ObjectId("6181a34a670b0bd2d33f9159"), "noticia" : "Minha noticia", "autores" : [ "Valdean", "Lucas" ], "comentarios" : [ { "nome" : "Felipe", "comentario" : "Meu comentario de exemplo" }, { "nome" : "João", "comentario" : "Comentario do João" } ] }
+		{ "_id" : ObjectId("6181a34a670b0bd2d33f915a"), "nome_Autor" : "Valdean" }
+
+/* Como vimos, eu inseri dois documentos, sendo que um é bastante complexo e você pode estudar mais afundo quando for fazer de fato uma aplicação.
+
+/* O melhor jeito de descobrir mais é olhando a documentação para verificar melhor como funciona as coisas.
+//
