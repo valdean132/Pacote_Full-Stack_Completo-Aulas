@@ -1,0 +1,28 @@
+/* Deletando documentos - MongoDB */ 
+
+//
+
+Deletando documentos...
+
+/* Para deletar  documentos eu posso fazer de varias formas, uma é deletando de um por vez e o outro e deletando varios.
+/* Para esse começo, vamos usar deletar um por vez. Para isso eu útilizo o comando:
+	-> db.nome_da_tabela.deleteOne({nome_do_campo: 'valor do campo'});
+/* como vimos, como parametro passamos algo especifico que tenha no documento que possibilite a exclusão dele. ou eu posso utilizar o comando passando como parametro também o "{$ne:null}", ele serve para pegar apenas o campo independente do seu conteúdo e fica assim:
+	-> db.nome_da_tabela.deleteOne({nome_do_campo: {$ne:null}});
+
+/* E vamos mostrar em um exemplo prático:
+	
+	> db.Posts.deleteOne({nome: {$ne:null}});
+		{ "acknowledged" : true, "deletedCount" : 1 }
+	> db.Posts.find();
+		{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+
+/* Como vimos, ele foi deletado.
+/* Eu posso deletar com base no id também. é só pegar o nome dele e o object, ficando dessa forma como mostra no exemplo abaixo:
+	
+	> db.Posts.deleteOne({_id: ObjectId("61818f20670b0bd2d33f9157")});
+		{ "acknowledged" : true, "deletedCount" : 1 }
+
+/* E como vemos, também foi deletado.
+
+//
