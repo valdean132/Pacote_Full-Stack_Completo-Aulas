@@ -1,0 +1,42 @@
+/* Criando documentos - MongoDB */ 
+
+//
+	
+Criando documentos...
+
+/* Documentos no DB não relacional é como se fosse registros em comparação ao DB relacional.
+/* Para criar os registros usamos o seguinte método:
+	-> db.nome_da_tabela().insertOne({nome:'assunto1', conteudo:'assunto2', });
+/* Vamos ver um exemplo:
+
+	> db.Posts.insertOne({nome: 'Valdean', conteudo: 'Minha noticia de exemplo'});
+	{
+        	"acknowledged" : true,
+        	"insertedId" : ObjectId("618152ab670b0bd2d33f9155")
+	}
+/* Como vemos no exemplo, após a inserção ele meretorna um objeto dizendo que foi inserdo, mas perceba que ele me retornou um 'insertedId', isso ´´e o ID que ele gera e esse id é um id único.
+
+/* Para ver os comcumentos dentro da coleção basta usar o seguinte comando:
+	-> db.nome_da_tabela.find();
+/* Entre os parenteses eu posso colocar parametros caso eu queira fazer alguma coisa e para retornar tudo eu deixo vazio mesmo.
+/* Vamos ver no exemplo aplicado:
+
+	> db.Posts.find();
+		{ "_id" : ObjectId("618152ab670b0bd2d33f9155"), "nome" : "Valdean", "conteudo" : "Minha noticia de exemplo" }
+	
+/* Como vemos no resultado ele me retornou tudo o que tem sem muita complicação.
+/* O mais legal disso é que eu não tenho que saber o nomedos campos pois eu posso colocar outro nome na ora de inseriri outro dado, posso também colocar arrays e valores núemricos, vamos ver isso no exemplo abaixo:
+	
+	> db.Posts.insertOne({comentarios: [2, 3, 4, 6]});
+	{
+        	"acknowledged" : true,
+        	"insertedId" : ObjectId("618154ee670b0bd2d33f9156")
+	}
+	> db.Posts.find();
+	{ "_id" : ObjectId("618152ab670b0bd2d33f9155"), "nome" : "Valdean", "conteudo" : "Minha noticia de exemplo" }
+	{ "_id" : ObjectId("618154ee670b0bd2d33f9156"), "comentarios" : [ 2, 3, 4, 6 ] }
+
+
+/* Como vemos ele nos retornou tudo e a inserção foi feita com sucesso.
+
+//
