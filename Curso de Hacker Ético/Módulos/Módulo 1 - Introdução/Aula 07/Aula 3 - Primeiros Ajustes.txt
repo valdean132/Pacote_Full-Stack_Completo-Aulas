@@ -1,0 +1,18 @@
+// Aula 3 - Primeiros Ajustes
+
+$ sudo su
+
+# passwd root
+
+# vim /etc/ssh/sshd_config
+
+# systemctl restart ssh
+
+# systemctl enable ssh
+
+# netstat -tpan | grep 22
+
+# apt-get update
+# apt-get dist-upgrade -y
+
+
