@@ -137,10 +137,10 @@
             <div class="form">
                 <h2>Entre em contato</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quis, laboriosam impedit qui illo rem animi neque similique modi sapiente? Autem aliquam ipsum quasi consequatur sunt accusamus debitis quis enim!</p>
-                <form action="">
-                    <input type="text" name="nome" placeholder="*Nome:">
-                    <input type="text" name="email" placeholder="*E-mail:">
-                    <textarea name="mensagem"  placeholder="*Deixe sua mensangem"></textarea>
+                <form action="form.php" method="post">
+                    <input required type="text" name="nome" placeholder="*Nome:">
+                    <input required type="text" name="email" placeholder="*E-mail:">
+                    <textarea required name="mensagem"  placeholder="*Deixe sua mensangem"></textarea>
                     <input type="submit" value="Enviar" name="acao">
                 </form><!-- Formulário -->
             </div><!-- Form -->
@@ -168,6 +168,15 @@
     type="text/javascript"></script>
     <script src="./js/jquery.js"></script>
     <script src="./js/jquery.ajaxform.js"></script>
+    <script>
+        $(function(){
+            $('form').ajaxForm({
+                success: function(){
+                    alert("Formulário enviado com sucesso!")
+                }
+            });
+        });
+    </script>
     <script src="./js/functions.js"></script>
     <script src="./js/menu_responsivo.js"></script>
     <script src="./js/menu_scroll.js"></script>
