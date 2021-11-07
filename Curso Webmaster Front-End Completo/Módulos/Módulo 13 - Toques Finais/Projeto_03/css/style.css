@@ -362,7 +362,8 @@ section.sessao4{
 .form form{
     margin-top: 15px;
 }
-.form form input[type=text]{
+.form form input[type=text],
+.form form input[type=email]{
     width: 90%;
     max-width: 480px;
     height: 48px;
@@ -404,6 +405,7 @@ section.sessao4{
     background-color: #ec5a25;
 }
 .form form input[type=text]:focus,
+.form form input[type=email]:focus,
 .form form input[type=submit]:focus,
 .form form textarea:focus{
     outline: none;

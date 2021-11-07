@@ -138,8 +138,10 @@
                 <h2>Entre em contato</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quis, laboriosam impedit qui illo rem animi neque similique modi sapiente? Autem aliquam ipsum quasi consequatur sunt accusamus debitis quis enim!</p>
                 <form action="form.php" method="post">
+                    <input type="hidden" name="nome do formulario" value="formulario 1">
                     <input required type="text" name="nome" placeholder="*Nome:">
-                    <input required type="text" name="email" placeholder="*E-mail:">
+                    <input required type="email" name="email" placeholder="*E-mail:">
+                    <input required type="text" name="telefone" placeholder="*Telefone:">
                     <textarea required name="mensagem"  placeholder="*Deixe sua mensangem"></textarea>
                     <input type="submit" value="Enviar" name="acao">
                 </form><!-- Formulário -->
@@ -170,11 +172,47 @@
     <script src="./js/jquery.ajaxform.js"></script>
     <script>
         $(function(){
-            $('form').ajaxForm({
-                success: function(){
-                    alert("Formulário enviado com sucesso!")
+
+            $('form').submit(function(){
+
+                if(formularioPreenchido()){
+                    var form = $('form');
+    
+                    $('form').ajaxSubmit({
+                        beforeSubmit:function(){
+                            form.find('input[type=submit]').attr('disabled', 'true');
+                            form.find('input[type=submit]').animate({'opacity': '0.4'});
+                            form.find('input[type=submit]').attr('value', 'Enviando...');
+                        },
+                        success: function(){
+                            alert("Formulário enviado com sucesso!");
+                            form.find('input[type=submit]').removeAttr('disabled');
+                            form.find('input[type=submit]').animate({'opacity': '1'});
+                            form.find('input[type=submit]').attr('value', 'Enviar');
+                            form[0].reset();
+                        }
+    
+                    });
+                }else{
+                    alert("Campos Vazios não são permitidos");
                 }
+
+                return false;
             });
+
+            function formularioPreenchido(){
+                var nome = $('[name=nome]').val();
+                var email = $('[name=email]').val();
+                var telefone = $('[name=telefone]').val();
+                var mensagem = $('[name=mensagem]').val();
+
+                if(nome === '' || email === '' || telefone === '' || mensagem === ''){
+                    return false
+                }else{
+                    return true
+                }
+            }
+            
         });
     </script>
     <script src="./js/functions.js"></script>
