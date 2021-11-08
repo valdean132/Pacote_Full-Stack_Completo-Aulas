@@ -131,19 +131,21 @@ $(function(){
 
     /* Clicar ir para a div de contato com base no atributo com base no goto */
 
-    var directory = '/Curso%20Webmaster%20Front-End%20Completo/Módulos/Módulo%2012%20-%20Dominando%20JQuery/Aula%20-%2026%20-%2027%20-%2028%20-%2029/projeto_05/';
+    // var directory = '/Pacote_Full-Stack_Completo-Aulas/Curso%20Webmaster%20Front-End%20Completo/Módulos/Módulo%2013%20-%20Toques%20Finais/Projeto_05/';
+    var directory = '/Projeto_05/';
 
     $('[goto=contato]').click(()=>{
-        location.href=directory+'index.html?contato';
+        location.href=directory+'?contato';
+        
         return false;
-
     });
-
+    
     checkUrl();
 
     function checkUrl(){
         var url = location.href.split('/');
         var curPage = url[url.length-1].split('?');
+        console.log(curPage);
 
         if(curPage[1] != 'underfined' && curPage[1] == 'contato'){
             $('header nav.menu-desktop ul a').css('color', 'black');
@@ -164,7 +166,7 @@ $(function(){
         $(this).find('ul').slideToggle();
     });
 
-    /* Sistea de navegação nos depoimentos da in dex.html */
+    /* Sistea de navegação nos depoimentos da index.html */
 
     var amtDepoimento = $(".depoimento-single p").length;
     var curDep = 0;
