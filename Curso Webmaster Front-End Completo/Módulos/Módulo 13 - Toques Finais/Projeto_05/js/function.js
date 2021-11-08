@@ -131,8 +131,8 @@ $(function(){
 
     /* Clicar ir para a div de contato com base no atributo com base no goto */
 
-    // var directory = '/Pacote_Full-Stack_Completo-Aulas/Curso%20Webmaster%20Front-End%20Completo/Módulos/Módulo%2013%20-%20Toques%20Finais/Projeto_05/';
-    var directory = '/Projeto_05/';
+    var directory = '/Pacote_Full-Stack_Completo-Aulas/Curso%20Webmaster%20Front-End%20Completo/Módulos/Módulo%2013%20-%20Toques%20Finais/Projeto_05/';
+    // var directory = '/Projeto_05/';
 
     $('[goto=contato]').click(()=>{
         location.href=directory+'?contato';
@@ -145,11 +145,10 @@ $(function(){
     function checkUrl(){
         var url = location.href.split('/');
         var curPage = url[url.length-1].split('?');
-        console.log(curPage);
 
         if(curPage[1] != 'underfined' && curPage[1] == 'contato'){
-            $('header nav.menu-desktop ul a').css('color', 'black');
-            $('footer nav.menu-desktop ul a').css('color', 'white');
+            // $('header nav.menu-desktop ul a').css('color', 'black');
+            // $('footer nav.menu-desktop ul a').css('color', 'white');
             $('[goto=contato]').css('color', '#eb2d2d');
 
             $('nav.menu-mobile ul li.select').css('background-color', 'white');
@@ -157,6 +156,10 @@ $(function(){
             $('[goto2=contato]').css('background-color', '#eb2d2d');
     
             $('html, body').animate({'scrollTop':$('#contato').offset().top});
+        }else{
+            $('a[href='+curPage[0]+']').css('color', '#eb2d2d');
+            $('[goto2='+curPage[0]+']').css('background-color', '#eb2d2d');
+            $('[goto2='+curPage[0]+'] a').css('color', '');
         }
     }
 
