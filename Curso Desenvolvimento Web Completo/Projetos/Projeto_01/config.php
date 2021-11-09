@@ -9,9 +9,9 @@
     
     $autoload = function($class){
         if($class == 'Email'){
-            include('classes/phpmailer/src/PHPMailer.php');
+            include('classes/PHPMailer/PHPMailerAutoload.php');
         }
-        include('classes/'.$class.'.php');
+        include('classes/'.$class.'.php'); 
     };
 
     spl_autoload_register($autoload);
@@ -25,7 +25,7 @@
     define('HOST', 'localhost');
     define('USER', 'root');
     define('PASSWORD','');
-    define('DATABASER', 'projeto_01');
+    define('DATABASER', 'projeto01');
 
     // Constantes para o Painel de Controle
     define('NOME_EMPRESA', 'VSCoder');

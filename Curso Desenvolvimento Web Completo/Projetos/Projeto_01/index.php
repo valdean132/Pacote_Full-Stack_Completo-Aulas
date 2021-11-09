@@ -41,6 +41,8 @@
 				break;
 		}
 
+		new Email();
+
 	?>
 	
 	<header>
