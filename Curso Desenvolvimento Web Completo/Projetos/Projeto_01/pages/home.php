@@ -5,44 +5,11 @@
 
 	<div class="overlay"></div><!-- Overleay -->
 	<div class="center">
-		<?php
-			if(isset($_POST['acao'])){
-				// Enviei o formulário
-				if($_POST['email'] != ''){
-					$email = $_POST['email'];
-					if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-						// Tudo certo, é um e-mail...
-						// Só enviar
-						$mail = new Email(
-							'smtp.titan.email', 
-							'teste@valdeansouza.com', 
-							'1598753', 
-							'Valdean'
-						);
-						$mail->addAdress('contato@valdeansouza.com', 'valdean');
-						$corpo = "E-mail cadastrado na home do site: </hr>$email";
-						$info = [
-							'assunto' => 'Um novo E-mail cadastrado no site!',
-							'corpo' => $corpo
-						];
-						$mail->formatarEmail($info);
-						if($mail->enviarEmail()){
-							echo "<script>alert('O E-mail enviado com sucesso!')</script>";
-						}else{
-							echo "<script>alert('Algo deu Errado.')</script>";
-						}
-					}else{
-						echo "<script>alert('O E-mail inserido não é válido')</script>";
-					}
-				}else{
-					echo "<script>alert('Campo E-mail não pode ser vazio')</script>";
-				}
 
-			}
-		?>
 		<form method="POST">
 			<h2>Qual o seu Melhor E-mail?</h2>
-			<input type="email" required name="email" autocomplete="of">
+			<input type="email" required name="email" autocomplete="off">
+			<input type="hidden" name="indentificador" value="form_home">
 			<input type="submit" value="Cadastrar!" name="acao">
 		</form>	
 	</div><!-- Center -->

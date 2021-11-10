@@ -2,15 +2,16 @@
 
 <div class="contato-container">
     <div class="center">
-        <form>
-            <input type="text" name="nome" placeholder="*Nome...">
+        <form method="POST">
+            <input required type="text" name="nome" placeholder="*Nome...">
             <div></div>
-            <input type="text" name="nome" placeholder="*E-mail...">
+            <input required type="text" name="email" placeholder="*E-mail...">
             <div></div>
-            <input type="text" name="nome" placeholder="*Telefone...">
+            <input required type="text" name="telefone" placeholder="*Telefone...">
             <div></div>
-            <textarea name="mensagem" placeholder="*Deixe Sua Mensagem..."></textarea>
+            <textarea required name="mensagem" placeholder="*Deixe Sua Mensagem..."></textarea>
             <div></div>
+            <input type="hidden" name="indentificador" value="form_contato" />
             <input type="submit" value="Enviar" name="acao">
         </form>
     </div><!-- Center -->
