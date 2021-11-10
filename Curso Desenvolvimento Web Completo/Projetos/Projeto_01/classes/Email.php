@@ -2,46 +2,50 @@
 	
 	class Email
 	{
-	
+        
+        private $mailer;
 
-		public function __construct()
+		public function __construct($host, $username, $password, $name)
 		{
 			
 			//Create an instance; passing `true` enables exceptions
-            $mail = new PHPMailer;
-
+            $this->mailer = new PHPMailer;
                 //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.titan.email';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'teste@valdeansouza.com';                     //SMTP username
-            $mail->Password   = '1598753';                               //SMTP password
-            $mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
-            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+            $this->mailer->isSMTP();                                            //Send using SMTP
+            $this->mailer->Host       = $host;                     //Set the SMTP server to send through
+            $this->mailer->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $this->mailer->Username   = $username;                     //SMTP username
+            $this->mailer->Password   = $password;                               //SMTP password
+            $this->mailer->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+            $this->mailer->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('teste@valdeansouza.com', 'Valdean');
-            $mail->addAddress('valdeanpds@gmail.com', 'Valdean');     //Add a recipient
-            //$mail->addReplyTo('info@example.com', 'Information');
-            //$mail->addCC('cc@example.com');
-            //$mail->addBCC('bcc@example.com');
-
-            //Attachments
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+            $this->mailer->setFrom($username, $name);
 
             //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
+            $this->mailer->isHTML(true);
 
-            $mail->Subject = 'Assunto E-mail';
-            $mail->Body    = 'Esse é meu <b>E-mail</b>';
-            $mail->AltBody = 'Esse é meu E-mail';
+            // CharSet
+            $this->mailer->CharSet = 'UTF-8';
 
-            if(!$mail->send()){
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: '. $mail->ErrorInfo;
+            
+        }
+
+        public function addAdress($email, $nome){
+            $this->mailer->addAddress($email, $nome);     //Add a recipient
+        }
+
+        public function formatarEmail($info){
+            $this->mailer->Subject = $info['assunto'];
+            $this->mailer->Body    = $info['corpo'];
+            $this->mailer->AltBody = strip_tags($info['corpo']);
+        }
+
+        public function enviarEmail(){
+            if($this->mailer->send()){
+                return true;
             }else{
-                echo 'Message has been sent';
+                return false;
             }
         }
 
