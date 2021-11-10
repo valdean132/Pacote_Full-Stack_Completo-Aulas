@@ -23,79 +23,7 @@
 	<link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>css/style.css"/>
 </head>
 <body>
-	<?php
-		if(isset($_POST['acao']) && $_POST['indentificador'] == 'form_home'){
-			// Enviei o formulário
-			if($_POST['email'] != ''){
-				$email = $_POST['email'];
-				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-					// Tudo certo, é um e-mail...
-					// Só enviar
-					$mail = new Email(
-						'smtp.titan.email', 
-						'teste@valdeansouza.com', 
-						'1598753', 
-						'Valdean'
-					);
-					$mail->addAdress('contato@valdeansouza.com', 'valdean');
-					$corpo = "E-mail cadastrado na home do site: <hr/>$email";
-					$info = [
-						'assunto' => 'Um novo E-mail cadastrado no site!',
-						'corpo' => $corpo
-					];
-					$mail->formatarEmail($info);
-					if($mail->enviarEmail()){
-						echo "<script>alert('O E-mail enviado com sucesso!')</script>";
-					}else{
-						echo "<script>alert('Algo deu Errado.')</script>";
-					}
-				}else{
-					echo "<script>alert('O E-mail inserido não é válido')</script>";
-				}
-			}else{
-				echo "<script>alert('Campo E-mail não pode ser vazio')</script>";
-			}
-
-		}else if(isset($_POST['acao']) && $_POST['indentificador'] == 'form_contato'){
-			
-			/*$nome = $_POST['nome'];
-			$email = $_POST['email'];
-			$telefone = $_POST['telefone'];
-			$mensagem = $_POST['mensagem'];*/
-
-			$assunto = 'Nova mensagem do site!';
-			$corpo = '';
-			foreach($_POST as $key => $value){
-				if($_POST[$key] != 'form_contato' && $_POST[$key] != 'Enviar'){
-					if($key != 'telefone'){
-						$corpo.=ucFirst($key).": $value";
-						$corpo.='<hr/>';
-					}else{
-						$corpo.=ucFirst($key).": <a href='web.whatsapp.com/send?phone=55$value'>$value</a>";
-						$corpo.='<hr/>';
-					}
-				}
-			}
-			$info = array(
-				'assunto' => $assunto,
-				'corpo' => $corpo
-			);
-			$mail = new Email(
-				'smtp.titan.email', 
-				'teste@valdeansouza.com', 
-				'1598753', 
-				'Valdean'
-			);
-			$mail->addAdress('contato@valdeansouza.com', 'valdean');
-			$mail->formatarEmail($info);
-			if($mail->enviarEmail()){
-				echo "<script>alert('O E-mail enviado com sucesso!')</script>";
-			}else{
-				echo "<script>alert('Algo deu Errado.')</script>";
-			}
-		}
-	?>
-<base base="<?php echo INCLUDE_PATH; ?>">
+	<base base="<?php echo INCLUDE_PATH; ?>">
 
 	<?php	
 
@@ -174,5 +102,6 @@
 	<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
+	<script src="<?php echo INCLUDE_PATH; ?>js/formularios.js"></script>
 </body>
 </html>
