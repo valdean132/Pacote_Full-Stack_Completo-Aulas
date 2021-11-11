@@ -33,7 +33,7 @@
     }else{
         $data['error'] = true;
     }
-
+    
     die(json_encode($data));
 
 ?>

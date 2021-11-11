@@ -44,7 +44,12 @@
 		// new Email();
 
 	?>
-	
+	<div class="box-mensagem sucesso">Formulário enviado com sucesso!</div>
+	<div class="box-mensagem erro">Formulário não foi enviado. <br>Tente novamente mais tarde!</div>
+	<div class="overlay-loading">
+		<img src="<?php echo INCLUDE_PATH; ?>images/icons/ajax-loader.gif" alt="loading">
+	</div><!-- overlay Loading  -->
+
 	<header>
 		<div class="center">
 			<div class="logo left">
