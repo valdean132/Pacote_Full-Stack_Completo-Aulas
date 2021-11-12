@@ -33,6 +33,7 @@
         </div><!-- Form-Group-Nome -->
 
         <div class="form-group">
+            <input type="hidden" name="order_id" value="0">
             <input type="hidden" name="nome_tabela" value="tb_site.depoimentos">
             <input type="submit" name="acao" value="Cadastrar!">
         </div><!-- Form-Group -->

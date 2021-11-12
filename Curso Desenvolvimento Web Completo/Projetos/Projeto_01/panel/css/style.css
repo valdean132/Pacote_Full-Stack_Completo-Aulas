@@ -53,6 +53,15 @@ i{
     background-image: url('../../images/icons/menuClose.svg');
     /* transition:  opacity 1s; */
 }
+.edit-icon{
+    background-image: url('../../images/icons/edit.svg');
+}
+.angle-up{
+    background-image: url('../../images/icons/angle-up.svg');
+}
+.angle-down{
+    background-image: url('../../images/icons/angle-down.svg');
+}
 /* ** */
 
 /* Página De Login */
@@ -408,9 +417,14 @@ table a.btn{
     font-size: 13px;
 }
 a.btn.edit{background-color: #f4b03e;}
+a.btn.deleteA{background-color: #e05c4e;}
+a.btn.order{background-color: #0091ae;}
 
-a.btn.delete{background-color: #e05c4e;}
-
+a.btn i.edit-icon, a.btn i.delete{
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+}
 
 /* ** */
 
