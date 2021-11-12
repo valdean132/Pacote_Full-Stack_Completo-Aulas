@@ -38,11 +38,11 @@
                 <h2>Cadastro</h2>
                 <a <?php selecionadoMenu('cadastrar-depoimento'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-depoimento">Cadastrar Depoimento</a>
                 <a <?php selecionadoMenu('cadastrar-servicos'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-servicos">Cadastrar Serviços</a>
-                <a <?php selecionadoMenu('cadastrar-slider'); ?> href="">Cadastrar Slides</a>
+                <a <?php selecionadoMenu('cadastrar-slides'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>cadastrar-slides">Cadastrar Slides</a>
                 <h2>Gestão</h2>
                 <a <?php selecionadoMenu('lista-depoimentos'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>lista-depoimentos">Lista Depoimentos</a>
                 <a <?php selecionadoMenu('lista-servicos'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>lista-servicos">Lista Serviço</a>
-                <a <?php selecionadoMenu('lista-slides'); ?> href="">Listar Slides</a>
+                <a <?php selecionadoMenu('lista-slides'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>lista-slides">Listar Slides</a>
                 <h2>Administração do Painel</h2>
                 <a <?php selecionadoMenu('editar-usuario'); ?> href="<?php echo INCLUDE_PATH_PANEL; ?>editar-usuario">Editar Usuário</a>
                 <a <?php selecionadoMenu('adcionar-usuario'); verificaPermicaoMenu(2); ?>  href="<?php echo INCLUDE_PATH_PANEL; ?>adcionar-usuario">Adicionar Usuários</a>

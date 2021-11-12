@@ -60,7 +60,7 @@
         }
 
         // Verificando se foi Atualizado com Sucesso.
-        public static function alert($type, $mensagem, $span){
+        public static function alert($type, $mensagem, $span = null){
             if($type == 'sucesso'){
                 echo '<div class="box-alert sucesso"><i class="svg check"></i> <p>'.$mensagem.' <span>'.$span.'</span></p></div>';
             }else if($type == 'erro'){
