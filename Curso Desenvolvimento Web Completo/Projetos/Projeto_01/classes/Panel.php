@@ -189,7 +189,7 @@
             return $sql->fetch();
         }
 
-        // Inserindo depoimento no banco de dados
+        // Inserindo dinamicamente no banco de dados
         public static function update($arr){
             $certo = true;
             $first = false;
@@ -227,7 +227,15 @@
             }
         }
 
-        // Ordenando depoimentos
+        // Puxando Dinamicamente
+        public static function pullDinamic($table, $order, $limit){
+            $sql = MySql::conectar()->prepare("SELECT * FROM `$table` ORDER BY $order LIMIT $limit");
+            $sql->execute();
+
+            return $sql->fetchAll();
+        }
+
+        // Ordenando dinamicamente
         public static function orderItem($table, $orderType, $idItem){
             if($orderType == 'up'){
 
@@ -275,6 +283,5 @@
                 ));
             }
         }
-
     }
 ?>

@@ -10,7 +10,7 @@
     
 ?>
 <div class="box-content">
-    <h2><i class="svg pencil"></i> Editar Depoimentos</h2>
+    <h2><i class="svg pencil"></i> Editar Depoimento</h2>
 
 
     <form method="POST" enctype="multipart/form-data">

@@ -64,13 +64,8 @@
 		<div id="depoimentos" class="w50 left depoimentos-container">
 			<h2 class="title">Depoimentos dos nossos clientes</h2>
 			<?php
-				$sql = MySql::conectar()->prepare("SELECT * FROM `tb_site.depoimentos` ORDER BY `order_id` ASC LIMIT 3");
-				$sql->execute();
-
-				$depoimentos = $sql->fetchAll();
+				$depoimentos = Panel::pullDinamic('tb_site.depoimentos', '`order_id` ASC', 3);
 				foreach($depoimentos as $key => $value){
-
-				
 			?>
 			<div class="depoimento-single">
 				<p class="depoimento-descricao">"<?php echo $value['depoimentos']; ?>"</p>
@@ -83,9 +78,12 @@
 			<h2 class="title">Serviços</h2>
 			<div class="servico">
 				<ul>
-					<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, facilis! Unde et atque molestias! Accusantium incidunt sequi iusto quam? Recusandae quae placeat veniam error voluptatem maiores quod consequatur quidem rerum.</li>
-					<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, facilis! Unde et atque molestias! Accusantium incidunt sequi iusto quam? Recusandae quae placeat veniam error voluptatem maiores quod consequatur quidem rerum.</li>
-					<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, facilis! Unde et atque molestias! Accusantium incidunt sequi iusto quam? Recusandae quae placeat veniam error voluptatem maiores quod consequatur quidem rerum.</li>
+					<?php
+						$servico = Panel::pullDinamic('tb_site.servicos', '`order_id` ASC', 3);
+						foreach($servico as $key => $value){
+					?>
+						<li><?php echo $value['servico']; ?></li>
+					<?php } ?>
 				</ul>
 			</div><!-- Serviço -->
 		</div><!-- w50 -->

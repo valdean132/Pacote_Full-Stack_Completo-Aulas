@@ -25,8 +25,8 @@
                 <th>Data</th>
                 <th>Editar</th>
                 <th>Deletar</th>
-                <th>#</th>
-                <th>#</th>
+                <th>Subir</th>
+                <th>Descer</th>
             </tr>
             <?php foreach($depoimentos as $key => $value){?>
                 <tr>
