@@ -1,8 +1,10 @@
 <section class="banner-container">
-	<div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form.jpg');" class="banner-single"></div><!-- Banner-single -->
-	<div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form2.jpg');" class="banner-single"></div><!-- Banner-single -->
-	<div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form3.jpg');" class="banner-single"></div><!-- Banner-single -->
-
+	<?php
+		$slides = Panel::pullDinamic('tb_site.slides', '`order_id` ASC', 4);
+		foreach($slides as $key => $value){
+	?>
+		<div style="background-image: url('<?php echo INCLUDE_PATH_PANEL; ?>uploads/<?php echo $value['slide']; ?>');" class="banner-single"></div><!-- Banner-single -->
+	<?php } ?>
 	<div class="overlay"></div><!-- Overleay -->
 	<div class="center">
 
@@ -19,10 +21,8 @@
 <section id="autor" class="descricao-autor">
 	<div class="center">
 		<div class="w50 left">
-			<h2>Valdean P. Souza</h2>
-			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad distinctio perferendis laudantium totam ipsa sapiente quibusdam! Autem quis consectetur nulla reprehenderit ut quidem neque, repudiandae fugit ducimus, odio amet minus. Autem quis consectetur nulla reprehenderit ut quidem neque, repudiandae fugit ducimus, odio amet minus.</p>
-			<br>
-			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad distinctio perferendis laudantium totam ipsa sapiente quibusdam! Autem quis consectetur nulla reprehenderit ut quidem neque, repudiandae fugit ducimus, odio amet minus. Autem quis consectetur nulla reprehenderit ut quidem neque, repudiandae fugit ducimus, odio amet minus.</p>
+			<h2><?php echo $infoSite['nome']; ?></h2>
+			<p><?php echo $infoSite['descricao']; ?></p>
 		</div><!-- w50 -->
 		<div class="w50 left">
 			<img class="right" src="<?php echo INCLUDE_PATH; ?>images/desenvolvedor.jpeg" alt="Foto do Desenvolvedor "/>
@@ -35,26 +35,26 @@
 		<h2 class="title">Especialidades</h2>
 		<div class="w33 left box-especialidade">
 			<h3>
-			<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/css.svg');"></div>
+			<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/<?php echo $infoSite['icone1']; ?>');"></div>
 			</h3>
 			<h4>CSS 3</h4>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minus velit quasi dolore, omnis magni sit laboriosam eos molestiae eaque? Repudiandae, ea est exercitationem expedita perferendis aliquid itaque repellat ullam?</p>
+			<p><?php echo $infoSite['descricao1']; ?></p>
 		</div><!-- Box-especialidade -->
 
 		<div class="w33 left box-especialidade">
 			<h3>
-				<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/html.svg');"></div>
+				<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/<?php echo $infoSite['icone2']; ?>');"></div>
 			</h3>
 			<h4>HTML 5</h4>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minus velit quasi dolore, omnis magni sit laboriosam eos molestiae eaque? Repudiandae, ea est exercitationem expedita perferendis aliquid itaque repellat ullam?</p>
+			<p><?php echo $infoSite['descricao2']; ?></p>
 		</div><!-- Box-especialidade -->
 
 		<div class="w33 left box-especialidade">
 			<h3>
-			<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/javascript.svg');"></div>
+			<div class="svg" style="background-image: url('<?php echo INCLUDE_PATH; ?>images/icons/<?php echo $infoSite['icone3']; ?>');"></div>
 			</h3>
 			<h4>JavaScript</h4>
-			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem minus velit quasi dolore, omnis magni sit laboriosam eos molestiae eaque? Repudiandae, ea est exercitationem expedita perferendis aliquid itaque repellat ullam?</p>
+			<p><?php echo $infoSite['descricao3']; ?></p>
 		</div><!-- Box-especialidade -->
 		<div class="clear"></div><!-- Clear -->
 	</div><!-- Center -->

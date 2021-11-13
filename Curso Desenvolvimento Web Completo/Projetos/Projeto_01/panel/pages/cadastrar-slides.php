@@ -17,7 +17,9 @@
                         if(Panel::imgValid($imagem) == false){
                             Panel::alert('erro', 'Formato de imagem Inválida!','Selecione uma imagem JPG, JPEG ou PNG');
                         }else{
+                            // include('../classes/lib/WideImage.php');
                             $imagem = Panel::uploadFile($imagem);
+                            //WideImage::load('uploads/'.$imagem)->resize(100)->saveToFile('uploads/'.$imagem);
                             $arr = [
                                 'nome' => $nome,
                                 'slide' => $imagem,

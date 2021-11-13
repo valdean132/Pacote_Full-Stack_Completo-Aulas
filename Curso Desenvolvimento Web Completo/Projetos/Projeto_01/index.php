@@ -7,6 +7,11 @@
 	Site::contador(); 
 
 ?>
+<?php
+	$infoSite = Mysql::conectar()->prepare("SELECT * FROM `tb_site.config`");
+	$infoSite->execute();
+	$infoSite = $infoSite->fetch();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,7 +21,7 @@
 	<meta name="author" content="Valdean Souza">
 	<meta name="keywords" content="palavra-chave,do,meu,site">
 	<meta name="description" content="Descrição do meu Site">
-	<title>Projeto 01</title>
+	<title><?php echo $infoSite['titulo']; ?></title>
 
 	<link rel="sortcut icon" href="<?php echo INCLUDE_PATH; ?>logo.ico" type="image/x-icon" />
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
@@ -106,7 +111,7 @@
 	<script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
 	<script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
-	<script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script>
+	<!-- <script src="<?php echo INCLUDE_PATH; ?>js/exemplo.js"></script> -->
 	<script src="<?php echo INCLUDE_PATH; ?>js/formularios.js"></script>
 </body>
 </html>
