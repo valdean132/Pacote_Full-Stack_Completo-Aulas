@@ -1,0 +1,22 @@
+-- Começando com o apache do Xampp
+
+# Arquivo "httpd.conf"
+    Já com o Xampp instalado se formos na pasta "C:\xampp\apache\conf" e no especifico arquivo httpd.conf lá estará varias configurações que vão estabelecer uma conexão com o navegador web.
+
+    Se olhamos bem vamos achar a por dela que está especificado assim: "Listen 80".
+    O "80" é uma porta padrão reconhecida no navegador onde eu não preciso especificar ele, mas se eu trocar ele essa porta nova precisa ser especificada. Exemplo
+        - Trocando porta para "8090", então o site deve ser chamado assim: "https://www.meusite.com:8090".
+
+    Obs.: quando algum comando tem na frente o "#" então quer dizer que esse comando está comentado e não será executado.
+
+# Arquivo "Host"
+    Se acessarmos a pasta "C:\Windows\System32\drivers\etc", vamos achar um arquivo com o nome "host", esse arquivo é muito importante pois o mesmo pode nos fazer redirecionamento de sites.
+
+    Agora vamos fazer uma coisa: 
+        Tentro do arquivo, no final dele vamos digitar o seguinte comando "127.0.0.1 teste.local.com", depois vamos a ao apache do nosso xampp e mexer nos arquivos de configuração, mas específico na pasta de caminho "C:\xampp\apache\conf\extra" e no arquivo "httpd-vhosts.conf". com o arquivo aberto vamos digitar o seguinte código:
+            <VirtualHost *:80>
+                DocumentRoot "C:/xampp/htdocs/testes_infra"
+                ServerName testes.local.com
+            </VirtualHost>
+        Depois de feito tudo isso vamos no htdocs e vamos criar a pasta "testes_infra" para que o apontamento seja feito.
+    Assim indo no navegador e digitando "testes.local.com" ma url então será redirecionado.
