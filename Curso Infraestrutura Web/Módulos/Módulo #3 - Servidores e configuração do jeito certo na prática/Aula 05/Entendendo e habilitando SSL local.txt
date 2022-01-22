@@ -1,0 +1,17 @@
+-- Trabalhando com o Servidor Local Trabalhando com o SSL
+
+O que é o SSL:
+    O SSL é uma forma do site aparecer com o cadeado na barra de pesquisa e ter uma conexão segura.
+    O SSL é mais utilizado quando a aplicação esrtá no ar, já que não precisa muito de segunça quando está localmemte. Mas é bom vê ele agora assim teremos um entendimento melhor quando formos trabalhar com hospedagem e VPN dedicados e entre outros.
+
+Trabalhando de fato:
+    Como vimos na aula anterior a porta 80 é uma porta padrão por onde acessamos no site, agora se colocarmos, localmente, depois do nome do site a seguinte porta ":443" ele já vai vim com o protocolo seguro e já vem instalado no Xampp.
+
+Entendo como funciona:
+    Se formos na pasta "C:\xampp\apache\conf\extra" (isso no Xampp), e abrirmos o arquivo "httpd-ssl.conf". Esse arquivo é o que entende o protocolo seguro ou o "https://" e nele estará o "Listen 443", e é ele que vai entender que essa é a porta segura.
+    Mais em baixo vamos vê o caminho principal que ele é redrecionado quando abrimos no navegador, ele estará assim: "DocumentRoot "C:/xampp/htdocs"", o "htdocs" é a pasta padrão para onde ele é redirecionado para abrir no navegador.
+    Caso eu queira redrecionar para um projeto é só eu editar o arquivo colocando a página do projeto, dessa forma: DocumentRoot "C:/xampp/htdocs/meu-projeto", depois disse eu salvo, reinicio o xampp e coloco no navegado o como protocolo seguro, assim: "localhost:443" ou "https://localhost", com isso ele vai redirecionar direto pro projeto que eu especifiquei.
+    Para voltar as configurações normais é só comentar a linha ou apagar o que adcionei.
+
+
+
