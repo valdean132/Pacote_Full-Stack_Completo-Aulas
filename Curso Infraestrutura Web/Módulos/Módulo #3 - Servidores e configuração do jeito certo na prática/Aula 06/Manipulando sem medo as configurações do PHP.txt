@@ -1,0 +1,32 @@
+-- Configurando o PHP sem medo
+
+Nessa aula vamos mexer na pasta do PHP no Xampp e ver algumas configurações para melhor atender
+
+Indo na pasta "C:\xampp\php" e acessando o arquivo "php.ini" veremos algumas configuraões.
+
+Abrindo ele com o bloco de notas e vemos algumas configurações para rodar o Script PHP sendo a primeira deles o "max_execution_time"
+
+-- max_execution_time
+    O max Execution Time é o termo usado para dizer até em que tempo ele vai executar um script php, o recomendado para quando a aplicação estiver Rodando sem ser localmente é de 30 segundos, já que ele rda seu tempo em segundo. Para achar ele no arquivo é só dá um Ctrl+f e colocar no campo de pesquisa "max_execution_time" e d´´e um Enter assim já vai direto para ele.
+    Então esse é a Execução maxima de tempo para rodar um Script e quando chegar a esse tempo ele para de executar.
+
+-- max_input_time
+    Esse é basicamente como o anterior, mas a sua diferença é o maximo de tempo em que ele passa processando as informações que foram mandada, ou seja, se eu passar um posts (arquivo, imagens, textos, formulários) ele não irá passar do tempo setado, nas configurações padrões esse tempo é de 60 segundos e esse é um valor recomendado tanto para trabalho localmente quanto para quando a aplicação estiver no ar.
+
+-- max_input_vars
+    Esse é informa o limite do tamanho do POST/GET/COOKE que estamos mandando, por padrão é mil, mas localmente ele fica comentado.
+
+-- memory_limit
+    O "memory_limit" é extremamente importante quando estamos lhidando com infraWeb. Por padram o PHP deixa ele em 128MB.
+    Ele serve para informar o maximo de memória que um script pode pegar ou consumir do servidor. Por exemplo, se criarmos um script que passe do valor informado, o PHP não vai deixar passar.
+
+Temos outras configurações muito interessante também, só que por padrão nos servidores já vem.
+
+-- display_errors
+    Esse serve para mostrar os erros que aparecem no servidor, por padrão no local ele vem como 'ON', ou seja, se eu colocar seu valor como "OFF" ele não irá mostrar esses erros.
+    Em uma aplicação local deixamos esse valor como "ON" para poder termos acesso aos erros, mas quando a aplicação estiver em produção deixamos esse valor como "OFF", assim os usuários não veram e não teram acesso a esse erro especifico.
+
+Por enquanto é isso, mas existem varias outras configuralções que podemos ver e testar ao longo do caminho.
+AHH, uma coisa muito importante é que, qualquer alteração que seja feita, tanto local quanto em produção, depois de feita sempre reiniciar o Apache para que as alterações sejam executadas.
+
+Agora vamos criar um arquivo PHP para testar...
