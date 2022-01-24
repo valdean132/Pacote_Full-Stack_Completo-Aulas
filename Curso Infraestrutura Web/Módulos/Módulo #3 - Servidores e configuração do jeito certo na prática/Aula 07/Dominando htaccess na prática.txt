@@ -1,0 +1,22 @@
+-- Aprendendo htaccess
+
+Em resumo, o HTACCESS permite que escrevamos regras padrões do apache sem que tenhamos que ir no Coor do nosso servidor. O Htaccess é utilizado sempre que queremos modificar uma regra mas não queremos mexer no servidor diretamente, por exemplo, quando eu quero colocar um puxar uma página na URL sem sua extenção (.html, .htm ou .php), assim eu só chamo o nome do arquivo sem que haja a necessidade de informar seu formato.
+Em muitos ambientes as vezes tem que liberar para utilizar o htaccess, mas na maioria dos casos (inclusive nos VPS's, dedicados e outros) já vem liberado, mas mesmo caso não venha liberado, veremos como fazer isso mais para frente.
+
+Para Criar um Arquivo htaccess ele deve ser salvo na pasta raiz do projeto dessa forma ".htaccess".
+Com o arquivo já criado, vamos ao teste:
+    Criado dois arquivos um index e uma página de erro (404.php) eu posso, com o htaccess redirecionar quando uma página não é encontrada dessa forma:
+        ErrorDocument 404 /nome-do-diretorio-ou-site/404.php
+    O 404 é um erro que gera quando a página não existe ou não é encontrada, dessa forma eu posso redirecionar para uma página existente informando que a página digitada não existe.
+
+    Uma coisa importante é que, por padrão, quando eu acesso uma diretorio dentro do site, o apache por padrão permite que as pastas e arquivos dentro dele sejam listados, mas como eu não quero que ele mostre isso, no htaccess eu coloco o sequinte comando:
+        Options All -Indexs
+    Com Isso tudo que tiver no diretorio não é listado. ele apenas joga uma mensagem mensagem de erro de 403 que pode ser redirecionado como vimos no comando mais a cima.
+
+    Outra coisa legal que podemos fazer é redirecionar um para que toda vez que eu abra o site na pasta principal ele seja redirecionado para outra que eu especificar por exemplo.
+    O comando a seguir mostra como podemos fazer isso:
+        DirectoryIndex /nome-do-diretorio-ou-site/outro-diretorio-dentro-desse/(nome-do-arquivo).php (ou .html)
+    Dessa forma ele vai redirecionar pro arquivo que eu especifiquei.
+
+O HTACCESS tem muita coisa que pode ser feita com ele, mas não podemos aprender tudo e sim o que vamos de fato usar, por tanto o que foi mostrado a cima é alguns exemplos que podemos fazer e que provavelmente vamos utilizar no dia a dia, mas caso falte alguma coisa podemos pesquisar no Google de acordo com a necessidade, ele é sempre a melhor opção 
+    
