@@ -1,0 +1,12 @@
+-- Configurando domínios na prática
+
+# Comunicação
+    O domínio só funciona se o servidor/hospedagem estiver pronto para receber a requisição;
+    Isso é feito através do DNS do servidor/hospedagem;
+
+# CPanel
+    Vamos usar o painel utilizado hoje pela maioria das hospedagens, como por exemplo.
+    O principio é o mesmo para qualquer aplicação web, vamos apenas ver no CPanel pois a interface gráfica é mais agradável e fácil de se entender.
+
+# Onde configuramos o domínio?
+    Independente de onde seu domínio é registrado semrpe existe a opção para alterar os NameServers, para apontar ao servidor correto. 
