@@ -1,0 +1,20 @@
+-- Funcionamento de um Domínio
+
+O domínio web é o endereço DNS de um site, em termos gerais, esse domínio é unico e não se repete
+Agora vamos ver alguns tópicos:
+
+    -- Registro:
+        O registro é uma forma de mascarar um número do seu servidor e esse número nada mais é do que o ip do site, ou seja, o registro de dominio vai servir para mascarar esse ip e também para ser mais facil de achar e decorar o site sem precisar decorar varios ip's;
+    -- Apontamento:
+        O Apontamento nada mais é do que pegar o domínio e apontar para um servidor e esse servidor mandar uma resposta atravez de uma página web ou algo do tipo. O registro vai facilitar isso. Por exemplo;
+            Digamos que eu vá na url do meu navegador e pesquise: https://www.google.com, quando eu coloco esse domínio no site ele vai me apontar para o site de busca do google e esse é nome é gustamente o geristro do Google.
+        No geral ele apontará para o servidor, ao invés de usar o ip, uilizamos o domínio já que muitos dos sites ocultam seu Ip para usuários normais não tenham acesso, dessa forma você pode deixar seu servidor mais seguro. (A aula para aprender a ocultar o ip do servidor será vista mais a frente);
+    -- NameServers:
+        NameServers nada mais é do que o coração do domínio e sem isso ele não vai funcionar.
+        Ele geralmente começa dessa forma: "ns1.meusite.com" e/ou "ns2.meusite.com".
+        Os navegadores, por padrão já tem o sistema para, quando eu pesquiso um site atravez de um domínio ele já associa esses nomes e faz o apontamento para o servidor.
+        Sem os NameServers o registro não existe e por extenção não funciona
+
+Alguns termos:
+    ISP: Provedor de segurança da internet;
+    DNS: Domain Name System (Sistema de nome para domínio).
