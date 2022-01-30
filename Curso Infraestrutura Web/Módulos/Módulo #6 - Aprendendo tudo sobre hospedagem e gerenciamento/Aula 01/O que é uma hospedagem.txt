@@ -1,0 +1,23 @@
+-- Hospedagens
+
+# O que é uma hospedagem?
+    - Uma simples locação de espaço para subir sua aplicação Web;
+    - Poucas pastas;
+    - Poucos recursos;
+    - Propósito específico;
+    - Dividido com outros clientes.
+
+# Para que serve uma hospedagem?
+    - WebSites simples (geralmente estáticos);
+    - Pequenos bancos de dados (databases);
+    - Pequeno uso de memória / CPU.
+
+# Hierarquia de uma hospedagem:
+    É caracterizada principalmente pela pasta "/public_html/ -> WEBSITE PRINCIPAL" e ou/ pela pasta "/public_html/subdominio -> Outros sites".
+
+# Como funciona a contratação de uma hospedagem?
+    - Geralmente é pago por mês. (Outras opções);
+    - Geralmente vem com o domínio.
+
+# E o gerenciamento da hospedagem?
+    - Sistema cPanel (95% das vezes).
