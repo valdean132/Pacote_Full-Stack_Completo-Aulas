@@ -1,0 +1,31 @@
+-- VPS's
+
+# O que é o VPS?
+    - Virtual Private Server (SErviço Privado Virtual);
+    - Possui recursos próprios (MEMÓRIA, CPU);
+    - Ficam no mesmo ambiente de outros VPS's - O que significa?;
+        - Apesar de ter recursos próprios ainda está "dividindo".
+    - Possibilidade de aumentar os recursos a qualquer momento.
+        - Exemplos: Está faltando memória? É possível pegar de outros clientes que tem memória sobrando temporariamente.
+
+# Onde devemos usar o VPS?
+    - Sites;
+    - Lojas Virtuais;
+    - Sistemas;
+
+    - O VPS é a escolha ideal quanto está começando um novo projeto mais "ousado". Porém é necessario constante monitoramento dos recursos e TRÁFEGO.
+
+
+-- Dedicados
+
+# O que é o dedicado?
+    - Como o próprio nome já diz. É inteiramente DEDICADO para você;
+    - Máquina própria con recursos próprios;
+    - Total controle dos recursos e distribuição;
+    - Excelente para projetos pesados.
+
+# Onde devemos usar o Dedicado?
+    - Aplicações pesadas;
+    - Maior tráfego;
+    - Momento de "pico" (Memória, CPU, etc).
+
