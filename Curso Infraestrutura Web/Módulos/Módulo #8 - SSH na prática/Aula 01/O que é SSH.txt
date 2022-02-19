@@ -1,0 +1,18 @@
+-- SSH
+
+# Conceitos:
+    - SSH == Secure Shell;
+    - Uma forma segura de acessar o servidor remoto;
+    - Porta padrão 22 (Pode variar e ser alterada conforme nossa demanda);
+    - Suporte nativo via terminal: Linux, MecOs, Windows (Limitado e Recente);
+    - Alternativas no Windows: Putty.
+
+# Vantagens:
+    - Trabalha na sua máquina, porém no servidor remoto;
+    - Controle do seu servidor e aplicações.
+
+# Como conectamos?
+    - Endereço de IP e Porta:
+        - Login e senha;
+        - Chave de segurança (recomendado).
+    
