@@ -1,0 +1,16 @@
+# Comandos úteis para usar no terminal Linux:
+    - Comando Touch: Serve basicamente para criar arquivos na pasta em que está celecionado, por exemplo:
+        touch index.php
+    Rodando esse comando ele ira gerar um arquivo php na pasta em que estou rodando o tal comando.
+
+    - Comando Nano: Esse comando serve para abrir o arquivo celecioado e assim poder editar o que está nele, por exemplo:
+        nano index.php
+    Dessa forma irá abrir o arquivo e assim poderemos editar ele no proprio terminal.
+
+    - Comando RM: esse comando basicamente deleta uma arquivo ou pasta selecionado, por exemplo:
+        rm index.php
+    Dessa forma o arquivo será deletado.
+
+    - Comando Sudo: serve para nos dá uma permição maior no sistema, muito usado qundo fazemos instalações pelo terminal ou abrimos um arquivo, exemplo:
+        sudo apt-get install sublime-text
+    Dessa forma irá instalar editor de códigos Sublime Text
