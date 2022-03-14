@@ -1,0 +1,49 @@
+sudo apt update
+
+sudo apt install apache2
+
+
+instalado?
+apache2 -v
+
+
+configs
+ls etc/apache2/
+
+
+está disponivel o apache?
+sudo ufw app list
+
+
+atualizar regras
+sudo ufw all in "Apache Full"
+
+
+Pode testar localhost
+
+127.0.0.1
+
+sudo apt install php libapache2-mod-php php-mysql php-cli php-curl
+
+Criar arquivo:
+cd /var/www/html/
+
+sudo apt install mysql-server
+
+
+sudo mysql_secure_installation
+
+sudo mysql -u root
+
+Instalar php:
+
+php -v
+
+sudo systemcdl restar apache2
+
+
+
+CREATE USER 'gui'@'localhost' IDENTIFIED BY '12345'
+
+GRANT ALL PRIVILEGES ON *.* TO 'gui'@'localhost'
+
