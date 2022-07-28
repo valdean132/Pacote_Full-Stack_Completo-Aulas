@@ -13,10 +13,20 @@
         if($token == TOKEN){
             // Podemos continuaar nosso acesso.
             if(isset($_GET['acao'])){
+                $pdo = new PDO('mysql:host=localhost;dbname=api_curso','root','15987');
+
                 $acao = $_GET['acao'];
 
                 if($acao == 'novo_contato'){
-                    die(json_encode(array('sucesso'=>true)));
+                    $nome = isset($_GET['nome']) ? $_GET['nome'] : '';
+
+                    $sql = $pdo->prepare('INSERT INTO `cliente` VALUES (NULL, ?)');
+                    if($sql->execute(array($nome))){
+                        die(json_encode(array('sucesso'=>true, 'inserido'=>$nome)));
+                    }else{
+                        die(json_encode(array('sucesso'=>false, 'error'=>'Não foi possivel inserir seu contato')));
+                    }
+
                 }else if($acao == 'deletar_contato'){
 
                 }else if($acao == 'atualizar_contato'){
