@@ -39,8 +39,42 @@
                     die(json_encode(array('sucesso'=>true, 'deletado'=>$id)));
 
                 }else if($acao == 'atualizar_contato'){
+                    if(!isset($_GET['id'])){
+                        die(json_encode(array('error'=>'Precisamos de um ID')));
+                    }
+                    $id = (int)$_GET['id'];
+                    
+                    if(!isset($_GET['new']))
+                        die(json_encode(array('error'=>'Precisamos do parametro NEW')));
+                        
+                    $new = $_GET['new'];
+                    $sql = $pdo->prepare("UPDATE cliente SET nome = ? WHERE id = ?");
+                    if($sql->execute(array($new, $id))){
+                        die(json_encode(array('resposta'=>"O usuario $id teve o nome atualizado para '$new'")));
+                    }else{
+                        die(json_encode(array('error'=>"Usuario não atualizado")));
+                    }
+
+
+
 
                 }else if($acao == 'visualizar_contato'){
+                    if(!isset($_GET['id'])){
+                        die(json_encode(array('error'=>'Precisamos de um ID')));
+                    }
+                    $id = (int)$_GET['id'];
+
+                    $sql = $pdo->prepare("SELECT * FROM `cliente` WHERE id = ?");
+                    $sql->execute(array($id));
+
+                    if($sql->rowCount() >= 1){
+                        $dados = $sql->fetch();
+                        die(json_encode(array('id'=>$dados['id'], 'nome'=>$dados['nome'])));
+                    }else{
+                        die(json_encode(array('error'=>'Cliente nao encontrado')));
+                    }
+
+
 
                 }else{
                     die('A ação especificada não é válida em nosso sistema de API.');
