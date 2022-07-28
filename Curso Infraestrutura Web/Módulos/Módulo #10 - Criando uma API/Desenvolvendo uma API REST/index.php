@@ -29,6 +29,15 @@
 
                 }else if($acao == 'deletar_contato'){
 
+                    if(!isset($_GET['id'])){
+                        die(json_encode(array('error'=>'Precisamos de um ID')));
+                    }
+                    $id = (int)$_GET['id'];
+
+                    $pdo->exec("DELETE FROM `cliente` WHERE `id` = $id");
+
+                    die(json_encode(array('sucesso'=>true, 'deletado'=>$id)));
+
                 }else if($acao == 'atualizar_contato'){
 
                 }else if($acao == 'visualizar_contato'){
