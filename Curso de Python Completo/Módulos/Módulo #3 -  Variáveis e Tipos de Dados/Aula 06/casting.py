@@ -20,11 +20,11 @@ z = int(z)
 
 print(x, y, z)
 
-""" 
+"""
     Como vimos na reposta final todos foram convertido para int
 
-    Com relação ao FLOAT: 
-    
+    Com relação ao FLOAT:
+
     Só seguir o mesmo exemplo do int, dessa vez trocando para FLOAT   
 """
 a = float(2.3)
@@ -36,9 +36,9 @@ d = float('2')
 
 print(a, b, c, d)
 
-""" 
+"""
     E na saida foi impresso dizendo que todos os valores estão com pelo menos uma casa decimal.
-    
+   
     Agora com as STRINGS:
 """
 t = 's1'
@@ -47,7 +47,7 @@ u = 2.3
 
 """ Imprimindo tudo na mesma linha """
 
-""" 
+"""
     Antes de tudo vamos verificar qual seu tipo de dado
 """
 print("A variavel t eh do tipo: ", type(t))
