@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, '/pages'));
 app.get('/', (req, res) => {
 
     if(req.query.busca != null){
-        res.send('Você Buscor por: '+req.query.busca)
+        res.render('busca', {});
     }else{
         res.render('home', {});
     }
@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:slug', (req, res) => {
-    res.send(req.params.slug);
+    // res.send(req.params.slug);
+    res.render('single', {});
 });
 
 
