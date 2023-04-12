@@ -228,11 +228,14 @@ section.outras-noticias h2{
 }
 .ultimas .box-ultima-single img{
     width: 100%;
+
+    border-radius: 10px 10px 0 0;
 }
 .ultimas .box-ultima-single h3{
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 3.2px;
     text-align: left;
+    text-transform: capitalize;
     color: #33439B;
 
     padding: 20px 20px 10px;
@@ -316,6 +319,8 @@ section.outras-noticias h2{
 .mais-lida-noticia-single img{
     width: 33%;
     height: 100%;
+
+    border-radius: 10px;
 }
 .mais-lida-noticia-single .text-plus-lida-single{
     width: 65%;
@@ -325,6 +330,7 @@ section.outras-noticias h2{
 .mais-lida-noticia-single .text-plus-lida-single h4{
     font-size: 13px;
     letter-spacing: 3.2px;
+    text-transform: uppercase;
 
     margin-bottom: 10px;    
 }
@@ -362,8 +368,7 @@ section.noticia{
 
     padding: 20px 20px 30px;
 
-    /* display: flex; */
-    /* justify-content: space-between; */
+    min-height: calc(100vh - 125px);
 }
 section.noticia > .center{
     justify-content: space-between;
@@ -407,6 +412,14 @@ section.noticia > .center{
     text-transform: uppercase;
 
     margin-left: 10px;
+}
+
+.noticia-single .img-noticia-single img{
+    max-width: 100%;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
 }
 
 .noticia-single > p{

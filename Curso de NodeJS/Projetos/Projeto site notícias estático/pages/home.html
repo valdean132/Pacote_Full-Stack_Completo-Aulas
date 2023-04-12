@@ -1,22 +1,22 @@
 <%- include('partials/header.html') %>
     <section class="noticia-destaque">
         <div class="center">
-            <a href="/destaque">
+            <a href="<%= posts[0].slug %>">
                 <div class="img-destaque">
                     <div class="overlay-destaque"></div>
                     <div class="autor-testaque">
-                        <img src="/public/images/IMAGEM.png" alt="">
-                        <p>Por Valdean Souza</p>
+                        <img src="<%= posts[0].img_autor %>" alt="">
+                        <p>Por <%= posts[0].nome_autor %></p>
                     </div>
                     <div class="title-destaque-descricao">
                         <h2>
-                            Quer fugir das praias de verão?
+                            <%= posts[0].titulo %>
                         </h2>
                         <p>
-                            Veja os melhores destinos para uma viagem a dois, com seu grupo ou até mesmo sozinho. Aproveite o calor longe das praias, curta lagos, cachoeiras e muito mais nesses destinos incríveis.
+                            <%- posts[0].descricaoCurt %>
                         </p>
                     </div>
-                    <img src="/public/images/IMAGEM.png" alt="">
+                    <img src="<%= posts[0].image %>" alt="">
                 </div>
             </a>
         </div>
@@ -26,39 +26,17 @@
             <h2>Últimas publicações</h2>
             <div class="center">
                 <div class="ultimas">
-                    <div class="box-ultima-single">
-                        <img src="/public/images/noticia.png" alt="">
-                        <h3>DICA DE AVENTURA</h3>
-                        <h2>Como encarar o surf mesmo no frio</h2>
-                        <p>
-                            A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.
-                        </p>
-                        <div class="link-contain">
-                            <a href="/encarar-o-surf">ler mais <i class="bi bi-arrow-return-right"></i></a>
+                    <% for(var i = 1; i < posts.length; i++){ %>
+                        <div class="box-ultima-single">
+                            <img src="<%= posts[i].image %>" alt="">
+                            <h3><%= posts[i].categoria %></h3>
+                            <h2><%= posts[i].titulo %></h2>
+                            <%- posts[i].descricaoCurt %>
+                            <div class="link-contain">
+                                <a href="<%= posts[i].slug %>">ler mais <i class="bi bi-arrow-return-right"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="box-ultima-single">
-                        <img src="/public/images/noticia.png" alt="">
-                        <h3>DICA DE AVENTURA</h3>
-                        <h2>Como encarar o surf mesmo no frio</h2>
-                        <p>
-                            A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.
-                        </p>
-                        <div class="link-contain">
-                            <a href="/encarar-o-surf">ler mais <i class="bi bi-arrow-return-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="box-ultima-single">
-                        <img src="/public/images/noticia.png" alt="">
-                        <h3>DICA DE AVENTURA</h3>
-                        <h2>Como encarar o surf mesmo no frio</h2>
-                        <p>
-                            A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.
-                        </p>
-                        <div class="link-contain">
-                            <a href="/encarar-o-surf">ler mais <i class="bi bi-arrow-return-right"></i></a>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
                 <div class="mais-lidas">
                     <%- include('partials/mais-lidas.html') %>
