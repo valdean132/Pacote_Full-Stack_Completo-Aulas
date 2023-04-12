@@ -1,13 +1,13 @@
 <h3>AS MAIS LIDAS</h3>
 <div class="mais-lidas-noticias">
-    <% for(var i = 0; i < posts.length; i++){ %>
+    <% for(var i = 0; i < postsTop.length; i++){ %>
         <div class="mais-lida-noticia-single">
-            <img src="<%= posts[i].image %>" alt="">
+            <img src="<%= postsTop[i].image %>" alt="">
             <div class="text-plus-lida-single">
-                <h4 style="color: #40BE65;"><%= posts[i].categoria %></h4>
-                <%- posts[i].descricaoCurt %>
+                <h4 style="color: #40BE65;"><%= postsTop[i].titulo %></h4>
+                <%- postsTop[i].descricaoCurt %> <span style="font-size: 11px; font-weight: bold; color: #7B8591;" >- [<%= postsTop[i].views %> Views]</span>
                 <div class="link-contain">
-                    <a href="<%= posts[i].slug %>">saiba mais <i class="bi bi-arrow-return-right"></i></a>
+                    <a href="<%= postsTop[i].slug %>">saiba mais <i class="bi bi-arrow-return-right"></i></a>
                 </div>
             </div>
         </div>

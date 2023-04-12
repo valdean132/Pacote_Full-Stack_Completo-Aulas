@@ -426,6 +426,8 @@ section.noticia > .center{
     color: #7B8591;
     font-size: 14px;
     font-weight: 300;
+
+    margin-bottom: 10px;
 }
 .noticia-single > h3{
     color: #7B8591;
