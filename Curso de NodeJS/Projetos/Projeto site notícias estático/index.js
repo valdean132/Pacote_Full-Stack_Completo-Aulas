@@ -29,43 +29,89 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/vendor', express.static(path.join(__dirname, 'vendor')));
 app.set('views', path.join(__dirname, '/pages'));
 
-var totalPosts = '';
 
-Posts.find({}).sort({'_id': -1}).then((posts) => {
-            
-    totalPosts = posts.map(function(value){
-        return{
-            titulo: value.titulo,
-            conteudo: value.conteudo,
-            image: value.image,
-            slug: value.slug,
-            categoria: value.categoria,
-            nome_autor: value.nome_autor,
-            img_autor: value.img_autor,
-            descricaoCurt: value.conteudo.substr(0, 100)+'...'
-        };
+async function postsAllViews() {
+    var totalPosts = '';
+    var postsTop = '';
+
+    totalPosts = await Posts.find({}).sort({'_id': -1}).then((posts) => { 
+        return posts.map(function(value){
+            return{
+                titulo: value.titulo,
+                conteudo: value.conteudo,
+                image: value.image,
+                slug: value.slug,
+                categoria: value.categoria,
+                nome_autor: value.nome_autor,
+                img_autor: value.img_autor,
+                descricaoCurt: value.conteudo.length > 150 ? value.conteudo.substr(0, 150)+'...' : value.conteudo
+            };
+        });
+    }).catch((err) => {
+        console.log('Erro aparente: '+ err.message);
     });
 
-}).catch((err) => {
-    console.log('Erro aparente: '+ err.message);
-});
+    postsTop = await Posts.find({}).sort({'views': -1}).limit(4).then((postsViews)=>{
+        return postsViews.map(function(value){
+            return{
+                titulo: value.titulo,
+                conteudo: value.conteudo,
+                image: value.image,
+                slug: value.slug,
+                categoria: value.categoria,
+                nome_autor: value.nome_autor,
+                img_autor: value.img_autor,
+                descricaoCurt: value.conteudo.substr(0, 100)+'...',
+                views: value.views
+            };
+        });
+    }).catch((err) => {
+        console.log('Erro aparente Views: '+ err.message);
+    });
+
+    return {
+        totalPosts: totalPosts,
+        postsTop: postsTop,
+    }
+}
 
 
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
     if(req.query.busca != null){
         
-        res.render('busca', {});
+        Posts.find({titulo: {$regex: req.query.busca, $options: "i"}}).then((posts) => {
+            posts = posts.map(function(value){
+                return{
+                    titulo: value.titulo,
+                    image: value.image,
+                    slug: value.slug,
+                    descricaoCurt: value.conteudo.length > 150 ? value.conteudo.substr(0, 150)+'...' : value.conteudo,
+                    views: value.views
+                };
+            });
+            res.render('busca', {posts: posts, contagem: posts.length});
+            
+        }).catch((err) => {
+            console.log(err.message);
+        });
+
     }else{
-        res.render('home', {posts: totalPosts});
+        let posts = await postsAllViews();
+        res.render('home', {posts: posts.totalPosts, postsTop: posts.postsTop});
     }
 
 });
 
-app.get('/:slug', (req, res) => {
+app.get('/:slug', async (req, res) => {
+    let posts = await postsAllViews();
     Posts.findOneAndUpdate({slug: req.params.slug}, {$inc: {views: 1}}, {new: true}).then((resposta) => {
-        res.render('single', {posts: totalPosts, noticia: resposta});
+        if(resposta != null){
+            res.render('single', {postsTop: posts.postsTop, noticia: resposta});
+        }else{
+            res.redirect('/');
+        }
     }).catch((err) => {
         console.log(err.message);
     });
