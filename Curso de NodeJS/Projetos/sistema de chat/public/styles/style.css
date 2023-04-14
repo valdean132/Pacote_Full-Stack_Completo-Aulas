@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    background-image: url('/public/images/bg.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+p{
+    margin: 0;
+}
+
+#aviso-popup{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    scale: 0;
+
+    padding: 15px;
+
+    max-width: 450px;
+
+    border-radius: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    background-color: coral;
+    text-align: center;
+
+    transition: .3s all ease;
+}
+#aviso-popup.active{
+    scale: 1;
+}
+
+#aviso-popup p{
+    color: #333338;
+}
+#aviso-popup p span{
+    font-weight: 700;
+}
+
+#form-inicial form{
+    display: flex;
+    flex-direction: column;
+}
+#form-inicial form h2{
+    margin: 0;
+    margin-bottom: 10px;
+
+    color: #2b2e31;
+}
+#form-inicial form input{
+    outline: none;
+    border: none;
+    padding: 0  10px;
+
+    margin-bottom: 5px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 20px;
+
+    height: 25px;
+}
+#form-inicial form button{
+    background: #333;
+    border: none;
+
+    padding: 5px 1rem;
+    margin: 0.25rem;
+
+    cursor: pointer;
+
+    width: auto;
+    display: inline-block;
+
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+}
+
+#form {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.25rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 3rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+#input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 2rem;
+    margin: 0.25rem;
+}
+
+#input:focus {
+    outline: none;
+}
+
+#form>button {
+    background: #333;
+    border: none;
+    padding: 0 1rem;
+    margin: 0.25rem;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 2%;
+
+    height: 90vh;
+    padding-bottom: 3rem;
+
+    overflow: hidden auto;
+}
+
+#messages .mensagem-contain{
+    width: 100%;
+    margin: 5px 0;
+}
+
+#messages .mensagem-contain li {
+    display: inline-block;
+    padding: 3px 10px;
+
+    text-align: left;
+
+    position: relative;
+
+    max-width: 90%;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    border-radius: 10px;
+
+    background-color: #202c33;
+}
+#messages .mensagem-contain.right{
+    text-align: right;
+}
+#messages .mensagem-contain.left{
+    text-align: left;
+}
+
+#messages .mensagem-contain li > span{
+    margin: 0;
+    padding: 0 0 5px;
+
+    font-size: 11px;
+
+    color: white;
+    font-weight: 600;
+}
+#messages .mensagem-contain li p{
+    margin: 0;
+    padding: 0;
+
+    padding-right: 5px;
+    padding-bottom: 5px;
+
+    color: white;
+}
+#messages .mensagem-contain li p > span{
+    display: inline-block;
+
+    width: 30px;
+}
+
+#messages .mensagem-contain li .hora{
+    font-size: 10px;
+    color: #ccc;
+
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}

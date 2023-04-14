@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO chat</title>
+
+    <link rel="stylesheet" href="/public/styles/style.css">
+
+</head>
+
+<body>
+
+    <div id="aviso-popup" class="active">
+        <div id="form-inicial">
+            <form action="">
+                <h2>Informe seu nome</h2>
+                <input type="text" autocomplete="0" autofocus>
+                <button id="nome-button">Enviar</button>
+            </form>
+        </div>
+        <!-- <p><span>Valdean</span> se conectou...</p> -->
+    </div>
+
+    <ul id="messages"></ul>
+
+
+    <form id="form" action="">
+
+        <input id="input" autocomplete="off" /><button id="mensagem-buttom">Enviar...</button>
+
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/js/jquery.min.js"></script>
+
+    <script>
+        var socket = io();
+        var nome = '';
+
+        var campoAviso = $("#aviso-popup");
+
+        var mensagens = $('#messages');
+        var form = $('#form');
+        var input = $('#input');
+
+        form.css('display', 'none');
+
+
+        $("button#nome-button").click(function(){
+
+            if(campoAviso.find('input').val()){
+                let aviso = '';
+                nome = campoAviso.find('input').val();
+
+                campoAviso.removeClass('active');
+                socket.emit('new user', nome);
+
+                socket.on('new user', (data) => {
+                    if(data.success){
+                        aviso = `<p>Olá <span>${nome}</span>, bem-vindo ao VSCoder Chat</p>`;
+                    }else{
+                        aviso = `<p>Olá <span>${nome}</span>, bem-vindo de volta...</p>`;
+                        <!-- window.location.href = '/'; -->
+                    }
+                });
+                setTimeout(()=>{
+                    campoAviso.find('#form-inicial').remove();
+
+                    campoAviso.append(aviso);
+
+                    setTimeout(() => {
+                        campoAviso.addClass('active');
+                        form.css('display', 'flex');
+                        setTimeout(() => {
+                            campoAviso.removeClass('active');
+    
+                            setTimeout(() => {        
+                                campoAviso.find('p').remove();
+                            }, 100);
+                            
+                        }, 3000);
+                    }, 100);
+
+                }, 100);
+
+
+            }
+
+            return false;
+        });
+
+        $('button#mensagem-buttom').click(function(e){
+            
+
+            if(input.val()){
+                socket.emit('chat message', {msg: input.val(), nome: nome, hora: new Date().getHours()+':'+new Date().getMinutes()})
+
+                input.val('');
+            }
+
+            return false;
+        });
+
+        socket.on('chat message', function(obj){
+            if(obj.nome == nome){
+                // Coloco a mensgame com uma cor
+                let element = `
+                    <div class="right mensagem-contain">
+                        <li class="">
+                            <span>${obj.nome}</span>
+                            <p>${obj.msg}<span></span></p>
+                            <div class="hora">${obj.hora}</div>
+                        </li>
+                    </div>
+                `;
+
+                mensagens.append(element);
+                window.scrollTo(0, document.body.scrollHeight);
+            }else{
+                // Coloco a mensagme com outra cor
+                let element = `
+                    <div class="left mensagem-contain">
+                        <li class="">
+                            <span>${obj.nome}</span>
+                            <p>${obj.msg}<span></span></p>
+                            <div class="hora">${obj.hora}</div>
+                        </li>
+                    </div>
+                `;
+
+                mensagens.append(element);
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        });
+
+        socket.on('nova conexao', function(obj){
+            let aviso = `<p>Olá <span>${obj}</span> se conectou...</p>`;
+
+            campoAviso.append(aviso);
+
+            setTimeout(() => {
+                campoAviso.addClass('active');
+                setTimeout(() => {
+                    campoAviso.removeClass('active');
+
+                    setTimeout(() => {        
+                        campoAviso.find('p').remove();
+                    }, 100);
+                    
+                }, 3000);
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
