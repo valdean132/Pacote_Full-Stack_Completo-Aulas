@@ -89,6 +89,8 @@ header{
 
 section.noticia-destaque > .center{
     max-width: 960px;
+
+    justify-content: center;
 }
 section.noticia-destaque{
     padding: 40px 0;
@@ -247,7 +249,7 @@ section.outras-noticias h2{
 
     padding: 0 20px 10px;
 }
-.ultimas .box-ultima-single p{
+.ultimas .box-ultima-single .conteudo{
     font-size: 12px;
     text-align: left;
     color: #7B8591;
@@ -334,7 +336,7 @@ section.outras-noticias h2{
 
     margin-bottom: 10px;    
 }
-.mais-lida-noticia-single .text-plus-lida-single p{
+.mais-lida-noticia-single .text-plus-lida-single .conteudo{
     font-size: 11px;
     color: #7B8591;
 
@@ -422,7 +424,7 @@ section.noticia > .center{
     margin-bottom: 15px;
 }
 
-.noticia-single > p{
+.noticia-single > .conteudo{
     color: #7B8591;
     font-size: 14px;
     font-weight: 300;

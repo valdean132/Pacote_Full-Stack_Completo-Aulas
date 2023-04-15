@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Admin</title>
+
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box; }
+        .header-painel{ width: 100%; padding: 10px; background-color: #00a1ff; color: white; }
+
+        form{ padding: 10px; margin: 20px 0; }
+        form input{ width: 100%; height: 40px; border: 1px solid #ccc; padding: 0 10px; margin-bottom: 20px; }
+        form textarea{ width: 100%; height: 120px; border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
+        form input[type=submit]{ width: 100%; height: 40px; background-color: #00a1ff; color: white; border: 0; cursor: pointer; }
+
+        .noticias-single{ margin-top: 20px; border-bottom: 2px dashed #ccc; padding: 10px; display: flex; justify-content: space-between; }
+    </style>
+
+</head>
+<body>
+    <div class="header-painel">
+        <h2>Cadastro Notícia</h2>
+    </div>
+    <form enctype="multipart/form-data" action="/admin/cadastro" method="post">
+        <input type="text" name="titulo_noticia" placeholder="Titulo da notícia">
+        <input type="text" name="categoria_noticia" placeholder="Categoria">
+        <!-- <input type="text" name="url_imagem" > -->
+        <input type="file" name="arquivo" placeholder="Link da imagem da notícia" id="">
+        <input type="text" name="slug" placeholder="Slug" >
+        <textarea name="noticia" placeholder="Notícia"></textarea>
+        <input type="submit" value="Cadastrar" name="acao"> 
+    </form>
+
+    <br><br>
+
+    <div class="header-painel">
+        <h2>Listando Notícias</h2>
+    </div>
+    <% if(posts){ %>
+        <% for(var i = 0; i < posts.length; i++){ %>
+            <div class="noticias-single">
+                <p>Titulo da Notícia: <%= posts[i].titulo %></p>
+                <a href="/admin/deletar/<%= posts[i].id %>">(X)</a>
+            </div>
+        <% } %>
+    <% }else{ %>
+        <div class="noticias-single">
+            <p>Nada Cadastrado</p>
+        </div>
+    <% } %>
+    
+
+    <div class="vazia" style="margin-bottom: 30px;"></div>
+</body>
+</html>

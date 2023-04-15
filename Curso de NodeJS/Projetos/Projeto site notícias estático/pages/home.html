@@ -31,7 +31,9 @@
                             <img src="<%= posts[i].image %>" alt="">
                             <h3><%= posts[i].categoria %></h3>
                             <h2><%= posts[i].titulo %></h2>
-                            <%- posts[i].descricaoCurt %>
+                            <div class="conteudo">
+                                <%- posts[i].descricaoCurt %>
+                            </div>
                             <div class="link-contain">
                                 <a href="<%= posts[i].slug %>">ler mais <i class="bi bi-arrow-return-right"></i></a>
                             </div>

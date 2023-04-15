@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
+const fileupload = require('express-fileupload');
+const fs = require('fs');
 
 const app = express();
 
 const Posts = require('./posts');
 
-
+const session = require('express-session');
 
 mongoose.connect('mongodb+srv://root:PUMtwT7lTRRQbO7Y@portalnoticia.dvapnek.mongodb.net/vscodernews?retryWrites=true&w=majority',{useNewUrlParser: true, useUniFiedTopology: true}).
         then(function(){
@@ -21,6 +23,16 @@ mongoose.connect('mongodb+srv://root:PUMtwT7lTRRQbO7Y@portalnoticia.dvapnek.mong
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,
+}));
+
+app.use(fileupload({
+    useTempFiles: true,
+    tempFileDir: path.join(__dirname, 'temp')
+}))
+
+app.use(session({
+    secret: 'keyboard cat',
+    cookie: {maxAge: 60000}
 }));
 
 app.engine('html', require('ejs').renderFile);
@@ -37,6 +49,7 @@ async function postsAllViews() {
     totalPosts = await Posts.find({}).sort({'_id': -1}).then((posts) => { 
         return posts.map(function(value){
             return{
+                id: value._id,
                 titulo: value.titulo,
                 conteudo: value.conteudo,
                 image: value.image,
@@ -74,8 +87,6 @@ async function postsAllViews() {
         postsTop: postsTop,
     }
 }
-
-
 
 app.get('/', async (req, res) => {
 
@@ -118,6 +129,73 @@ app.get('/:slug', async (req, res) => {
 
 });
 
+var usuarios = [
+    {
+        login: 'valdean',
+        senha: '123456',
+        nome: 'Valdean Souza'
+    }
+];
+
+app.post('/admin/login', (req, res) => {
+    console.log();
+
+    usuarios.map(function(val){
+        if(val.login == req.body.login && val.senha === req.body.senha){
+            req.session.login = val.login;
+            req.session.nome = val.nome;
+        }
+    });
+    
+    res.redirect('/admin/login');
+});
+
+app.post('/admin/cadastro', (req, res) => {
+    // console.log(req.files)
+
+    let formato = req.files.arquivo.name.split('.');
+    var imagem = '';
+
+    if(formato[formato.length - 1] == 'jpg' || formato[formato.length - 1] == 'jpeg' || formato[formato.length - 1] == 'png'){
+        imagem = new Date().getTime()+'.'+formato[formato.length - 1];
+        req.files.arquivo.mv(__dirname+'/public/images/'+imagem);
+        
+        Posts.create({
+            titulo: req.body.titulo_noticia,
+            image: 'http://localhost:5000/public/images/'+imagem,
+            categoria: req.body.categoria_noticia,
+            conteudo: req.body.noticia,
+            slug: req.body.slug,
+            img_autor: 'https://i.ytimg.com/vi/7bdW-FDooWk/sddefault.jpg',
+            nome_autor: req.session.nome,
+            views: 0,
+        });
+    
+        res.redirect('/admin/login');
+    }else{
+        res.send("Falha ao cadastrar devido a imagem ser de um formato invalido!");
+        fs.unlinkSync(req.files.arquivo.tempFilePath);
+    }
+
+
+});
+
+app.get('/admin/deletar/:id', (req, res) => {
+    Posts.deleteOne({_id:req.params.id}).then(function(){
+        res.redirect('/admin/login')
+    })
+});
+
+app.get('/admin/login', async (req, res) => {
+    
+    if(req.session.login == null){
+        res.render('admin-login', {});   
+    }else{
+        let posts = await postsAllViews();
+        res.render('admin-panel', {posts: posts.totalPosts});
+        // res.render('admin-panel', {});
+    }
+})
 
 app.listen(5000, () => {
     console.log('Servidor rodando');
